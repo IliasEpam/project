@@ -30,9 +30,25 @@ var main = function(){
 	/*****************registartion and logging in animation**********************/
 	$('.profile').click(function(){
 		$('.modal-background').removeClass('none');
+		$('.modal-login').removeClass('none');
 	});
 	$('.modal-background').click(function(){
 		$('.modal-background').addClass('none');
+		$('.modal-login').addClass('none');
+		$('.modal-register').addClass('none');
+	});
+	$('.reg').click(function(){
+		$('.modal-register').removeClass('none');
+		$('.modal-login').addClass('none');
+	});
+	$('.sign').click(function(){
+		$('.modal-register').addClass('none');
+		$('.modal-login').removeClass('none');
+	});
+	$('.modal-close').click(function(){
+		$('.modal-background').addClass('none');
+		$('.modal-login').addClass('none');
+		$('.modal-register').addClass('none');		
 	});
 	
 }
