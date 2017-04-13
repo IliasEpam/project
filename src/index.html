@@ -2,62 +2,75 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Sample</title>
+  <title>Online shop for cats</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css" />
 </head>
 
 <body>
-	<nav class="navigation-top">
+	<div class="navigation-top-wrapper">
+	<div class="base">
+		<nav class="navigation-top">
+			<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
+			
+			<div class="navigation-top__panel">
+				<input type="search" placeholder="Search..."/>
+				<a><img class="navigation-icon" src="img/basket.png" alt="basket" /></a>
+				<a><img class="navigation-icon" src="img/profile.png" alt="profile" /></a>
+			</div>
+		</nav>
+	</div>
+	</div>
+	<div class="base">
+		<section class="categories-container">
+		
+			<h1 class="header-category">Choose category</h1>
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="dry food.html">Dry food</a><span> (100)</span></p>
+			</div>
+			
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="#">Wet food</a><span> (100)</span></p>
+			</div>
+			
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="#">Medicines</a><span> (100)</span></p>
+			</div>
+			
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="#">Sleep places</a><span> (100)</span></p>
+			</div>
+			
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="#">Toys</a><span> (100)</span></p>
+			</div>
+			
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="#">Brushes</a><span> (100)</span></p>
+			</div>
+			
+			<div class="category">
+				<img class="category__img" src="img/logo.jpg" alt=""/>
+				<p class="category__desc"><a href="#">Accessories</a><span> (100)</span></p>
+			</div>
+			
+		</section>
+	</div>
+	<div class="footer-wrapper">
+	<div class="base">
+		<footer class="footer-main">
 	
-		<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="navigation-icon" src="img/logo.jpg" alt="red panda logo" /></a>
-		
-		<div class="navigation-top__panel">
-			<input type="search" placeholder="Search..."/>
-			<a><img class="navigation-icon" src="img/basket.png" alt="basket" /></a>
-			<a><img class="navigation-icon" src="img/profile.png" alt="profile" /></a>
-		</div>
-	</nav>
-	<section class="categories-container">
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="dry food.html">Dry food</a><span> (100)</span></p>
-		</div>
-		
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="#">Wet food</a><span> (100)</span></p>
-		</div>
-		
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="#">Medicines</a><span> (100)</span></p>
-		</div>
-		
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="#">Sleep places</a><span> (100)</span></p>
-		</div>
-		
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="#">Toys</a><span> (100)</span></p>
-		</div>
-		
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="#">Brushes</a><span> (100)</span></p>
-		</div>
-		
-		<div class="category">
-			<img class="category__img" src="img/logo.jpg" alt=""/>
-			<p class="category__desc"><a href="#">Accessories</a><span> (100)</span></p>
-		</div>
-		
-	</section>
-	<footer class="footer-main">
-	 (c)
-	</footer>
+	
+		(c)
+		</footer>
+	</div>
+	</div>
 
   <script src="app.js"></script>
 </body>

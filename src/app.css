@@ -1,4 +1,5 @@
-﻿html, body, div, span, applet, object, iframe,
+﻿@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto|Roboto+Condensed');
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -21,27 +22,49 @@ time, mark, audio, video {
 
 body {
 	line-height: 1;
+    
+    font-family: 'Roboto', sans-serif;
+   /* font-family: 'Roboto Condensed', sans-serif;*/
+
 }
 *{
 	box-sizing: border-box;
 }
+.base{
+	width:80%;
+	margin:auto;
+	position:relative;
+}
 /*******top-navigation******/
-.navigation-top{
-	padding:5px 20px 5px 20px;
-	height:50px;
+.navigation-top-wrapper{
 	width:100%;
+	height:50px;
 	background:#1ddeae;
-	background-size: 100% 100%;
+}
+.navigation-top{
+	
+	width:100%;
 	display:inline-flex;
 	justify-content:space-between;
 	align-items:center;
 }
+.logo-img{
+	width:60px;
+	height:50px;
+	margin-right:5px;
+}
 .navigation-icon{
+	margin-left:10px;
 	width:40px;
 	height:40px;
 }
 .navigation-top__logo{
-	display:inline-block;
+	display:flex;
+	align-items:center;
+	color:green;
+	text-decoration:none;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size:200%;
 }
 .navigation-top__panel{
 	display:flex;
@@ -51,13 +74,12 @@ body {
 /**********categories**************/
 
 .categories-container{
-	width:80%;/*1000*/
-	margin: 0 auto;
+	width:100%;/*1000*/
 	min-height:80vh
 }
 .category{
 	width:200px;
-	height:100px;
+	height:200px;
 	margin:20px;
 	display:inline-block;
 	vertical-align:top;
@@ -69,16 +91,73 @@ body {
 .category__desc{
 	text-align:center;
 }
+
 /*categories navigation*/
 
 .navigation-categories{
-	width:20%;
+	width:15%;
 	position:fixed;
+	display:inline-block;
 	list-style-type: none;
+	padding-top:20px;
+	line-height:1.4;
+}
+.navigation-categories__point{
+	margin-bottom:10px;
+}
+.navigation-categories__link{
+	font-size:110%;
+	text-decoration:none;
+	color:green;
+	display:flex;
+	align-items:center;
+}
+.navigation-categories__link__img{
+	width:40px;
+	height:40px;
+	margin-right:5px;
+}
+
+
+/*****goods grid*******/
+.header-category{
+	font-size:300%;
+	margin:20px;
+	flex-basis:100%;
+}
+.goods-container{
+	width:80%;/*1000*/
+	float:right;
+	min-height:80vh;
+	display:inline-flex;
+	justify-content:center;
+	flex-wrap: wrap;
+}
+.good{
+	width:200px;
+	height:200px;
+	margin:20px;
+	display:inline-block;
+	vertical-align:top;
+}
+.good__img{
+	width:100%;
 	height:80%;
-	border:1px solid black;
+}
+.good__desc{
+	text-align:center;
+	line-height:1.1;
+}
+
+/******footer******/
+.footer-wrapper{
+	background: #65bfa9;
 }
 .footer-main{
-	background: #65bfa9;
+	
 	padding: 20px;
+}
+
+.clear{
+	clear:both;
 }
