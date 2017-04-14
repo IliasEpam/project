@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Online shop for cats</title>
+  <title>Cat shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css" />
 </head>
@@ -11,20 +11,19 @@
 	<div class="navigation-top-wrapper">
 	<div class="base">
 		<nav class="navigation-top">
-			<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
+			<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
 			
 			<div class="navigation-top__panel">
 				<input type="search" placeholder="Search..."/>
-				<a><img class="navigation-icon" src="img/basket.png" alt="basket" /></a>
-				<a class="profile"><img class="navigation-icon" src="img/profile.png" alt="profile" /></a>
+				<a><img class="navigation-top__icon" src="img/basket.png" alt="basket" /></a>
+				<a class="navigation-top__profile"><img class="navigation-top__icon" src="img/profile.png" alt="profile" /></a>
 			</div>
 		</nav>
 	</div>
 	</div>
 	<div class="base">
-		<section class="categories-container">
-		
-			<h1 class="header-category">Choose category</h1>
+		<section class="categories">
+			<h1 class="content-header">Choose category</h1>
 			<div class="category">
 				<img class="category__img" src="img/logo.jpg" alt=""/>
 				<p class="category__desc"><a href="dry food.html">Dry food</a><span> (100)</span></p>
@@ -62,31 +61,80 @@
 			
 		</section>
 	</div>
-	<div class="footer-wrapper">
-	<div class="base">
-		<footer class="footer-main">
-			<div class="footer-main__section"> 
-				<p>Some legal information goes here</p>
-			</div>
-			<div class="footer-main__section">
-				<p>Here is some contacs:</p>
-				<p>Email: example@examp.com</p>
-				<p>Tel: +7 3412 000 000</p>
-			</div>
-			<div class="footer-main__section">
-				<p>Here is a quick navigation:</p>
-				<p><a class="footer-main__link" href="dry food.html">Dry food</a></p>
-				<p><a class="footer-main__link" href="dry food.html">Wet food</a></p>
-				<p><a class="footer-main__link" href="dry food.html">Medicines</a></p>
-				<p><a class="footer-main__link" href="dry food.html">Sleep places</a></p>
-				<p><a class="footer-main__link" href="dry food.html">Toys</a></p>
-				<p><a class="footer-main__link" href="dry food.html">Brushes</a></p>
-				<p><a class="footer-main__link" href="dry food.html">Accessories</a></p>
-			</div>
-		</footer>
-	</div>
+
+	<div class="modal-background none">
 	</div>
 
-  <script src="app.js"></script>
+	<div class="modal-window none" id="reg-window">
+		<div class="modal-window__close">
+		</div>
+		<form class="modal-window__form">
+		<p class="modal-window__line">
+			Registration
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-email" name="email" type="email" required placeholder="Email adress"/>
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-password" name="password" type="password" required placeholder="Password"/>
+		</p>
+		
+		<p class="modal-window__line">
+			<button class="modal-window__button" type="submit">Register</button>
+		</p>
+		<p class="modal-window__line text-right">
+			<a href="#" class="sign">Sign In</a>
+		</p>
+		</form>		
+	</div>
+	<div class="modal-window none" id="sign-window">
+		<div class="modal-window__close">
+		</div>
+		<form class="modal-window__form">
+		<p class="modal-window__line">
+			Please Sign In
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-email" name="email" type="email" required placeholder="Email adress"/>
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-password" name="password" type="password" required placeholder="Password"/>
+		</p>
+		<p class="modal-window__line">
+			<input type="checkbox" value="remember"> Remember me
+		</p>
+		<p class="modal-window__line">
+			<button class="modal-window__button" type="submit">Sign In</button>
+		</p>
+		<p class="modal-window__line text-right">
+			<a href="#" class="reg">Register</a>
+		</p>
+		</form>
+	</div>
+	<div class="footer-wrapper">
+		<div class="base">
+			<footer class="footer-main">
+				<div class="footer-main__section"> 
+					<address>Some legal information goes here</address>
+					<address>Here is some contacs:</address>
+					<address>Email: example@examp.com</address>
+					<address>Tel: +7 3412 000 000</address>
+				</div>
+				<div class="footer-main__section">
+					<p>Here is a quick navigation:</p>
+					<p><a class="footer-main__link" href="dry food.html">Dry food</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Wet food</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Medicines</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Sleep places</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Toys</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Brushes</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Accessories</a></p>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	<script src="app.js"></script>
 </body>
 </html>

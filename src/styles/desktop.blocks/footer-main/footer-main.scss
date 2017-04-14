@@ -1,0 +1,21 @@
+﻿/******footer******/
+
+.footer-main{
+	width:100%;
+	padding-top: 30px;
+	display: inline-flex;
+	justify-content: space-between;
+}
+.footer-main__section{
+	width:33%;
+}
+.footer-main__section > p{
+	margin-bottom:10px;
+}
+.footer-main__section > address{
+	margin-bottom:10px;
+}
+.footer-main__link{
+	text-decoration:none;
+	color: $main-color-light;
+}
