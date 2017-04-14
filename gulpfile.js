@@ -26,7 +26,7 @@ var concatCss = require('gulp-concat-css');
  var webserver = require('gulp-webserver');
  
  
-gulp.task('default', ['imgs', 'css', 'html', 'js', 'webserver']);
+gulp.task('default', ['imgs', 'css', 'html', 'js']);
 
 gulp.task('webserver', function() {
   gulp.src('build')
@@ -41,7 +41,7 @@ gulp.task('html', function(){
 		.pipe(gulp.dest('build'));
 });
 gulp.task('imgs', function() {
-	return gulp.src('src/img/*') 
+	return gulp.src('src/img/**/*') 
 		.pipe(imagemin({ 
             interlaced: true,
             progressive: true,
@@ -51,12 +51,12 @@ gulp.task('imgs', function() {
 		.pipe(gulp.dest('build/img')); 
 });
 gulp.task('css', function(){ 
-	gulp.src('src/styles/*') 
+	gulp.src('src/styles/app.scss') 
 	.pipe(sourcemaps.init())
 		.pipe(sass()) 
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) 
 		.pipe(concatCss('app.css'))
-		.pipe(cleanCSS({compatibility: 'ie8'}))
+		/*.pipe(cleanCSS({compatibility: 'ie8'}))*/
 	.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest('build')) 
 });
