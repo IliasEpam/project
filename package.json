@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "educational",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IliasEpam/project.git"
+  },
+  "author": "IM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IliasEpam/project/issues"
+  },
+  "homepage": "https://github.com/IliasEpam/project#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

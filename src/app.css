@@ -249,10 +249,10 @@ body {
 	display:table-cell;
 	vertical-align:middle;
 }
-.email{
+.modal-window__input-email{
 	width:100%;
 }
-.password{
+.modal-window__input-password{
 	width:100%;
 }
 .modal-window__button{
@@ -274,7 +274,7 @@ body {
 	height:20px;
 	position:absolute;
 	left:278px;
-	top:0;
+	top:1;
 	cursor:pointer;
 	background: url(img/icons/close.jpg);
 	z-index:102;
