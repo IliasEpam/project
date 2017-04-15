@@ -39,8 +39,8 @@
 }
 .modal-window__button{
 	width:100%;
-	background:green;
-	border:1px solid green;
+	background:$color-action;
+	background-image: linear-gradient(to bottom,$color-action 0,$color-action-grad 100%);
 	border-radius:10px;
 	padding:3px 0;
 	cursor: pointer;
@@ -48,15 +48,14 @@
 	transition: all .5s;
 }
 .modal-window__button:hover{
-	background:white;
-	color:black;
+	background:$color-action;
 }
 .modal-window__close{
 	width:20px;
 	height:20px;
 	position:absolute;
 	left:278px;
-	top:0;
+	top:1;
 	cursor:pointer;
 	background: url(img/icons/close.jpg);
 	z-index:102;

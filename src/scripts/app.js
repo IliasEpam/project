@@ -7,7 +7,7 @@ var main = function(){
 	$('.grid-view').click(function(){
 		$('.grid-view').parent().addClass('none');
 		$('.list-view').parent().removeClass('none');
-		$('.good').css({"display":"inline-block", "width":"200", "height":"200"});
+		$('.good').css({"display":"inline-block", "width":"200", "height":"220"});
 		$('.good__wrap').css({"width":"200"});
 		$('.good__desc').css({"display":"block", "width":"100%"});
 		$('.good__price').css({"display":"block", "width":"100%", "text-align":"center" });

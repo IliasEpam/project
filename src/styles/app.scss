@@ -1,13 +1,13 @@
-﻿$main-color-light: #ddeedd;
-$main-color-dark: #666655;
-$main-color-middle: #aaaa99;
+﻿$color-main: #5bceaf;
+$color-main-grad: #3aab8d;  
+$color-action: #c55f4b;
+$color-action-grad: #922b28;
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto|Roboto+Condensed');
 @import "desktop.blocks/base/base.scss";
 @import "desktop.blocks/categories/categories.scss";
 @import "desktop.blocks/category/category.scss";
 @import "desktop.blocks/content-header/content-header.scss";
 @import "desktop.blocks/navigation-categories/navigation-categories.scss";
-@import "desktop.blocks/content-header/content-header.scss";
 @import "desktop.blocks/navigation-top/navigation-top.scss";
 @import "desktop.blocks/navigation-top-wrapper/navigation-top-wrapper.scss";
 @import "desktop.blocks/goods-container/goods-container.scss";
@@ -16,6 +16,8 @@ $main-color-middle: #aaaa99;
 @import "desktop.blocks/modal-window/modal-window.scss";
 @import "desktop.blocks/footer-wrapper/footer-wrapper.scss";
 @import "desktop.blocks/footer-main/footer-main.scss";
+@import "desktop.blocks/cart/cart.scss";
+@import "desktop.blocks/basket-summary/basket-summary.scss";
 /*******variables*******/
 
 html, body, div, span, applet, object, iframe,

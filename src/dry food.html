@@ -16,7 +16,7 @@
 				
 				<div class="navigation-top__panel">
 					<input type="search" placeholder="Search..."/>
-					<a><img class="navigation-top__icon" src="img/basket.png" alt="basket" /></a>
+					<a href="cart.html"><img class="navigation-top__icon" src="img/basket.png" alt="basket" /></a>
 					<a class="navigation-top__profile"><img class="navigation-top__icon" src="img/profile.png" alt="profile" /></a>
 				</div>
 			</nav>
@@ -39,7 +39,7 @@
 			</li>
 			<li class="navigation-categories__point">
 				<a class="navigation-categories__link" href="dry food.html">
-					<img class="navigation-categories__img" src="img/icons/dry.png" alt="Medicines" />
+					<img class="navigation-categories__img" src="img/icons/meds.png" alt="Medicines" />
 					Medicines
 				</a>
 			</li>
@@ -57,7 +57,7 @@
 			</li>
 			<li class="navigation-categories__point">
 				<a class="navigation-categories__link" href="dry food.html">
-					<img class="navigation-categories__img" src="img/icons/dry.png" alt="Brushes" />
+					<img class="navigation-categories__img" src="img/icons/brush.png" alt="Brushes" />
 					Brushes
 				</a>
 			</li>
@@ -67,12 +67,13 @@
 					Accessories
 				</a>
 			</li>
-			
 		</ul>
-		<p class="text-right padding none"><a class="grid-view" href="#">Grid view</a></p>
-		<p class="text-right padding"><a class="list-view" href="#">List view</a></p>
+
+		
 		
 		<section class="goods-container">
+		<p class="text-right padding none"><a class="grid-view" href="#">Grid view</a></p>
+		<p class="text-right padding"><a class="list-view" href="#">List view</a></p>
 			<h1 class="content-header"> Dry food</h1>
 			<div class="good">
 				<div class="good__wrap">
@@ -242,30 +243,6 @@
 				</div>
 			</div>
 
-			<div class="good">
-				<div class="good__wrap">
-					<div class="good__desc">
-						<img class="good__img" src="img/logo.jpg" alt=""/>
-					</div>
-					<div class="good__desc">
-						<div class="good__info">
-							<p class="good__name">
-								<a href="good.html">Dry food – "Brand"(2kg)</a>
-							</p>	
-							<p class="good__price">
-								5$
-							</p>
-							<p class="good__desc-wide none">
-								Little description of a good goes here. It could be much wider.
-							</p>
-							<p class="good__desc-wide none">
-								<span class="good__add-cart">Add to cart</span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
 
 
 			
@@ -285,7 +262,7 @@
 			Registration
 		</p>
 		<p class="modal-window__line">
-			<input class="modal-window__input-email" name="email" type="email" required placeholder="Email adress"/>
+			<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
 		</p>
 		<p class="modal-window__line">
 			<input class="modal-window__input-password" name="password" type="password" required placeholder="Password"/>
@@ -307,7 +284,7 @@
 			Please Sign In
 		</p>
 		<p class="modal-window__line">
-			<input class="modal-window__input-email" name="email" type="email" required placeholder="Email adress"/>
+			<input class="modal-window__input-email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
 		</p>
 		<p class="modal-window__line">
 			<input class="modal-window__input-password" name="password" type="password" required placeholder="Password"/>

@@ -1,10 +1,8 @@
 ﻿/*****goods grid*******/
-
-
 .good{
 	width:200px;
-	height:200px;
-	margin:20px 20px;
+	height:220px;
+	margin-right:20px;
 	display:inline-block;
 	vertical-align:top;
 	transition: all 0.5s;
@@ -26,7 +24,6 @@
 }
 .good__desc-wide{
 	text-align:left;
-	padding-top:5px;
 	flex-basis:100%;
 	overflow:hidden;
 	transition: all .5s;
@@ -34,26 +31,24 @@
 .good__price{
 	text-align:left;
 	vertical-align:top;
-	padding-top:5px;
 	text-align:center;
 }
 .good__name{
 	text-align:left;
 	vertical-align:top;
-	padding-top:5px;
 	text-align:center;
 }
 
 .good__add-cart{
 	display:inline-block;
-	padding:5px 10px;
-	border:1px solid $main-color-dark;
+	padding:7px 15px;
 	border-radius:10px;
 	transition: all .5s;
-	color:$main-color-dark;
+	color:white;
+	background-image: linear-gradient(to bottom,$color-action 0,$color-action-grad 100%);
+	border: 0px solid white;
 	cursor:pointer;
 }
 .good__add-cart:hover{
-	background:$main-color-dark;
-	color:white;
+	background-image: linear-gradient(to bottom,$color-action 0,$color-action 100%);
 }

@@ -2,7 +2,6 @@
 
 .navigation-categories{
 	width:15%;
-	position:fixed;
 	display:inline-block;
 	list-style-type: none;
 	padding-top:20px;
@@ -14,7 +13,7 @@
 .navigation-categories__link{
 	font-size:110%;
 	text-decoration:none;
-	color:$main-color-dark;
+	color:$color-action;
 	display:flex;
 	align-items:center;
 }
