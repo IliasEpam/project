@@ -516,6 +516,101 @@
   background-image: linear-gradient(to bottom, #c55f4b 0, #c55f4b 100%);
 }
 
+.payment {
+  width: 780px;
+  height: 530px;
+  margin: 30px auto 0 auto;
+  position: relative;
+}
+
+.payment__cvv-wrapper {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  left: 170px;
+  background: url("img/card-back.jpg");
+  background-size: 100% 100%;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.payment__cvv {
+  position: absolute;
+  left: 300px;
+  top: 115px;
+  width: 60px;
+  height: 30px;
+}
+
+.payment__card-wrapper {
+  width: 400px;
+  height: 300px;
+  background: url("img/card-front.png");
+  background-size: 100% 100%;
+  position: absolute;
+  left: 50px;
+  top: 120px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.payment__number {
+  position: absolute;
+  left: 37px;
+  top: 164px;
+  height: 28px;
+  width: 320px;
+}
+
+.payment__month {
+  position: absolute;
+  left: 168px;
+  top: 213px;
+  height: 30px;
+  width: 26px;
+}
+
+.payment__year {
+  position: absolute;
+  left: 208px;
+  top: 213px;
+  height: 30px;
+  width: 50px;
+}
+
+.payment__holder {
+  position: absolute;
+  left: 35px;
+  top: 245px;
+  height: 32px;
+  width: 250px;
+}
+
+.payment__button {
+  position: absolute;
+  top: 450px;
+  left: 300px;
+  font-size: 110%;
+  background: #c55f4b;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c55f4b), to(#922b28));
+  background-image: -webkit-linear-gradient(top, #c55f4b 0, #922b28 100%);
+  background-image: linear-gradient(to bottom, #c55f4b 0, #922b28 100%);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 7px 50px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.payment__button:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c55f4b), to(#c55f4b));
+  background-image: -webkit-linear-gradient(top, #c55f4b 0, #c55f4b 100%);
+  background-image: linear-gradient(to bottom, #c55f4b 0, #c55f4b 100%);
+}
+
 /*******variables*******/
 
 html,

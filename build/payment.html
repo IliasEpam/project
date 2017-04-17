@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cat shop - Delivery information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+	<header class="navigation-top-wrapper">
+		<div class="base">
+			<nav class="navigation-top">
+				<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
+				
+				<div class="navigation-top__panel">
+					<label><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
+					<a href="cart.html"><img class="navigation-top__icon" src="img/basket.png" alt="basket" /></a>
+					<a class="navigation-top__profile"><img class="navigation-top__icon" src="img/profile.png" alt="profile" /></a>
+				</div>
+			</nav>
+		</div>
+	</header>
+	
+	<div class="base">
+		<form class="payment">
+			<div class="payment__cvv-wrapper">
+				<input class="payment__cvv" name="cvv" type="text" required placeholder="CVV2" pattern="[0-9]{3,4}">
+			</div>
+			<div class="payment__card-wrapper">
+				<input class="payment__number" name="card-number" type="text" required placeholder="XXXX - XXXX - XXXX - XXXX" pattern="[0-9]{12}">
+				<input class="payment__month" type="month" name="month-exp" required placeholder="MM"  pattern="[0-9]{2}">
+				<input class="payment__year" type="year" name="year-exp" required placeholder="YYYY"  pattern="[0-9]{4}">
+				<input class="payment__holder" type="text" name="holder" required placeholder="NAME SURNAME">
+			</div>
+			<p class="payment__button-wrapper"><button type="submit" class="payment__button">Finish</button><p>
+		</form>
+	</div>
+
+	<div class="clear"></div>
+
+
+	<div class="modal-background none">
+	</div>
+
+	<div class="modal-window none" id="reg-window">
+		<div class="modal-window__close">
+		</div>
+		<form class="modal-window__form">
+		<p class="modal-window__line">
+			Registration
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
+		</p>
+		
+		<p class="modal-window__line">
+			<button class="modal-window__button" type="submit">Register</button>
+		</p>
+		<p class="modal-window__line text-right">
+			<a href="#" class="sign">Sign In</a>
+		</p>
+		</form>		
+	</div>
+	<div class="modal-window none" id="sign-window">
+		<div class="modal-window__close">
+		</div>
+		<form class="modal-window__form">
+		<p class="modal-window__line">
+			Please Sign In
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
+		</p>
+		<p class="modal-window__line">
+			<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
+		</p>
+		<p class="modal-window__line">
+			<label><input type="checkbox" name="remember" value="remember"> Remember me </label>
+		</p>
+		<p class="modal-window__line">
+			<button class="modal-window__button" type="submit">Sign In</button>
+		</p>
+		<p class="modal-window__line text-right">
+			<a href="#" class="reg">Register</a>
+		</p>
+		</form>
+	</div>
+	<div class="footer-wrapper">
+		<div class="base">
+			<footer class="footer-main">
+				<div class="footer-main__section"> 
+					<address>Some legal information goes here</address>
+					<address>Here is some contacs:</address>
+					<address>Email: example@examp.com</address>
+					<address>Tel: +7 3412 000 000</address>
+				</div>
+				<div class="footer-main__section">
+					<p>Here is a quick navigation:</p>
+					<p><a class="footer-main__link" href="dry food.html">Dry food</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Wet food</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Medicines</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Sleep places</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Toys</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Brushes</a></p>
+					<p><a class="footer-main__link" href="dry food.html">Accessories</a></p>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	<script src="app.js"></script>
+</body>
+</html>
