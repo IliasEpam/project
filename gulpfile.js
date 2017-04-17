@@ -73,7 +73,7 @@ gulp.task('js', function(){
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
 	  .pipe(concat('app.js'))
-	  .pipe(uglify())
+	 /* .pipe(uglify())*/
       .on('error', util.log)
     .pipe(sourcemaps.write(''))
     .pipe(gulp.dest('build'));
