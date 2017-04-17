@@ -155,6 +155,8 @@
   /*1000*/
   float: right;
   min-height: 80vh;
+  text-align: center;
+  
 }
 
 /*****goods grid*******/
