@@ -1,14 +1,21 @@
-﻿.category{
+﻿.category {
 	width:250px;
 	min-height:230px;
 	margin:15px;
 	display:inline-block;
 	vertical-align:top;
+	border-radius:10px;
+	transition: all .5s;
+}
+.category:hover{
+  box-shadow: 0 0 10px #333;
 }
 .category__img{
 	width:250px;
-	height:210px;
+	height:200px;
+	border-radius: 10px;
 }
 .category__desc{
+	margin-top:2px;
 	text-align:center;
 }

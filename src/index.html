@@ -22,44 +22,60 @@
 		</div>
 	</header>
 	<div class="base">
-		<section class="categories">
-			<h1 class="content-header">Choose category</h1>
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Dry food"/>
-				<p class="category__desc"><a href="dry food.html">Dry food</a><span> (100)</span></p>
-			</div>
-			
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Wet food"/>
-				<p class="category__desc"><a href="dry food.html">Wet food</a><span> (100)</span></p>
-			</div>
-			
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Medicines"/>
-				<p class="category__desc"><a href="dry food.html">Medicines</a><span> (100)</span></p>
-			</div>
-			
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Sleeping places"/>
-				<p class="category__desc"><a href="dry food.html">Sleeping places</a><span> (100)</span></p>
-			</div>
-			
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Toys"/>
-				<p class="category__desc"><a href="dry food.html">Toys</a><span> (100)</span></p>
-			</div>
-			
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Brushes"/>
-				<p class="category__desc"><a href="dry food.html">Brushes</a><span> (100)</span></p>
-			</div>
-			
-			<div class="category">
-				<img class="category__img" src="img/logo.jpg" alt="Accessories"/>
-				<p class="category__desc"><a href="dry food.html">Accessories</a><span> (100)</span></p>
-			</div>
-			
-		</section>
+		<main class="main">
+			<section class="categories">
+				<h1 class="content-header">Choose category</h1>
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/dry.jpg" alt="Dry food"/>
+						<p class="category__desc">Dry food<span> (100)</span></p>
+					</a>
+				</div>
+				
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/wet.jpg" alt="Wet food"/>
+						<p class="category__desc">Wet food<span> (100)</span></p>
+					</a>
+				</div>
+				
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/meds.jpg" alt="Medicines"/>
+						<p class="category__desc">Medicines<span> (100)</span></p>
+					</a>
+				</div>
+				
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/sleep.jpg" alt="Sleeping places"/>
+						<p class="category__desc">Sleeping places<span> (100)</span></p>
+					</a>
+				</div>
+				
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/toys.jpg" alt="Toys"/>
+						<p class="category__desc">Toys<span> (100)</span></p>
+					</a>
+				</div>
+				
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/brush.jpg" alt="Brushes"/>
+						<p class="category__desc">Brushes<span> (100)</span></p>
+					</a>
+				</div>
+				
+				<div class="category">
+					<a class="category__link" href="dry food.html">
+						<img class="category__img" src="img/acs.jpg" alt="Accessories"/>
+						<p class="category__desc">Accessories<span> (100)</span></p>
+					</a>
+				</div>
+				
+			</section>
+		</main>
 	</div>
 
 	<div class="modal-background none">
@@ -69,46 +85,46 @@
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-		<p class="modal-window__line">
-			Registration
-		</p>
-		<p class="modal-window__line">
-			<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-		</p>
-		<p class="modal-window__line">
-			<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-		</p>
-		
-		<p class="modal-window__line">
-			<button class="modal-window__button" type="submit">Register</button>
-		</p>
-		<p class="modal-window__line text-right">
-			<a href="#" class="sign">Sign In</a>
-		</p>
+			<p class="modal-window__line">
+				Registration
+			</p>
+			<p class="modal-window__line">
+				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
+			</p>
+			<p class="modal-window__line">
+				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
+			</p>
+			
+			<p class="modal-window__line">
+				<button class="modal-window__button" type="submit">Register</button>
+			</p>
+			<p class="modal-window__line text-right">
+				<a href="#" class="sign">Sign In</a>
+			</p>
 		</form>		
 	</div>
 	<div class="modal-window none" id="sign-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-		<p class="modal-window__line">
-			Please Sign In
-		</p>
-		<p class="modal-window__line">
-			<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-		</p>
-		<p class="modal-window__line">
-			<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-		</p>
-		<p class="modal-window__line">
-			<label><input type="checkbox" name="remember" value="remember"> Remember me </label>
-		</p>
-		<p class="modal-window__line">
-			<button class="modal-window__button" type="submit">Sign In</button>
-		</p>
-		<p class="modal-window__line text-right">
-			<a href="#" class="reg">Register</a>
-		</p>
+			<p class="modal-window__line">
+				Please Sign In
+			</p>
+			<p class="modal-window__line">
+				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
+			</p>
+			<p class="modal-window__line">
+				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
+			</p>
+			<p class="modal-window__line">
+				<label><input type="checkbox" name="remember" value="remember"> Remember me </label>
+			</p>
+			<p class="modal-window__line">
+				<button class="modal-window__button" type="submit">Sign In</button>
+			</p>
+			<p class="modal-window__line text-right">
+				<a href="#" class="reg">Register</a>
+			</p>
 		</form>
 	</div>
 	<div class="footer-wrapper">

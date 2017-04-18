@@ -1,69 +1,29 @@
-﻿$color-main: #5bceaf;
-$color-main-grad: #3aab8d;  
-$color-action: #c55f4b;
-$color-action-grad: #922b28;
-@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto|Roboto+Condensed');
-@import "desktop.blocks/base/base.scss";
-@import "desktop.blocks/categories/categories.scss";
-@import "desktop.blocks/category/category.scss";
-@import "desktop.blocks/content-header/content-header.scss";
-@import "desktop.blocks/navigation-categories/navigation-categories.scss";
-@import "desktop.blocks/navigation-top/navigation-top.scss";
-@import "desktop.blocks/navigation-top-wrapper/navigation-top-wrapper.scss";
-@import "desktop.blocks/goods-container/goods-container.scss";
-@import "desktop.blocks/good/good.scss";
-@import "desktop.blocks/modal-background/modal-background.scss";
-@import "desktop.blocks/modal-window/modal-window.scss";
-@import "desktop.blocks/footer-wrapper/footer-wrapper.scss";
-@import "desktop.blocks/footer-main/footer-main.scss";
+﻿@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto|Roboto+Condensed');
+@import "core/variables.scss";
+@import "core/reset.scss";
+
+
+@import "desktop.blocks/main-page/categories.scss";
+@import "desktop.blocks/main-page/category.scss";
+
+@import "desktop.blocks/basics/content-header.scss";
+@import "desktop.blocks/basics/navigation-top.scss";
+@import "desktop.blocks/basics/navigation-top-wrapper.scss";
+@import "desktop.blocks/basics/modal-background.scss";
+@import "desktop.blocks/basics/modal-window.scss";
+@import "desktop.blocks/basics/footer-wrapper.scss";
+@import "desktop.blocks/basics/footer-main.scss";
+@import "desktop.blocks/basics/main.scss";
+
+@import "desktop.blocks/goods/good.scss";
+@import "desktop.blocks/goods/goods-container.scss";
+@import "desktop.blocks/goods/navigation-categories.scss";
+
+
 @import "desktop.blocks/cart/cart.scss";
-@import "desktop.blocks/basket-summary/basket-summary.scss";
-@import "desktop.blocks/double-form/double-form.scss";
+@import "desktop.blocks/cart/basket-summary.scss";
+
+@import "desktop.blocks/contacts/double-form.scss";
+
 @import "desktop.blocks/payment/payment.scss";
-
-/*******variables*******/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-body {
-	line-height: 1;
-    font-family: 'Roboto', sans-serif;
-   /* font-family: 'Roboto Condensed', sans-serif;*/
-   
-   min-width:790px;
-
-}
-*{
-	box-sizing: border-box;
-}
-/***support classes**/
-.clear{
-	clear:both;
-}
-.text-right{
-	text-align: right;
-}
-.padding{
-	padding: 10px 0;	
-}
-.none{
-	display: none;
-}
+@import "core/base.scss";

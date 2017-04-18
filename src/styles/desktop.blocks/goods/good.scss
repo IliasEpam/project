@@ -38,7 +38,12 @@
 	vertical-align:top;
 	text-align:center;
 }
-
+.good__link{
+	text-decoration: none;
+}
+.good__link:hover{
+	text-decoration: underline;
+}
 .good__add-cart{
 	display:inline-block;
 	padding:7px 15px;
