@@ -55,8 +55,8 @@ var main = function main() {
 	});
 /********scroll down*******/
 	$('.main-banner__scroll-down').click(function () {
-		var heights = window.innerHeight;
-		$("html, body").animate({ scrollTop: $(window).height() }, "slow");
+		var heights =$(window).height() - 50;
+		$("html, body").animate({ scrollTop: heights }, "slow");
 	});
 /********scroll up*******/
 	$(function(){
