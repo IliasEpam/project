@@ -1,20 +1,17 @@
-﻿
-/**********modal windows*********/
-.modal-window{
-	position:fixed;
-	top:50%;
-	height:200px;
-	margin-top: -100px;
-	width:300px;
-	left:50%;
-	margin-left:-150px;
-	z-index:101;
-	background:white;
-	display:table;
+﻿.modal-window{
+  position: fixed;
+  top: calc(50% - 100px);
+  height: 200px;
+  width: 400px;
+  left: calc(50% - 150px);
+  z-index: 101;
+  background: white;
+  display: table;
 }
 .modal-window__line{
-	width:200px;
-	margin: 10px auto;
+	width:300px;
+	margin: 0px auto;
+	padding-bottom:10px;
 }
 .modal-window__form{
 	display:table-cell;
@@ -44,7 +41,7 @@
 	width:20px;
 	height:20px;
 	position:absolute;
-	left:278px;
+	right:0;
 	top:1;
 	cursor:pointer;
 	background: url(img/icons/close.jpg);

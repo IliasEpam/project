@@ -1,0 +1,11 @@
+﻿@media screen and (max-width: 1199px) {
+    
+	.footer-main{
+		flex-wrap:wrap;
+		text-align:center;
+		&__section{
+			padding-bottom:20px;
+		}
+	}
+    
+   }

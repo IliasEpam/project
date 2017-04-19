@@ -1,0 +1,22 @@
+﻿.scroll-up{
+	padding: 12.5px;
+	position: fixed;
+	display: table;
+	width: 60px;
+	height:100vh;
+	z-index: 30;
+	opacity:0.4;
+	cursor: pointer;
+	text-align: center;
+	transition: all .3s;
+}
+.scroll-up:hover{
+	background: #e5eeee;
+	opacity:1;
+}
+.scroll-up__img{
+	display: table-cell;
+	vertical-align: middle;
+	width:35px;
+	height:35px;
+}

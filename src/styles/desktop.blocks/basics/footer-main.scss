@@ -1,26 +1,40 @@
-﻿/******footer******/
-
-.footer-main{
-	width:100%;
-	padding: 30px 0;
-	display: flex;
-	justify-content: space-between;
+﻿.footer-main {
+  width: 100%;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
-.footer-main__section{
-	
+.footer-main__section-header{
+  font-size: 120%;
+  line-height:  2.3;
 }
-.footer-main__payment{
-  width:250px;
-  height:200px;
-  background: url(img/payment.png);
+.footer-main__payment {
+  display:inline-block;
+  width: 250px;
+  height: 200px;
+  background: url("img/payment.png");
   background-size: 100% 100%;
 }
-.footer-main__section > p{
-	margin-bottom:10px;
+
+.footer-main__section > p {
+  line-height:  2;
 }
-.footer-main__section > address{
-	margin-bottom:10px;
+
+.footer-main__section > address {
+  line-height:  2;
 }
-.footer-main__link{
-	color: $color-action;
+
+.footer-main__link {
+  color: $color-action;
+  text-decoration: none;
+  transition: all .5s;
+}
+.footer-main__link:hover{
+  color:$color-action-grad;
 }

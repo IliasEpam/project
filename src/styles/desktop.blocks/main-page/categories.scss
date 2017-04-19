@@ -1,5 +1,13 @@
 ﻿.categories{
 	width:100%;/*1000*/
-	min-height:80vh;
-	text-align: center;
+	display:flex;
+	justify-content:center;
+	flex-wrap:wrap;
+}
+.categories__header{
+	padding:10px 0;
+	font-size:300%;
+	flex-basis:100%;
+	text-align:center;
+	line-height:1.1;
 }
