@@ -9,32 +9,27 @@
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-.footer-main__section-header{
-  font-size: 120%;
-  line-height:  2.3;
-}
-.footer-main__payment {
-  display:inline-block;
-  width: 250px;
-  height: 200px;
-  background: url("img/payment.png");
-  background-size: 100% 100%;
-}
 
-.footer-main__section > p {
-  line-height:  2;
-}
-
-.footer-main__section > address {
-  line-height:  2;
-}
-
-.footer-main__link {
-  color: $color-action;
-  text-decoration: none;
-  transition: all .5s;
-}
-.footer-main__link:hover{
-  color:$color-action-grad;
+  &__section-header{
+    font-size: 120%;
+    line-height:  2.3;
+  }
+  &__payment {
+    display:inline-block;
+    width: 250px;
+    height: 200px;
+    background: url("img/payment.png");
+    background-size: 100% 100%;
+  }
+  &__line{
+   line-height:  2;
+  }
+  &__link {
+    color: $color-action;
+    text-decoration: none;
+    transition: all .5s;
+  }
+  &__link:hover{
+    color:$color-action-grad;
+  }
 }

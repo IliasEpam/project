@@ -3,11 +3,15 @@
 	display:flex;
 	justify-content:center;
 	flex-wrap:wrap;
-}
-.categories__header{
-	padding:10px 0;
-	font-size:300%;
-	flex-basis:100%;
-	text-align:center;
-	line-height:1.1;
+	align-content:center;
+	padding-bottom:30px;
+	min-height: calc(100vh - 50px);
+	
+	&__header{
+		padding:10px 0;
+		font-size:300%;
+		flex-basis:100%;
+		text-align:center;
+		line-height:1.1;
+	}
 }

@@ -1,10 +1,14 @@
-﻿@media screen and (max-width: 1199px) {
+﻿@media screen and (max-width: 1200px) {
     
 	.footer-main{
 		flex-wrap:wrap;
 		text-align:center;
-		&__section{
-			padding-bottom:20px;
+		justify-content:center;
+		&__section:nth-child(2){
+			display: none;
+		}
+		&__section:nth-child(3){
+			display: none;
 		}
 	}
     

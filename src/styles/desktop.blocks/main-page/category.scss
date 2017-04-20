@@ -5,24 +5,25 @@
   border-radius: 15px;
   transition: all .5s;
   background-image: linear-gradient(to bottom, $color-action 90%, $color-action-grad 100%);
+
+  &__link{
+    display: block;
+    text-decoration: none;
+    color: white;
+  }
+  &__img {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    transition: all .5s;
+  }
+  &__desc {
+    padding: 5px;
+    text-align: center;
+  }
 }
 .category:hover {
   -webkit-box-shadow: 0 0 10px #333;
   box-shadow: 2px -2px 15px #3aab8d;
   background-image: linear-gradient(to bottom, $color-action 90%, $color-action 100%);
-}
-.category__link{
-  display: block;
-  text-decoration: none;
-  color: white;
-}
-.category__img {
-  width: 250px;
-  height: 200px;
-  border-radius: 10px 10px 0 0;
-  transition: all .5s;
-}
-.category__desc {
-  padding: 5px;
-  text-align: center;
 }

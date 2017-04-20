@@ -1,0 +1,19 @@
+﻿@media screen and (max-width: 1024px) and (orientation: portrait) {
+	.navigation-categories{
+		padding-top:10px;
+		width:100%;
+		display:flex;
+		flex-wrap:wrap;
+		&__point{
+			width:25%;
+		}
+		&__link{
+			font-size:100%;
+		}
+		&__img{
+			width:30px;
+			height:30px;
+			margin-right:5px;
+		}
+	}
+}

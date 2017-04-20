@@ -1,17 +1,15 @@
 ﻿@media screen and (max-width: 767px) {
 	.modal-window{
-	  position: fixed;
 	  top: calc(50% - 160px);
 	  width: 100%;
 	  left: 0;
 	  z-index: 101;
-	  background: white;
-	  display: table;
-	}
-	.modal-window__line{
-		width:300px;
+
+	  &__line{
+	  	width:90%;
 		margin: 0px auto;
 		padding-bottom:10px;
+	  }
 	}
 
 }

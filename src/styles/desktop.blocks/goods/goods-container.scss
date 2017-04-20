@@ -1,5 +1,6 @@
 ﻿.goods-container{
-	width:80%;/*1000*/
-	float:right;
-	min-height:80vh;
+	width:80%;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
 }

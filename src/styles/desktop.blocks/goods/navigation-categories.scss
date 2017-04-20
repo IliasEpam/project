@@ -1,24 +1,21 @@
-﻿/*categories navigation*/
-
-.navigation-categories{
-	width:15%;
-	display:inline-block;
-	list-style-type: none;
+﻿.navigation-categories{
 	padding-top:20px;
 	line-height:1.4;
-}
-.navigation-categories__point{
-	margin-bottom:10px;
-}
-.navigation-categories__link{
-	font-size:110%;
-	text-decoration:none;
-	color:$color-action;
-	display:flex;
-	align-items:center;
-}
-.navigation-categories__img{
-	width:40px;
-	height:40px;
-	margin-right:5px;
+	width:15%;
+	
+	&__point{
+		margin-bottom:10px;
+	}
+	&__link{
+		font-size:110%;
+		text-decoration:none;
+		color:$color-action;
+		display:flex;
+		align-items:center;
+	}
+	&__img{
+		width:40px;
+		height:40px;
+		margin-right:5px;
+	}
 }

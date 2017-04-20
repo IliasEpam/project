@@ -8,18 +8,18 @@
 @import "desktop.blocks/main-page/main-banner.scss";
 @import "desktop.blocks/main-page/partners.scss";
 
-
+@import "desktop.blocks/basics/base.scss";
 @import "desktop.blocks/basics/content-header.scss";
 @import "desktop.blocks/basics/navigation-top.scss";
 @import "desktop.blocks/basics/scroll-up.scss";
-@import "desktop.blocks/basics/navigation-top-wrapper.scss";
+@import "desktop.blocks/basics/main-header.scss";
 @import "desktop.blocks/basics/modal-background.scss";
 @import "desktop.blocks/basics/modal-window.scss";
 @import "desktop.blocks/basics/footer-wrapper.scss";
 @import "desktop.blocks/basics/footer-main.scss";
 @import "desktop.blocks/basics/main.scss";
-@import "desktop.blocks/basics/notation.scss";
 
+@import "desktop.blocks/goods/goods-page.scss";
 @import "desktop.blocks/goods/goods-container.scss";
 @import "desktop.blocks/goods/good.scss";
 @import "desktop.blocks/goods/grid-view.scss";
@@ -36,19 +36,27 @@
 
 
 /**tablet styles**/
-@import "tablet.blocks/basics/navigation-top-wrapper.scss";
+@import "tablet.blocks/basics/main-header.scss";
+@import "tablet.blocks/basics/base.scss";
 @import "tablet.blocks/basics/footer-main.scss";
-@import "tablet.blocks/main-page/partners.scss";
 @import "tablet.blocks/basics/scroll-up.scss";
+@import "tablet.blocks/main-page/partners.scss";
 @import "tablet.blocks/main-page/main-banner.scss";
 @import "tablet.blocks/main-page/category.scss";
-
+@import "tablet.blocks/goods/goods-container.scss";
+@import "tablet.blocks/goods/good.scss";
+@import "tablet.blocks/goods/navigation-categories.scss";
+@import "tablet.blocks/goods/grid-view.scss";
 
 
 /**mobile styles**/
+@import "mobile.blocks/basics/navigation-top.scss";
 @import "mobile.blocks/basics/modal-window.scss";
 @import "mobile.blocks/basics/footer-main.scss";
-
-
+@import "mobile.blocks/main-page/category.scss";
+@import "mobile.blocks/goods/good.scss";
+@import "mobile.blocks/goods/grid-view.scss";
+@import "mobile.blocks/goods/navigation-categories.scss";
+@import "mobile.blocks/goods/goods-container.scss";
 
 @import "core/base.scss";

@@ -1,7 +1,7 @@
 ﻿.scroll-up{
 	padding: 12.5px;
 	position: fixed;
-	display: table;
+	display: none;
 	width: 60px;
 	height:100vh;
 	z-index: 30;
@@ -9,14 +9,18 @@
 	cursor: pointer;
 	text-align: center;
 	transition: all .3s;
+
+	&_visible{
+		display:table;
+	}
+	&__img{
+		display: table-cell;
+		vertical-align: middle;
+		width:35px;
+		height:35px;
+	}
 }
 .scroll-up:hover{
-	background: #e5eeee;
+	background: rgba(240, 240, 240, 0.4);
 	opacity:1;
-}
-.scroll-up__img{
-	display: table-cell;
-	vertical-align: middle;
-	width:35px;
-	height:35px;
 }
