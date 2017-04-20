@@ -1482,11 +1482,11 @@ table {
 
   .navigation-categories__point {
     width: 100%;
+    text-align: center;
   }
 
   .navigation-categories__link {
-    display: block;
-    text-align: center;
+    display: inline-block;
   }
 
   .navigation-categories__img {

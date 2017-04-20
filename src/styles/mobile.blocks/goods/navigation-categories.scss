@@ -6,10 +6,10 @@
 		flex-wrap:wrap;
 		&__point{
 			width:100%;
+			text-align:center;
 		}
 		&__link{
-			display:block;
-			text-align:center;
+			display:inline-block;
 		}
 		&__img{
 			width:30px;
