@@ -149,8 +149,6 @@ table {
   -ms-flex-line-pack: center;
   align-content: center;
   padding-bottom: 30px;
-  min-height: -webkit-calc(100vh - 50px);
-  min-height: calc(100vh - 50px);
 }
 
 .categories__header {
@@ -161,6 +159,13 @@ table {
   flex-basis: 100%;
   text-align: center;
   line-height: 1.1;
+}
+
+@media screen and (min-width: 1201px) {
+  .categories {
+    min-height: -webkit-calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
+  }
 }
 
 .category {
