@@ -52,6 +52,7 @@
 
 /**mobile styles**/
 @import "mobile.blocks/basics/navigation-top.scss";
+@import "mobile.blocks/basics/base.scss";
 @import "mobile.blocks/basics/modal-window.scss";
 @import "mobile.blocks/basics/footer-main.scss";
 @import "mobile.blocks/basics/content-header.scss";
@@ -60,5 +61,6 @@
 @import "mobile.blocks/goods/grid-view.scss";
 @import "mobile.blocks/goods/navigation-categories.scss";
 @import "mobile.blocks/goods/goods-container.scss";
+@import "mobile.blocks/payment/payment.scss";
 
 @import "core/base.scss";

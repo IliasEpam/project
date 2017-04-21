@@ -29,23 +29,21 @@
 	</div>
 	<div class="base">
 		<main class="main">
+			<h1 class="content-header">To finish payment please enter following information</h1>
 			<form class="payment">
-				<div class="payment__cvv-wrapper">
-					<input class="payment__cvv" name="cvv" type="text" required placeholder="CVV2" pattern="[0-9]{3,4}">
-				</div>
 				<div class="payment__card-wrapper">
 					<input class="payment__number" name="text" type="text" required placeholder="XXXX - XXXX - XXXX - XXXX" pattern="[0-9]{12}">
 					<input class="payment__month" type="text" name="month-exp" required placeholder="MM"  pattern="[0-9]{2}">
 					<input class="payment__year" type="text" name="year-exp" required placeholder="YYYY"  pattern="[0-9]{4}">
 					<input class="payment__holder" type="text" name="holder" required placeholder="NAME SURNAME">
 				</div>
+				<div class="payment__cvv-wrapper">
+					<input class="payment__cvv" name="cvv" type="text" required placeholder="CVV2" pattern="[0-9]{3,4}">
+				</div>
 				<p class="payment__button-wrapper"><button type="submit" class="payment__button">Finish</button></p>
 			</form>
 		</main>
 	</div>
-
-	<div class="clear"></div>
-
 
 	<div class="modal-background">
 	</div>
