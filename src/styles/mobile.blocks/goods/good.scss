@@ -7,7 +7,7 @@
 		font-size:110%;
 		margin:0;
 		&__wrap{
-			width:400px;
+			width:100%;/*400px*/
 			text-align:left;
 			display:flex;
 			justify-content:space-between;
@@ -18,7 +18,7 @@
 		}
 
 		&__desc{
-			width:230px;
+			width:calc(90% - 160px);/*230*/
 			height:130px;
 			display:flex;
 			flex-wrap:wrap;
@@ -26,7 +26,7 @@
 			justify-content:center;
 		}
 		&__desc-wide{
-			text-align:center;
+			text-align:left;
 			display:block;
 			max-height:58px;
 			overflow:hidden;
@@ -34,12 +34,12 @@
 		
 		&__price{
 			width:100%;
-			text-align:center;
+			text-align:left;
 
 		}
 		&__name{
 			width:100%;
-			text-align:center;
+			text-align:left;
 
 		}
 		&__add-cart{

@@ -710,6 +710,7 @@ table {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  font-size: 110%;
 }
 
 .good__wrap {
@@ -1198,7 +1199,13 @@ table {
   }
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1024px) {
+  .content-header {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
   .partners {
     display: none;
   }
@@ -1210,7 +1217,7 @@ table {
   }
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1200px) {
   .category {
     width: 200px;
   }
@@ -1254,7 +1261,8 @@ table {
   }
 
   .good__wrap_list {
-    width: 560px;
+    width: 80%;
+    /*560*/
     text-align: left;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1272,7 +1280,9 @@ table {
   }
 
   .good__desc_list {
-    width: 290px;
+    width: -webkit-calc(90% - 250px);
+    width: calc(90% - 250px);
+    /*290*/
     height: 200px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1284,6 +1294,7 @@ table {
     -webkit-align-content: space-between;
     -ms-flex-line-pack: justify;
     align-content: space-between;
+    text-align: left;
   }
 }
 
@@ -1334,7 +1345,7 @@ table {
 
 @media screen and (max-width: 760px) {
   .modal-window {
-    top: 50px;
+    top: 20px;
     width: 100%;
     left: 0;
     z-index: 101;
@@ -1353,7 +1364,13 @@ table {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 760px) {
+  .content-header {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .category {
     width: 100%;
   }
@@ -1381,7 +1398,8 @@ table {
   }
 
   .good__wrap {
-    width: 400px;
+    width: 100%;
+    /*400px*/
     text-align: left;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1399,7 +1417,9 @@ table {
   }
 
   .good__desc {
-    width: 230px;
+    width: -webkit-calc(90% - 160px);
+    width: calc(90% - 160px);
+    /*230*/
     height: 130px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1418,7 +1438,7 @@ table {
   }
 
   .good__desc-wide {
-    text-align: center;
+    text-align: left;
     display: block;
     max-height: 58px;
     overflow: hidden;
@@ -1426,12 +1446,12 @@ table {
 
   .good__price {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .good__name {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .good__add-cart {

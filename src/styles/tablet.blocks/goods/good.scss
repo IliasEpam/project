@@ -8,7 +8,7 @@
 		}
 		&__wrap{
 			&_list{
-				width:560px;
+				width:80%;/*560*/
 				text-align:left;
 				display:flex;
 				justify-content:space-between;
@@ -23,11 +23,12 @@
 
 		&__desc{
 			&_list{
-				width:290px;
+				width:calc(90% - 250px);/*290*/
 				height:200px;
 				display:flex;
 				flex-wrap:wrap;
 				align-content:space-between;
+				text-align:left;
 			}
 
 		}
