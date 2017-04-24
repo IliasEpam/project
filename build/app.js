@@ -6,26 +6,26 @@ var main = function main() {
 	$('.grid-view').click(function () {
 		$('.grid-view').removeClass('grid-view_visible');
 		$('.list-view').addClass('list-view_visible');
-		$('.good__desc-wide').removeClass('good__desc-wide_visible');
-		$('.good').removeClass('good_list');
-		$('.good__wrap').removeClass('good__wrap_list');
-		$('.good__desc').removeClass('good__desc_list');
-		$('.good__img').removeClass('good__img_list');
-		$('.good__price').removeClass('good__price_list');
-		$('.good__name').removeClass('good__name_list');
-		$('.good__info').removeClass('good__info_list');
+		$('.goods__desc-wide').removeClass('goods__desc-wide_visible');
+		$('.goods__item').removeClass('goods_list');
+		$('.goods__item-wrap').removeClass('goods__item-wrap_list');
+		$('.goods__desc').removeClass('goods__desc_list');
+		$('.goods__img').removeClass('goods__img_list');
+		$('.goods__price').removeClass('goods__price_list');
+		$('.goods__name').removeClass('goods__name_list');
+		$('.goods__info').removeClass('goods__info_list');
 	});
 	$('.list-view').click(function () {
 		$('.list-view').removeClass('list-view_visible');
 		$('.grid-view').addClass('grid-view_visible');
-		$('.good__desc-wide').addClass('good__desc-wide_visible');
-		$('.good').addClass('good_list');
-		$('.good__wrap').addClass('good__wrap_list');
-		$('.good__desc').addClass('good__desc_list');
-		$('.good__img').addClass('good__img_list');
-		$('.good__price').addClass('good__price_list');
-		$('.good__name').addClass('good__name_list');
-		$('.good__info').addClass('good__info_list');
+		$('.goods__desc-wide').addClass('goods__desc-wide_visible');
+		$('.goods__item').addClass('goods_list');
+		$('.goods__item-wrap').addClass('goods__item-wrap_list');
+		$('.goods__desc').addClass('goods__desc_list');
+		$('.goods__img').addClass('goods__img_list');
+		$('.goods__price').addClass('goods__price_list');
+		$('.goods__name').addClass('goods__name_list');
+		$('.goods__info').addClass('goods__info_list');
 	});
 	/*****************registartion and logging in animation**********************/
 	$('.navigation-top__profile').click(function () {

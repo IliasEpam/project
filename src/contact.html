@@ -8,9 +8,9 @@
 </head>
 
 <body>
-	<header class="main-header">
-		<div class="base">
-			<nav class="navigation-top">
+	<header class="navigation-top">
+		<div class="navigation-top__grid">
+			<nav class="navigation-top__container">
 				<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
 				
 				<div class="navigation-top__panel">
@@ -27,29 +27,27 @@
 			<img class="scroll-up__img" src="img/icons/scroll-up.png" alt="scroll-up">
 		</div>
 	</div>
-	<div class="base">
-		<main class="main">
-			<div class="delivery-wrapper">
-				<form class="double-form">
-					<section class="double-form__block">
-						<h2 class="double-form__header"> Shipping address</h2>
-						<p class="double-form__line">Country <input class="double-form__input" type="text" name="shipping-country" required></p>
-						<p class="double-form__line">City <input class="double-form__input" type="text" name="shipping-city" required></p>
-						<p class="double-form__line">Address <input class="double-form__input" type="text" name="shipping-address" required></p>
-						<p class="double-form__line">ZIP <input class="double-form__input" type="text" name="shipping-zip" required></p>
-					</section>
-					<section class="double-form__block">
-						<h2 class="double-form__header"> Billing address</h2>
-						<p class="double-form__line">Country <input class="double-form__input" type="text" name="billing-country" required></p>
-						<p class="double-form__line">City <input class="double-form__input" type="text" name="billing-city" required></p>
-						<p class="double-form__line">Address <input  class="double-form__input" type="text" name="billing-address" required></p>
-						<p class="double-form__line">ZIP <input class="double-form__input" type="text" name="billing-zip" required></p>
-						<p class="double-form__line"><label><input type="checkbox">My billing address is the same</label></p>
-					</section>
-					<p class="double-form__button-wrapper"><button type="submit" class="double-form__button">Continue</button></p>
-				</form>
-			</div>
-		</main>
+	<div class="contacts">
+		<div class="contacts__container">
+			<form class="contacts__form">
+				<section class="contacts__form-block">
+					<h2 class="contacts__block-header"> Shipping address</h2>
+					<p class="contacts__line">Country <input class="contacts__input" type="text" name="shipping-country" required></p>
+					<p class="contacts__line">City <input class="contacts__input" type="text" name="shipping-city" required></p>
+					<p class="contacts__line">Address <input class="contacts__input" type="text" name="shipping-address" required></p>
+					<p class="contacts__line">ZIP <input class="contacts__input" type="text" name="shipping-zip" required></p>
+				</section>
+				<section class="contacts__form-block">
+					<h2 class="contacts__block-header"> Billing address</h2>
+					<p class="contacts__line">Country <input class="contacts__input" type="text" name="billing-country" required></p>
+					<p class="contacts__line">City <input class="contacts__input" type="text" name="billing-city" required></p>
+					<p class="contacts__line">Address <input  class="contacts__input" type="text" name="billing-address" required></p>
+					<p class="contacts__line">ZIP <input class="contacts__input" type="text" name="billing-zip" required></p>
+					<p class="contacts__line"><label><input type="checkbox">My billing address is the same</label></p>
+				</section>
+				<p class="contacts__button-wrapper"><button type="submit" class="contacts__button">Continue</button></p>
+			</form>
+		</div>
 	</div>
 
 	<div class="clear"></div>
@@ -104,9 +102,9 @@
 			</p>
 		</form>
 	</div>
-	<div class="footer-wrapper">
-		<div class="base">
-			<footer class="footer-main">
+	<footer class="footer-main">
+		<div class="footer-main__grid">
+			<div class="footer-main__container">
 				<div class="footer-main__section"> 
 					<h4 class="footer-main__section-header">Some legal information goes here</h4>
 						<address class="footer-main__line">Here is some contacs:</address>
@@ -129,9 +127,9 @@
 					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></p>
 				</div>
 
-			</footer>
+			</div>
 		</div>
-	</div>
+	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="app.js"></script>

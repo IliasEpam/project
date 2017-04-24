@@ -1,12 +1,29 @@
-﻿@media screen and (max-width: 1024px) {
-	.good{
-		&_list{
-			width:100%;
-			height:220px;
-			justify-content:center;
-			font-size:110%;
+﻿@media screen and (max-width: 1200px) {
+	.goods{
+		&__grid{
+			width:90%
 		}
-		&__wrap{
+	}
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+	.goods{
+		&__header{
+			text-align:center
+		}
+		&__content{
+			width:100%;
+			justify-content:center;
+		}
+		&__item{
+			&_list{
+				width:100%;
+				height:220px;
+				justify-content:center;
+				font-size:110%;
+			}
+		}
+		&__item-wrap{
 			&_list{
 				width:80%;/*560*/
 				text-align:left;

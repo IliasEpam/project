@@ -1,12 +1,14 @@
 ﻿@media screen and (max-width: 760px) {
   .payment{
-    width: 100%;
-    height:auto;
-    padding-bottom:20px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-
+    width:95%;
+    &__form{
+      width: 100%;
+      height:auto;
+      padding-bottom:20px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+  }
     &__cvv-wrapper{
       width:300px;
       height:200px;

@@ -1,9 +1,15 @@
 ﻿.partners{
-  display:flex;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-  padding:20px 0;
-  border-top: 1px solid $color-main;
+ 	width:80%;
+ 	margin:auto;
+ 	position:relative;
+
+ 	&__container{
+	  display:flex;
+	  justify-content: space-around;
+	  flex-wrap: nowrap;
+	  padding:20px 0;
+	  border-top: 1px solid $color-main;
+	}
 
   &__logo{
 	  width:150px;

@@ -1,0 +1,18 @@
+﻿@media screen and (max-width: 760px) {
+	.categories{
+    	&__grid{
+    		width:95%;
+    	}
+    }
+}
+@media screen and (max-width: 480px) {
+    .categories{
+		&__item{
+			width:100%;
+		}
+		&__img{
+		height:200px;
+		}
+	}
+
+}

@@ -1,5 +1,8 @@
 ﻿@media screen and (max-width: 760px) {
-    .navigation-top{
+    .navigation-top__container{
 		justify-content:space-around;
-	}  
+	} 
+	.navigation-top__grid{
+		width:95%;
+	} 
   }

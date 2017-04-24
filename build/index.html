@@ -8,9 +8,9 @@
 </head>
 
 <body>
-	<header class="main-header">
-		<div class="base">
-			<nav class="navigation-top">
+	<header class="navigation-top">
+		<div class="navigation-top__grid">
+			<nav class="navigation-top__container">
 				<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
 				
 				<div class="navigation-top__panel">
@@ -38,69 +38,72 @@
 	</section>
 
 
-	<main class="main">
-		<div class="base">
-			<section class="categories">
+	<main class="categories">
+		<div class="categories__grid">
+			<section class="categories__container">
 				<h1 class="categories__header">Categories</h1>
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/dry.jpg" alt="Dry food"/>
-						<p class="category__desc">Dry food<span> (80)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/dry.jpg" alt="Dry food"/>
+						<p class="categories__desc">Dry food<span> (80)</span></p>
 					</a>
 				</div>
 				
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/wet.jpg" alt="Wet food"/>
-						<p class="category__desc">Wet food<span> (50)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/wet.jpg" alt="Wet food"/>
+						<p class="categories__desc">Wet food<span> (50)</span></p>
 					</a>
 				</div>
 				
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/meds.jpg" alt="Medicines"/>
-						<p class="category__desc">Medicines<span> (60)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/meds.jpg" alt="Medicines"/>
+						<p class="categories__desc">Medicines<span> (60)</span></p>
 					</a>
 				</div>
 				
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/sleep.jpg" alt="Sleeping places"/>
-						<p class="category__desc">Sleeping places<span> (35)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/sleep.jpg" alt="Sleeping places"/>
+						<p class="categories__desc">Sleeping places<span> (35)</span></p>
 					</a>
 				</div>
 				
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/toys.jpg" alt="Toys"/>
-						<p class="category__desc">Toys<span> (77)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/toys.jpg" alt="Toys"/>
+						<p class="categories__desc">Toys<span> (77)</span></p>
 					</a>
 				</div>
 				
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/brush.jpg" alt="Brushes"/>
-						<p class="category__desc">Brushes<span> (43)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/brush.jpg" alt="Brushes"/>
+						<p class="categories__desc">Brushes<span> (43)</span></p>
 					</a>
 				</div>
 				
-				<div class="category">
-					<a class="category__link" href="dry food.html">
-						<img class="category__img" src="img/acs.jpg" alt="Accessories"/>
-						<p class="category__desc">Accessories<span> (54)</span></p>
+				<div class="categories__item">
+					<a class="categories__link" href="dry food.html">
+						<img class="categories__img" src="img/acs.jpg" alt="Accessories"/>
+						<p class="categories__desc">Accessories<span> (54)</span></p>
 					</a>
 				</div>
 				
 			</section>
-		
-			<div class="partners">
+		</div>
+	</main>
+
+	<div class="partners">
+		<div class="partners__container">
 					<img class="partners__logo" alt="partner" src="img/partners/wwf.png">
 					<img class="partners__logo" alt="partner" src="img/partners/green.png">
 					<img class="partners__logo" alt="partner" src="img/partners/royal.png">
 					<img class="partners__logo" alt="partner" src="img/partners/wwf.png">
-			</div>
 		</div>
-	</main>
+	</div>
+
 	<div class="modal-background">
 	</div>
 
@@ -151,9 +154,9 @@
 		</form>
 	</div>
 
-	<div class="footer-wrapper">
-		<div class="base">
-			<footer class="footer-main">
+	<footer class="footer-main">
+		<div class="footer-main__grid">
+			<div class="footer-main__container">
 				<div class="footer-main__section"> 
 					<h4 class="footer-main__section-header">Some legal information goes here</h4>
 						<address class="footer-main__line">Here is some contacs:</address>
@@ -176,9 +179,9 @@
 					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></p>
 				</div>
 
-			</footer>
+			</div>
 		</div>
-	</div>
+	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="app.js"></script>

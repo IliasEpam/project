@@ -1,7 +1,10 @@
 ﻿@media screen and (max-width: 1200px) {
     
-	.main-header{
+	.navigation-top{
 		position:static;
+		&__grid{
+			width:90%;
+		}
 	}
 	.navigation-backside{
 		display:none;

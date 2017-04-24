@@ -1,15 +1,24 @@
-﻿.footer-main {
-  width: 100%;
-  padding: 20px 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-
+﻿.footer-main{
+  background: $color-main;
+  width:100%;
+  
+  &__grid{
+    width:80%;
+    margin:auto;
+    position:relative;
+  }
+  &__container {
+    width: 100%;
+    padding: 20px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
   &__section-header{
     font-size: 120%;
     line-height:  2.3;

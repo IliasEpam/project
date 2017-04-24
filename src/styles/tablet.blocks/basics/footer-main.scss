@@ -1,9 +1,14 @@
 ﻿@media screen and (max-width: 1200px) {
     
 	.footer-main{
-		flex-wrap:wrap;
-		text-align:center;
-		justify-content:center;
+		&__grid{
+			width:90%;
+		}
+		&__container{
+			flex-wrap:wrap;
+			text-align:center;
+			justify-content:center;
+		}
 		&__section:nth-child(2){
 			display: none;
 		}
@@ -11,5 +16,4 @@
 			display: none;
 		}
 	}
-    
-   }
+}

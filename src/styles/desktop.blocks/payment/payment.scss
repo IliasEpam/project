@@ -1,9 +1,22 @@
 ﻿.payment{
-  width: 520px;
-  height:530px;
-  margin: 0px auto 0 auto;
+  width:80%;
+  margin:auto;
   position:relative;
 
+  &__header{
+    padding:20px 0;
+    font-size:200%;
+    flex-basis:100%;
+    text-align:center;
+    line-height:1.1;
+
+  }
+  &__form{
+    width: 520px;
+    height:530px;
+    margin: 0px auto 0 auto;
+    position:relative;
+   }
   &__cvv-wrapper{
     width:400px;
     height:300px;
