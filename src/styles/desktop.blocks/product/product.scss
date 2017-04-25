@@ -28,27 +28,22 @@
 		display:flex;
 		justify-content:space-between;
 	}
-	&__slider-arrow-left{
+	&__slider-arrow{
 		width:30px;
 		height:30px;
-		background:url(img/icons/arrow-left.png);
 		background-size:100% 100%;
 		cursor:pointer;
 		align-self:center;
+		border-radius:100%;
 	}
-	&__slider-arrow-left:hover{
-		box-shadow: 0px 0px 10px $color-main;
+	&__slider-arrow:hover{
+		box-shadow: 0px 0px 10px $color-main-grad;
 	}
-	&__slider-arrow-right{
-		width:30px;
-		height:30px;
+	&__slider-arrow_right{
 		background:url(img/icons/arrow-right.png);
-		background-size:100% 100%;
-		cursor:pointer;
-		align-self:center;
 	}
-	&__slider-arrow-right:hover{
-		box-shadow: 0px 0px 15px $color-main-grad;
+	&__slider-arrow_left{
+		background:url(img/icons/arrow-left.png);
 	}
 	&__source-img-container{
 		display:flex;
