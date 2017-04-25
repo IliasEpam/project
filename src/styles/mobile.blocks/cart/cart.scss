@@ -12,6 +12,14 @@
     	width:110px;
     	height:90px;
     }
+    &__name{
+        word-wrap: break-word;
+        width:25%;
+        overflow:hidden;
+    }
+    &__info{
+        width:15%;
+    }
     &__summary-button{
     	margin-top:5px;
     }

@@ -30,7 +30,7 @@
 	}
 	&__item:hover {
 	  	-webkit-box-shadow: 0 0 10px #333;
-	  	box-shadow: 2px -2px 15px #3aab8d;
+	  	box-shadow: 2px -2px 15px $color-main;
 	 	background-image: linear-gradient(to bottom, $color-action 90%, $color-action 100%);
 	}
 	&__link{

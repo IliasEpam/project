@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Cat shop - Payment</title>
+  <title>Cat shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css" />
 </head>
@@ -27,21 +27,51 @@
 			<img class="scroll-up__img" src="img/icons/scroll-up.png" alt="scroll-up">
 		</div>
 	</div>
-	<div class="payment">
-		<h1 class="payment__header">Payment information</h1>
-		<form class="payment__form">
-			<div class="payment__card-wrapper">
-				<input class="payment__number" name="text" type="text" required placeholder="XXXX - XXXX - XXXX - XXXX" pattern="[0-9]{12}">
-				<input class="payment__month" type="text" name="month-exp" required placeholder="MM"  pattern="[0-9]{2}">
-				<input class="payment__year" type="text" name="year-exp" required placeholder="YYYY"  pattern="[0-9]{4}">
-				<input class="payment__holder" type="text" name="holder" required placeholder="NAME SURNAME">
+	
+	<div class="product">
+		<div class="product__slider">
+			<figure class="product__shown-img-container">
+				<img class="product__shown-img" src="img/logo.jpg" alt="">
+			</figure>
+			<div class="product__slider-controls">
+				<div class="product__slider-arrow-left"></div>
+				<div class="product__source-img-container">
+					<img class="product__source-img product__source-img_active" src="img/logo.jpg" alt="">
+					<img class="product__source-img" src="img/banner.jpg" alt="">
+					<img class="product__source-img" src="img/brush.jpg" alt="">
+					<img class="product__source-img" src="img/dry.jpg" alt="">
+					<img class="product__source-img" src="img/toys.jpg" alt="">
+				</div>
+				<div class="product__slider-arrow-right"></div>
 			</div>
-			<div class="payment__cvv-wrapper">
-				<input class="payment__cvv" name="cvv" type="text" required placeholder="CVV2" pattern="[0-9]{3,4}">
+		</div>
+		<section class="product__about">
+			<h1 class="product__name">Dry food: "Brand name" 2kg</h1>
+			<p class="product__desc">
+				Some product description like weight, brand, usefulness, some important properties and so on. You can put here even some marketing text. 
+				Anyway it is up to you what to write here. It doesn't matter cause it's just an example.
+			</p>
+			<p class="product__price">
+				Price: $5
+			</p>
+			<div class="product__inputs">
+				<label class="product__quantity">Quantity:<br> <input type="number" min="1" value="1"></label>
+				<button class="product__add-to-cart" type="submit"> Add to cart</button>
 			</div>
-			<p class="payment__button-wrapper"><button type="submit" class="payment__button">Finish</button></p>
-		</form>
-	</div>
+			<div class="product__share">
+				<img class="product__social-icon" src="img/icons/facebook.png" alt="facebook">
+				<img class="product__social-icon" src="img/icons/twit.png" alt="twitter">
+				<img class="product__social-icon" src="img/icons/google.png" alt="google plus">
+			</div>
+
+
+		</section>
+
+	</div>	
+
+
+
+
 
 	<div class="modal-background">
 	</div>
@@ -89,9 +119,10 @@
 			</p>
 			<p class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__reg-link">Register</a>
-		</p>
+			</p>
 		</form>
 	</div>
+
 	<footer class="footer-main">
 		<div class="footer-main__grid">
 			<div class="footer-main__container">

@@ -1,0 +1,133 @@
+﻿.product{
+	width:80%;
+	margin:auto;
+	position:relative;
+	display:flex;
+	justify-content:space-between;
+	align-content:stretch;
+	padding:30px 0;
+
+	&__slider{
+		flex-basis:550px;
+		min-height: 400px;
+		display:inline-flex;
+		flex-wrap:wrap;
+		justify-content:center;
+		align-content:space-between;
+	}
+	&__shown-img-container{
+		height:300px;
+		width:400px;
+	}
+	&__shown-img{
+		width:100%;
+		height:100%;
+	}
+	&__slider-controls{
+		flex-basis:100%;
+		display:flex;
+		justify-content:space-between;
+	}
+	&__slider-arrow-left{
+		width:30px;
+		height:30px;
+		background:url(img/icons/arrow-left.png);
+		background-size:100% 100%;
+		cursor:pointer;
+		align-self:center;
+	}
+	&__slider-arrow-left:hover{
+		box-shadow: 0px 0px 10px $color-main;
+	}
+	&__slider-arrow-right{
+		width:30px;
+		height:30px;
+		background:url(img/icons/arrow-right.png);
+		background-size:100% 100%;
+		cursor:pointer;
+		align-self:center;
+	}
+	&__slider-arrow-right:hover{
+		box-shadow: 0px 0px 15px $color-main-grad;
+	}
+	&__source-img-container{
+		display:flex;
+		justify-content:space-around;
+		align-content:center;
+		flex-basis:calc(90% - 60px);
+	}
+	&__source-img{
+		display:inline-block;
+		width:80px;
+		height:60px;
+		cursor:pointer;
+		opacity:0.8;
+		transition:all .5s;
+	}
+	&__source-img:hover{
+		opacity:1;
+	}
+	&__source-img_active{
+		box-shadow: 0px 0px 15px $color-main;
+		opacity:1;
+	}
+	&__about{
+		flex-basis:calc(95% - 550px);
+		display:flex;
+		flex-direction: column;
+		justify-content:space-between;
+	}
+	&__name{
+		font-size:200%;
+		padding-bottom:20px;
+		line-height:1.1;
+	}
+	&__desc{
+		line-height:1.2;
+	}
+	&__price{
+		font-size:140%;
+		color:$color-action-grad;
+		padding: 10px 0;
+		text-align:right;
+	}
+	&__inputs{
+		display:flex;
+		justify-content:space-between;
+	}
+	&__quantity{
+		align-self:center;
+	}
+	&__share{
+		height:60px;
+		display:flex;
+	}
+	&__social-icon{
+		display: inline-block;
+		width: 30px;
+		height:30px;
+		margin-right:20px;
+		align-self:center;
+		cursor:pointer;
+		opacity:0.8;
+		transition:all .5s;
+	}
+	&__social-icon:hover{
+		opacity:1.0;
+	}
+	&__add-to-cart{
+	    background-image: linear-gradient(to bottom,$color-action 0,$color-action-grad 100%);
+	    border:none;
+	    border-radius: 10px;
+	    color:white;
+	    padding: 7px 15px;
+	    cursor: pointer;
+	    color: white;
+	    transition: all .5s;
+	    font-size:110%;
+	    align-self:center;
+	}
+	&__add-to-cart:hover {
+   		 background-image: linear-gradient(to bottom,$color-action 0,$color-action 100%);
+  	}
+}

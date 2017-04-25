@@ -24,6 +24,7 @@
 @import "desktop.blocks/contacts/contacts.scss";
 
 @import "desktop.blocks/payment/payment.scss";
+@import "desktop.blocks/product/product.scss";
 
 
 
@@ -40,6 +41,7 @@
 @import "tablet.blocks/payment/payment.scss";
 @import "tablet.blocks/contacts/contacts.scss";
 @import "tablet.blocks/cart/cart.scss";
+@import "tablet.blocks/product/product.scss";
 
 
 /**mobile styles**/
@@ -54,6 +56,7 @@
 @import "mobile.blocks/contacts/contacts.scss";
 @import "mobile.blocks/cart/cart.scss";
 @import "mobile.blocks/cart/basket-summary.scss";
+@import "mobile.blocks/product/product.scss";
 
 
 @import "core/base.scss";
