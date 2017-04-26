@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css" />
 </head>
-
 <body>
 	<header class="navigation-top">
 		<div class="navigation-top__grid">
@@ -27,25 +26,22 @@
 			<img class="scroll-up__img" src="img/icons/scroll-up.png" alt="scroll-up">
 		</div>
 	</div>
-	
 	<div class="cart">
-
 		<div class="basket-summary">
-				<p class="basket-summary__text">
+				<div class="basket-summary__text">
 					Basket Summary
-				</p>
-				<p class="basket-summary__quantity">
+				</div>
+				<div class="basket-summary__quantity">
 					<span class="total-quantity">2</span> item(s)
-				</p>
+				</div>
 				<hr class="basket-summary__splitter">
-				<p class="basket-summary__price">
+				<div class="basket-summary__price">
 					$ <span class="total-price" id="total-price">20</span>
-				</p>
-				<p class="basket-summary__button-container">
+				</div>
+				<div class="basket-summary__button-container">
 					<button type="submit" class="basket-summary__button">Porceed to chekout</button>
-				</p>
+				</div>
 		</div>
-
 		<div class="cart__container">
 			<div class="cart__item">
 				<div class="cart__img-container">
@@ -58,15 +54,14 @@
 					<input class="cart__quantity-input" type="number" min="1" />
 				</div>
 				<div class="cart__info">
-					<p class="cart__price">
+					<div class="cart__price">
 						$ 5
-					</p>
-					<p class="cart__remove">
+					</div>
+					<div class="cart__remove">
 						<a class="cart__remove-button" href="#">Remove</a>
-					</p>
+					</div>
 				</div>
 			</div>	
-
 			<div class="cart__item">
 				<div class="cart__img-container">
 					<img src="img/logo.jpg" class="cart__img" alt="good" />
@@ -78,79 +73,70 @@
 					<input class="cart__quantity-input" type="number" min="1" />
 				</div>
 				<div class="cart__info">
-					<p class="cart__price">
+					<div class="cart__price">
 						$ 5
-					</p>
-					<p class="cart__remove">
+					</div>
+					<div class="cart__remove">
 						<a class="cart__remove-button" href="#">Remove</a>
-					</p>
+					</div>
 				</div>
 			</div>		
-
 			<div class="cart__summary">
-				<p class="cart__summary-line cart__summary-price">
-					Total: $ <span>10<span>
-				</p>
-				<p class="cart__summary-line">
+				<div class="cart__summary-line cart__summary-price">
+					Total: $ <span>10</span>
+				</div>
+				<div class="cart__summary-line">
 					<button class="cart__summary-button" href="index.html" onclick="location.href='index.html';">Continue shopping</button>
 					<button type="submit" class="cart__summary-button">Porceed to chekout</button>
-				</p>
-
+				</div>
 			</div>	
 		</div>
-
 	</div>
-
-	<div class="clear"></div>
-
-
 	<div class="modal-background">
 	</div>
-
 	<div class="modal-window" id="reg-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-			<p class="modal-window__line">
+			<div class="modal-window__line">
 				Registration
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-			</p>
-			
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<button class="modal-window__button" type="submit">Register</button>
-			</p>
-			<p class="modal-window__line modal-window__line_text-right">
+			</div>
+			<div class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__sign-link">Sign In</a>
-			</p>
+			</div>
 		</form>		
 	</div>
 	<div class="modal-window" id="sign-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-			<p class="modal-window__line">
+			<div class="modal-window__line">
 				Please Sign In
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<label><input type="checkbox" name="remember" value="remember"> Remember me </label>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<button class="modal-window__button" type="submit">Sign In</button>
-			</p>
-			<p class="modal-window__line modal-window__line_text-right">
+			</div>
+			<div class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__reg-link">Register</a>
-			</p>
+			</div>
 		</form>
 	</div>
 	<footer class="footer-main">
@@ -169,19 +155,17 @@
 				</div>
 				<div class="footer-main__section">
 					<h4 class="footer-main__section-header" >Here is a quick navigation:</h4>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Dry food</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Wet food</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Medicines</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Sleep places</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Toys</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Brushes</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></p>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Dry food</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Wet food</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Medicines</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Sleep places</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Toys</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Brushes</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></div>
 				</div>
-
 			</div>
 		</div>
 	</footer>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="app.js"></script>
 </body>

@@ -25,6 +25,8 @@
 
 @import "desktop.blocks/payment/payment.scss";
 @import "desktop.blocks/product/product.scss";
+@import "desktop.blocks/product/slider.scss";
+@import "desktop.blocks/product/bread-crumbs.scss";
 
 
 
@@ -42,6 +44,8 @@
 @import "tablet.blocks/contacts/contacts.scss";
 @import "tablet.blocks/cart/cart.scss";
 @import "tablet.blocks/product/product.scss";
+@import "tablet.blocks/product/slider.scss";
+@import "tablet.blocks/product/bread-crumbs.scss";
 
 
 /**mobile styles**/
@@ -57,6 +61,8 @@
 @import "mobile.blocks/cart/cart.scss";
 @import "mobile.blocks/cart/basket-summary.scss";
 @import "mobile.blocks/product/product.scss";
+@import "mobile.blocks/product/slider.scss";
+@import "mobile.blocks/product/bread-crumbs.scss";
 
 
 @import "core/base.scss";

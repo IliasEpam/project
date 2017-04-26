@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css" />
 </head>
-
 <body>
 	<header class="navigation-top">
 		<div class="navigation-top__grid">
@@ -22,7 +21,7 @@
 		</div>
 	</header>
 	<div class="navigation-backside"></div>
-	<div class="scroll-up none">
+	<div class="scroll-up">
 		<div class="scroll-up__img">
 			<img class="scroll-up__img" src="img/icons/scroll-up.png" alt="scroll-up">
 		</div>
@@ -39,57 +38,54 @@
 			<div class="payment__cvv-wrapper">
 				<input class="payment__cvv" name="cvv" type="text" required placeholder="CVV2" pattern="[0-9]{3,4}">
 			</div>
-			<p class="payment__button-wrapper"><button type="submit" class="payment__button">Finish</button></p>
+			<div class="payment__button-wrapper"><button type="submit" class="payment__button">Finish</button></div>
 		</form>
 	</div>
-
 	<div class="modal-background">
 	</div>
-
 	<div class="modal-window" id="reg-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-			<p class="modal-window__line">
+			<div class="modal-window__line">
 				Registration
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-			</p>
-			
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<button class="modal-window__button" type="submit">Register</button>
-			</p>
-			<p class="modal-window__line modal-window__line_text-right">
+			</div>
+			<div class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__sign-link">Sign In</a>
-			</p>
+			</div>
 		</form>		
 	</div>
 	<div class="modal-window" id="sign-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-			<p class="modal-window__line">
+			<div class="modal-window__line">
 				Please Sign In
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<label><input type="checkbox" name="remember" value="remember"> Remember me </label>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<button class="modal-window__button" type="submit">Sign In</button>
-			</p>
-			<p class="modal-window__line modal-window__line_text-right">
+			</div>
+			<div class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__reg-link">Register</a>
-		</p>
+			</div>
 		</form>
 	</div>
 	<footer class="footer-main">
@@ -108,19 +104,17 @@
 				</div>
 				<div class="footer-main__section">
 					<h4 class="footer-main__section-header" >Here is a quick navigation:</h4>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Dry food</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Wet food</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Medicines</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Sleep places</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Toys</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Brushes</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></p>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Dry food</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Wet food</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Medicines</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Sleep places</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Toys</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Brushes</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></div>
 				</div>
-
 			</div>
 		</div>
 	</footer>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="app.js"></script>
 </body>

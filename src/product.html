@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -6,13 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css" />
 </head>
-
 <body>
 	<header class="navigation-top">
 		<div class="navigation-top__grid">
 			<nav class="navigation-top__container">
 				<a class="navigation-top__logo" href="index.html" title="Go the main page"><img  class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
-				
 				<div class="navigation-top__panel">
 					<label><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
 					<a href="cart.html"><img class="navigation-top__icon" src="img/basket.png" alt="basket" /></a>
@@ -22,27 +20,31 @@
 		</div>
 	</header>
 	<div class="navigation-backside"></div>
-	<div class="scroll-up none">
+	<div class="scroll-up">
 		<div class="scroll-up__img">
 			<img class="scroll-up__img" src="img/icons/scroll-up.png" alt="scroll-up">
 		</div>
 	</div>
-	
+	<div class="bread-crumbs">
+		<a class="bread-crumbs__item" href="#">Main page</a>
+		<a class="bread-crumbs__item" href="#">Category name</a>
+		<a class="bread-crumbs__item" href="#">Product name</a>
+	</div>
 	<div class="product">
-		<div class="product__slider">
-			<figure class="product__shown-img-container">
-				<img class="product__shown-img" src="img/logo.jpg" alt="">
+		<div class="slider">
+			<figure class="slider__shown-img-container">
+				<img class="slider__shown-img" src="img/logo.jpg" alt="1" id="big-img">
 			</figure>
-			<div class="product__slider-controls">
-				<div class="product__slider-arrow-left"></div>
-				<div class="product__source-img-container">
-					<img class="product__source-img product__source-img_active" src="img/logo.jpg" alt="">
-					<img class="product__source-img" src="img/banner.jpg" alt="">
-					<img class="product__source-img" src="img/brush.jpg" alt="">
-					<img class="product__source-img" src="img/dry.jpg" alt="">
-					<img class="product__source-img" src="img/toys.jpg" alt="">
+			<div class="slider__controls">
+				<div class="slider__arrow slider__arrow_left"></div>
+				<div class="slider__source">
+					<img class="slider__source-img slider__source-img_active" src="img/logo.jpg" alt="1">
+					<img class="slider__source-img" src="img/banner.jpg" alt="2">
+					<img class="slider__source-img" src="img/brush.jpg" alt="3">
+					<img class="slider__source-img" src="img/dry.jpg" alt="4">
+					<img class="slider__source-img" src="img/toys.jpg" alt="5">
 				</div>
-				<div class="product__slider-arrow-right"></div>
+				<div class="slider__arrow slider__arrow_right"></div>
 			</div>
 		</div>
 		<section class="product__about">
@@ -51,9 +53,9 @@
 				Some product description like weight, brand, usefulness, some important properties and so on. You can put here even some marketing text. 
 				Anyway it is up to you what to write here. It doesn't matter cause it's just an example.
 			</p>
-			<p class="product__price">
+			<div class="product__price">
 				Price: $5
-			</p>
+			</div>
 			<div class="product__inputs">
 				<label class="product__quantity">Quantity:<br> <input type="number" min="1" value="1"></label>
 				<button class="product__add-to-cart" type="submit"> Add to cart</button>
@@ -63,66 +65,55 @@
 				<img class="product__social-icon" src="img/icons/twit.png" alt="twitter">
 				<img class="product__social-icon" src="img/icons/google.png" alt="google plus">
 			</div>
-
-
 		</section>
-
 	</div>	
-
-
-
-
-
 	<div class="modal-background">
 	</div>
-
-	<div class="modal-window" id="reg-window">
+		<div class="modal-window" id="reg-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-			<p class="modal-window__line">
+			<div class="modal-window__line">
 				Registration
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-			</p>
-			
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<button class="modal-window__button" type="submit">Register</button>
-			</p>
-			<p class="modal-window__line modal-window__line_text-right">
+			</div>
+			<div class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__sign-link">Sign In</a>
-			</p>
+			</div>
 		</form>		
 	</div>
 	<div class="modal-window" id="sign-window">
 		<div class="modal-window__close">
 		</div>
 		<form class="modal-window__form">
-			<p class="modal-window__line">
+			<div class="modal-window__line">
 				Please Sign In
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<input class="modal-window__input-password" name="password" type="password" required placeholder="***"/>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<label><input type="checkbox" name="remember" value="remember"> Remember me </label>
-			</p>
-			<p class="modal-window__line">
+			</div>
+			<div class="modal-window__line">
 				<button class="modal-window__button" type="submit">Sign In</button>
-			</p>
-			<p class="modal-window__line modal-window__line_text-right">
+			</div>
+			<div class="modal-window__line modal-window__line_text-right">
 				<a href="#" class="modal-window__reg-link">Register</a>
-			</p>
+			</div>
 		</form>
 	</div>
-
 	<footer class="footer-main">
 		<div class="footer-main__grid">
 			<div class="footer-main__container">
@@ -139,19 +130,17 @@
 				</div>
 				<div class="footer-main__section">
 					<h4 class="footer-main__section-header" >Here is a quick navigation:</h4>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Dry food</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Wet food</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Medicines</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Sleep places</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Toys</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Brushes</a></p>
-					<p class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></p>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Dry food</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Wet food</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Medicines</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Sleep places</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Toys</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Brushes</a></div>
+					<div class="footer-main__line"><a class="footer-main__link" href="dry food.html">Accessories</a></div>
 				</div>
-
 			</div>
 		</div>
 	</footer>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="app.js"></script>
 </body>
