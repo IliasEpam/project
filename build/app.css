@@ -641,7 +641,7 @@ table {
 
 .footer-main__payment {
   display: inline-block;
-  width: 250px;
+  width: 300px;
   height: 200px;
   background: url("img/payment.png");
   background-size: 100% 100%;

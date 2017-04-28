@@ -57,9 +57,9 @@ var main = function main() {
 	});
 	/********scroll up*******/
 	$(function () {
-		if ($(window).scrollTop() >= $(window).height()) $(".scroll-up").addClass("scroll-up_visible");
+		if ($(window).scrollTop() > $(window).height() - 50) $(".scroll-up").addClass("scroll-up_visible");
 		$(window).scroll(function () {
-			if ($(window).scrollTop() <= $(window).height()) $(".scroll-up").removeClass("scroll-up_visible");else $(".scroll-up").addClass("scroll-up_visible");
+			if ($(window).scrollTop() < $(window).height() - 50) $(".scroll-up").removeClass("scroll-up_visible");else $(".scroll-up").addClass("scroll-up_visible");
 		});
 		$(".scroll-up").click(function () {
 			$("html,body").animate({ scrollTop: 0 }, "slow");
