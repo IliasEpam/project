@@ -1,12 +1,15 @@
-﻿.grid-view, .list-view{
-	position: absolute;
-	right:0;
-	top:20px;
-	display:none;
+﻿.grid-view,
+.list-view {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    display: none;
 }
-.grid-view_visible{
-	display:inline-block;
+
+.grid-view--visible {
+    display: inline-block;
 }
-.list-view_visible{
-	display:inline-block;
+
+.list-view--visible {
+    display: inline-block;
 }

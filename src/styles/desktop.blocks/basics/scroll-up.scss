@@ -1,26 +1,27 @@
-﻿.scroll-up{
-	padding: 12.5px;
-	position: fixed;
-	display: none;
-	width: 60px;
-	height:100vh;
-	z-index: 30;
-	opacity:0.4;
-	cursor: pointer;
-	text-align: center;
-	transition: all .3s;
-
-	&_visible{
-		display:table;
-	}
-	&__img{
-		display: table-cell;
-		vertical-align: middle;
-		width:35px;
-		height:35px;
-	}
+﻿.scroll-up {
+    padding: 12.5px;
+    position: fixed;
+    display: none;
+    width: 60px;
+    height: 100vh;
+    z-index: 30;
+    opacity: 0.4;
+    cursor: pointer;
+    text-align: center;
+    transition: all .3s;
+    &--visible {
+        display: flex;
+    }
+    &__img {
+        align-self: center;
+        width: 35px;
+        height: 35px;
+        background: url(img/icons/scroll-up.png) no-repeat;
+        background-size: 100% 100%;
+    }
 }
-.scroll-up:hover{
-	background: rgba(240, 240, 240, 0.4);
-	opacity:1;
+
+.scroll-up:hover {
+    background: rgba(240, 240, 240, 0.4);
+    opacity: 0.9;
 }

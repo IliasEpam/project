@@ -1,67 +1,65 @@
-﻿.modal-window{
-  position: fixed;
-  top: calc(50% - 100px);
-  height: 200px;
-  width: 400px;
-  left: calc(50% - 150px);
-  z-index: 101;
-  background: white;
-  display: none;
-
-	&_visible{
-		display:table;
-	}
-	&__line{
-		width:300px;
-		margin: 0px auto;
-		padding-bottom:10px;
-
-		&_text-right{
-			text-align:right;
-		}
-	}
-	&__line:last-child{
-		padding:0;
-	}
-	&__form{
-		display:table-cell;
-		vertical-align:middle;
-	}
-	&__input-email{
-		width:100%;
-	}
-	&__input-password{
-		width:100%;
-	}
-	&__button{
-		width:100%;
-		background:$color-action;
-		background-image: linear-gradient(to bottom,$color-action 0,$color-action-grad 100%);
-		border-radius:10px;
-		border:none;
-		padding:3px 0;
-		cursor: pointer;
-		color:white;
-		transition: all .5s;
-	}
-	&__button:hover{
-		background:$color-action;
-	}
-	&__close{
-		width:20px;
-		height:20px;
-		position:absolute;
-		right:0;
-		top:1;
-		cursor:pointer;
-		background: url(img/icons/close.jpg);
-		z-index:102;
-		background-size:100% 100%;
-	}
-	&__sign-link{
-		font-size:80%;
-	}
-	&__reg-link{
-		font-size:80%;
-	}
+﻿.modal-window {
+    position: fixed;
+    top: calc(50% - 100px);
+    height: 200px;
+    width: 400px;
+    left: calc(50% - 150px);
+    z-index: 101;
+    background: white;
+    display: none;
+    &--visible {
+        display: table;
+    }
+    &__line {
+        width: 300px;
+        margin: 0px auto;
+        padding-bottom: 10px;
+        &--text-right {
+            text-align: right;
+        }
+    }
+    &__line:last-child {
+        padding: 0;
+    }
+    &__form {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    &__input-email {
+        width: 100%;
+    }
+    &__input-password {
+        width: 100%;
+    }
+    &__button {
+        width: 100%;
+        background: $color-action;
+        background-image: linear-gradient(to bottom, $color-action 0, $color-action-grad 100%);
+        border-radius: 10px;
+        border: none;
+        padding: 3px 0;
+        cursor: pointer;
+        color: white;
+        transition: all .5s;
+    }
+    &__button:hover {
+        background: $color-action;
+    }
+    &__close {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top: 1;
+        cursor: pointer;
+        background: url(img/icons/close.jpg);
+        z-index: 102;
+        background-size: 100% 100%;
+    }
+    &__sign-link {
+        font-size: 80%;
+    }
+    &__reg-link {
+        font-size: 80%;
+    }
 }
