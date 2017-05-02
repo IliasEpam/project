@@ -1,10 +1,12 @@
 ﻿@media screen and (max-width: 760px) {
-  .product{
-    width:95%;
-    flex-wrap:wrap;
-	&__about{
-		padding-top:20px;
-		flex-basis:100%;
-	}
-  }
+    .product {
+        flex-wrap: wrap;
+        &__slider {
+            flex-basis: 100%;
+        }
+        &__about {
+            padding-top: 20px;
+            flex-basis: 100%;
+        }
+    }
 }

@@ -8,140 +8,145 @@
     <link rel="stylesheet" href="app.css" />
 </head>
 
-<body>
-    <header class="navigation-top">
-        <div class="navigation-top__grid">
-            <nav class="navigation-top__container">
+<body class="page">
+    <header class="page__navigation-top">
+        <div class="navigation-top">
+            <nav class="navigation-top__content">
                 <a class="navigation-top__logo" href="index.html" title="Go the main page"><img class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
                 <div class="navigation-top__panel">
-                    <label><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
+                    <label class="navigation-top__search"><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
                     <a class="navigation-top__icon navigation-top__icon--cart" href="cart.html"></a>
                     <a class="navigation-top__icon navigation-top__icon--profile"></a>
                 </div>
             </nav>
         </div>
     </header>
-    <div class="navigation-backside"></div>
     <div class="scroll-up">
         <div class="scroll-up__img">
         </div>
     </div>
-    <section class="main-banner">
-        <div class="main-banner__text-container">
-            <h1 class="main-banner__heading">Any exciting header</h1>
-            <p class="main-banner__text">Some attractive text, shouldn't be too large. Just a couple lines. Some attractive text, shouldn't be too large. Just a couple lines.</p>
-        </div>
-        <div class="main-banner__scroll-down">
-            <div class="main-banner__scroll-down-text">Start shopping</div>
-        </div>
-    </section>
-    <main class="categories">
-        <div class="categories__grid">
-            <section class="categories__container">
+    <div class="page__main-banner">
+        <section class="main-banner">
+            <div class="main-banner__text-container">
+                <h1 class="main-banner__heading">Any exciting header</h1>
+                <p class="main-banner__text">Some attractive text, shouldn't be too large. Just a couple lines. Some attractive text, shouldn't be too large. Just a couple lines.</p>
+            </div>
+            <div class="main-banner__scroll-down">
+                <div class="main-banner__scroll-down-text">Start shopping</div>
+            </div>
+        </section>
+    </div>
+    <main class="page__categories">
+        <div class="categories">
+            <section class="categories__content">
                 <h2 class="categories__header">Categories</h2>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/dry.jpg" alt="Dry food" />
-                        <div class="categories__desc">Dry food<span> (80)</span></div>
+                        <div class="categories__description">Dry food<span> (80)</span></div>
                     </a>
                 </div>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/wet.jpg" alt="Wet food" />
-                        <div class="categories__desc">Wet food<span> (50)</span></div>
+                        <div class="categories__description">Wet food<span> (50)</span></div>
                     </a>
                 </div>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/meds.jpg" alt="Medicines" />
-                        <div class="categories__desc">Medicines<span> (60)</span></div>
+                        <div class="categories__description">Medicines<span> (60)</span></div>
                     </a>
                 </div>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/sleep.jpg" alt="Sleeping places" />
-                        <div class="categories__desc">Sleeping places<span> (35)</span></div>
+                        <div class="categories__description">Sleeping places<span> (35)</span></div>
                     </a>
                 </div>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/toys.jpg" alt="Toys" />
-                        <div class="categories__desc">Toys<span> (77)</span></div>
+                        <div class="categories__description">Toys<span> (77)</span></div>
                     </a>
                 </div>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/brush.jpg" alt="Brushes" />
-                        <div class="categories__desc">Brushes<span> (43)</span></div>
+                        <div class="categories__description">Brushes<span> (43)</span></div>
                     </a>
                 </div>
-                <div class="categories__item">
+                <div class="categories__category">
                     <a class="categories__link" href="category.html">
                         <img class="categories__img" src="img/acs.jpg" alt="Accessories" />
-                        <div class="categories__desc">Accessories<span> (54)</span></div>
+                        <div class="categories__description">Accessories<span> (54)</span></div>
                     </a>
                 </div>
             </section>
         </div>
     </main>
-    <div class="partners">
-        <div class="partners__container">
-            <img class="partners__logo" alt="partner" src="img/partners/wwf.png">
-            <img class="partners__logo" alt="partner" src="img/partners/green.png">
-            <img class="partners__logo" alt="partner" src="img/partners/royal.png">
-            <img class="partners__logo" alt="partner" src="img/partners/wwf.png">
+    <div class="page__partners">
+        <div class="partners">
+            <div class="partners__content">
+                <img class="partners__logo" alt="partner" src="img/partners/wwf.png">
+                <img class="partners__logo" alt="partner" src="img/partners/green.png">
+                <img class="partners__logo" alt="partner" src="img/partners/royal.png">
+                <img class="partners__logo" alt="partner" src="img/partners/wwf.png">
+            </div>
         </div>
     </div>
-    <div class="modal-background">
-    </div>
-    <div class="modal-window" id="reg-window">
-        <div class="modal-window__close">
+    <div class="page__modal-window">
+        <div class="modal-background">
         </div>
-        <form class="modal-window__form">
-            <div class="modal-window__line">
-                Registration
+        <div class="modal-window" id="reg-window">
+            <div class="modal-window__close">
             </div>
-            <div class="modal-window__line">
-                <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress" />
-            </div>
-            <div class="modal-window__line">
-                <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
-            </div>
-            <div class="modal-window__line">
-                <button class="modal-window__button" type="submit">Register</button>
-            </div>
-            <div class="modal-window__line modal-window__line--text-right">
-                <a href="#" class="modal-window__sign-link">Sign In</a>
-            </div>
-        </form>
-    </div>
-    <div class="modal-window" id="sign-window">
-        <div class="modal-window__close">
+            <form class="modal-window__form">
+                <div class="modal-window__line">
+                    Registration
+                </div>
+                <div class="modal-window__line">
+                    <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress" />
+                </div>
+                <div class="modal-window__line">
+                    <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
+                </div>
+                <div class="modal-window__line">
+                    <button class="modal-window__button" type="submit">Register</button>
+                </div>
+                <div class="modal-window__line modal-window__line--text-right">
+                    <a href="#" class="modal-window__sign-link">Sign In</a>
+                </div>
+            </form>
         </div>
-        <form class="modal-window__form">
-            <div class="modal-window__line">
-                Please Sign In
+        <div class="modal-window" id="sign-window">
+            <div class="modal-window__close">
             </div>
-            <div class="modal-window__line">
-                <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress" />
-            </div>
-            <div class="modal-window__line">
-                <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
-            </div>
-            <div class="modal-window__line">
-                <label><input type="checkbox" name="remember" value="remember"> Remember me </label>
-            </div>
-            <div class="modal-window__line">
-                <button class="modal-window__button" type="submit">Sign In</button>
-            </div>
-            <div class="modal-window__line modal-window__line--text-right">
-                <a href="#" class="modal-window__reg-link">Register</a>
-            </div>
-        </form>
+            <form class="modal-window__form">
+                <div class="modal-window__line">
+                    Please Sign In
+                </div>
+                <div class="modal-window__line">
+                    <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress" />
+                </div>
+                <div class="modal-window__line">
+                    <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
+                </div>
+                <div class="modal-window__line">
+                    <label><input type="checkbox" name="remember" value="remember"> Remember me </label>
+                </div>
+                <div class="modal-window__line">
+                    <button class="modal-window__button" type="submit">Sign In</button>
+                </div>
+                <div class="modal-window__line modal-window__line--text-right">
+                    <a href="#" class="modal-window__reg-link">Register</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <footer class="footer-main">
-        <div class="footer-main__grid">
-            <div class="footer-main__container">
+    <footer class="page__footer-main">
+        <div class="footer-main">
+            <div class="footer-main__content">
                 <div class="footer-main__section">
                     <h4 class="footer-main__section-header">Some contacts information goes here</h4>
                     <address class="footer-main__contacts">Here is some contacts:</address>

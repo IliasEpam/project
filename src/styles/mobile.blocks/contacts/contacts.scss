@@ -1,8 +1,10 @@
 ﻿@media screen and (max-width: 760px) {
-  .contacts{
-    width:95%;
-    &__form-block{
-    	width:100%;
+    .contacts {
+        &__header {
+            font-size: 200%;
+        }
+        &__form-block {
+            width: 100%;
+        }
     }
-  }
 }

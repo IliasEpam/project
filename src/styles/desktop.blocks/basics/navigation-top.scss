@@ -3,15 +3,10 @@
     min-height: 50px;
     background: $color-main;
     background-image: linear-gradient(to bottom, $color-main 0, $color-main-grad 100%);
-    position: fixed;
-    z-index: 50;
-    &__grid {
+    &__content {
         width: 80%;
         margin: auto;
         position: relative;
-    }
-    &__container {
-        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -61,8 +56,4 @@
             background-size: 100% 100%;
         }
     }
-}
-
-.navigation-backside {
-    height: 50px;
 }

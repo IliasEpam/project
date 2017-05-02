@@ -1,40 +1,36 @@
-﻿.basket-summary{
-  flex-basis:25%;
-  padding-top: 20px;
-  max-width:200px;
-  order:2;
-
-  &__quantity{
-    color: grey;
-    font-size: 80%;
-  }
-  &__splitter{
-    margin:10px;
-  }
-  &__price{
-    text-align: center;
-    padding-bottom: 10px;
-    font-size:110%;
-  }
-  &__button-container{
-    text-align:center;
-  }
-  &__button{
+﻿.basket-summary {
+    padding-top: 20px;
+    display: inline-block;
     width: 100%;
-    display:inline-block;
-    max-width:200px;
-    background-image: linear-gradient(to bottom,$color-action 0,$color-action-grad 100%);
-    border:none;
-    border-radius: 10px;
-    color:white;
-    padding: 5px;
-    cursor: pointer;
-    color: white;
-    transition: all .5s;
-    text-decoration:none;
-    font-size:90%;
-  }
-  &__button:hover {
-    background-image: linear-gradient(to bottom,$color-action 0,$color-action 100%);
-  }
+    text-align: left;
+    &__quantity {
+        color: grey;
+        font-size: 80%;
+    }
+    &__splitter {
+        margin: 10px;
+    }
+    &__price {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 110%;
+    }
+    &__button {
+        width: 100%;
+        display: inline-block;
+        max-width: 200px;
+        background-image: linear-gradient(to bottom, $color-action 0, $color-action-grad 100%);
+        border: none;
+        border-radius: 20px;
+        color: white;
+        padding: 6px 8px;
+        cursor: pointer;
+        color: white;
+        transition: all .5s;
+        text-decoration: none;
+        font-size: 90%;
+    }
+    &__button:hover {
+        background-image: linear-gradient(to bottom, $color-action 0, $color-action 100%);
+    }
 }

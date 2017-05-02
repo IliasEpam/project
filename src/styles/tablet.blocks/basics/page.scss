@@ -1,0 +1,35 @@
+﻿@media screen and (max-width: 1200px) {
+    .page {
+        &__navigation-top {
+            position: static;
+        }
+        &__main-banner {
+            display: none;
+        }
+        &__categories {
+            width: 90%;
+        }
+        &__partners {
+            display: none;
+        }
+        &__payment {
+            width: 90%;
+            margin-top: 0;
+        }
+        &__contacts {
+            width: 90%;
+            margin-top: 30px;
+        }
+        &__cart {
+            width: 90%;
+            margin-top: 0;
+        }
+        &__bread-crumbs {
+            width: 90%;
+            margin-top: 20px;
+        }
+        &__product {
+            width: 90%;
+        }
+    }
+}

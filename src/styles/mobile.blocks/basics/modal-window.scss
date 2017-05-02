@@ -1,15 +1,13 @@
 ﻿@media screen and (max-width: 760px) {
-	.modal-window{
-	  top: 20px;
-	  width: 100%;
-	  left: 0;
-	  z-index: 101;
-
-	  &__line{
-	  	width:90%;
-		margin: 0px auto;
-		padding-bottom:10px;
-	  }
-	}
-
+    .modal-window {
+        top: calc(50% - 100px);
+        width: 100%;
+        left: 0;
+        z-index: 101;
+        &__line {
+            width: 90%;
+            margin: 0px auto;
+            padding-bottom: 10px;
+        }
+    }
 }

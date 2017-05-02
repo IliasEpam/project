@@ -1,12 +1,7 @@
-﻿@media screen and (max-width: 1200px) {
-  .contacts{
-    width:90%;
-  }
-}
-@media screen and (max-width: 1024px) and (orientation: portrait) {
-  .contacts{ 
-    &__form-block{
-    	width:100%;
+﻿@media screen and (max-width: 1024px) and (orientation: portrait) {
+    .contacts {
+        &__form-block {
+            width: 100%;
+        }
     }
-  }
 }
