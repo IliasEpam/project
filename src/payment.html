@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="app.css" />
 </head>
 
-<body>
+<body class="page">
     <header class="page__navigation-top">
         <div class="navigation-top">
             <nav class="navigation-top__content">
@@ -16,13 +16,15 @@
                 <div class="navigation-top__panel">
                     <label class="navigation-top__search"><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
                     <a class="navigation-top__icon navigation-top__icon--cart" href="cart.html"></a>
-                    <a class="navigation-top__icon navigation-top__icon--profile"></a>
+                    <a class="navigation-top__icon navigation-top__icon--profile" onclick="showModalWindow()"></a>
                 </div>
             </nav>
         </div>
     </header>
-    <div class="scroll-up">
-        <div class="scroll-up__img">
+    <div class="page__scroll-up" onclick="scrollTo(0, 500);">
+        <div class="scroll-up">
+            <div class="scroll-up__img">
+            </div>
         </div>
     </div>
     <div class="page__payment">
@@ -33,7 +35,7 @@
                     <input class="payment__number" name="text" type="text" required placeholder="XXXX - XXXX - XXXX - XXXX" pattern="[0-9]{12}">
                     <input class="payment__month" type="text" name="month-exp" required placeholder="MM" pattern="[0-9]{2}">
                     <input class="payment__year" type="text" name="year-exp" required placeholder="YYYY" pattern="[0-9]{4}">
-                    <input class="payment__holder" type="text" name="holder" required placeholder="NAME SURNAME">
+                    <input class="payment__holder" type="text" name="holder" required placeholder="NAME SURNAME" pattern="\w+\s\w+">
                 </div>
                 <div class="payment__cvv-wrapper">
                     <input class="payment__cvv" name="cvv" type="text" required placeholder="CVV2" pattern="[0-9]{3,4}">
@@ -43,59 +45,59 @@
         </section>
     </div>
     <div class="page__modal-window">
-        <div class="modal-background">
-        </div>
-        <div class="modal-window" id="reg-window">
-            <div class="modal-window__close">
+        <div class="modal-window" onclick="controlModalWindow(event);">
+            <div class="modal-window__pop-ups" id="reg-window">
+                <div class="modal-window__close">
+                </div>
+                <form class="modal-window__form">
+                    <div class="modal-window__line">
+                        Registration
+                    </div>
+                    <div class="modal-window__line">
+                        <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}" name="email" type="email" required placeholder="Email adress" />
+                    </div>
+                    <div class="modal-window__line">
+                        <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
+                    </div>
+                    <div class="modal-window__line">
+                        <button class="modal-window__button" type="submit">Register</button>
+                    </div>
+                    <div class="modal-window__line modal-window__line--text-right">
+                        <a href="#" class="modal-window__sign-link">Sign In</a>
+                    </div>
+                </form>
             </div>
-            <form class="modal-window__form">
-                <div class="modal-window__line">
-                    Registration
+            <div class="modal-window__pop-ups" id="sign-window">
+                <div class="modal-window__close">
                 </div>
-                <div class="modal-window__line">
-                    <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress" />
-                </div>
-                <div class="modal-window__line">
-                    <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
-                </div>
-                <div class="modal-window__line">
-                    <button class="modal-window__button" type="submit">Register</button>
-                </div>
-                <div class="modal-window__line modal-window__line--text-right">
-                    <a href="#" class="modal-window__sign-link">Sign In</a>
-                </div>
-            </form>
-        </div>
-        <div class="modal-window" id="sign-window">
-            <div class="modal-window__close">
+                <form class="modal-window__form">
+                    <div class="modal-window__line">
+                        Please Sign In
+                    </div>
+                    <div class="modal-window__line">
+                        <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}" name="email" type="email" required placeholder="Email adress" />
+                    </div>
+                    <div class="modal-window__line">
+                        <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
+                    </div>
+                    <div class="modal-window__line">
+                        <label><input type="checkbox" name="remember" value="remember"> Remember me </label>
+                    </div>
+                    <div class="modal-window__line">
+                        <button class="modal-window__button" type="submit">Sign In</button>
+                    </div>
+                    <div class="modal-window__line modal-window__line--text-right">
+                        <a href="#" class="modal-window__reg-link">Register</a>
+                    </div>
+                </form>
             </div>
-            <form class="modal-window__form">
-                <div class="modal-window__line">
-                    Please Sign In
-                </div>
-                <div class="modal-window__line">
-                    <input class="modal-window__input-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" type="email" required placeholder="Email adress" />
-                </div>
-                <div class="modal-window__line">
-                    <input class="modal-window__input-password" name="password" type="password" required placeholder="***" />
-                </div>
-                <div class="modal-window__line">
-                    <label><input type="checkbox" name="remember" value="remember"> Remember me </label>
-                </div>
-                <div class="modal-window__line">
-                    <button class="modal-window__button" type="submit">Sign In</button>
-                </div>
-                <div class="modal-window__line modal-window__line--text-right">
-                    <a href="#" class="modal-window__reg-link">Register</a>
-                </div>
-            </form>
         </div>
     </div>
     <footer class="page__footer-main">
         <div class="footer-main">
             <div class="footer-main__content">
                 <div class="footer-main__section">
-                    <h4 class="footer-main__section-header">Some contacts information goes here</h4>
+                    <h4 class="footer-main__section-header">Some contacts goes here</h4>
                     <address class="footer-main__contacts">Here is some contacts:</address>
                     <address class="footer-main__contacts">Email: example@examp.com</address>
                     <address class="footer-main__contacts">Tel: +7 3412 000 000</address>
@@ -118,7 +120,6 @@
             </div>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="app.js"></script>
 </body>
 

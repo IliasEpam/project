@@ -1,20 +1,19 @@
 ﻿@media screen and (max-width: 760px) {
-	.navigation-categories{
-		padding-top:10px;
-		width:100%;
-		display:flex;
-		flex-wrap:wrap;
-		&__point{
-			width:100%;
-			text-align:center;
-		}
-		&__link{
-			display:inline-block;
-		}
-		&__img{
-			width:30px;
-			height:30px;
-			margin-right:5px;
-		}
-	}
+    .navigation-categories {
+        padding-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        &__point {
+            width: 100%;
+            text-align: center;
+        }
+        &__link {
+            display: inline-block;
+        }
+        &__img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+    }
 }

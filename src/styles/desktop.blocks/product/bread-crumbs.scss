@@ -2,7 +2,7 @@
     position: relative;
     padding: 20px 0;
     display: flex;
-    &__item {
+    &__link {
         padding: 8px 15px;
         background-image: linear-gradient(to bottom, $color-action 0%, $color-action-grad 100%);
         color: white;
@@ -10,14 +10,14 @@
         border-left: 1px solid white;
         font-size: 80%;
     }
-    &__item:hover {
+    &__link:hover {
         background-image: linear-gradient(to bottom, $color-action 0%, $color-action 100%);
     }
-    &__item:first-child {
+    &__link:first-child {
         border-radius: 20px 0 0 20px;
         border: none;
     }
-    &__item:last-child {
+    &__link:last-child {
         border-radius: 0 20px 20px 0;
     }
 }

@@ -1,17 +1,12 @@
 ﻿.scroll-up {
     padding: 12.5px;
-    position: fixed;
-    display: none;
     width: 60px;
     height: 100vh;
-    z-index: 30;
+    display: flex;
     opacity: 0.4;
     cursor: pointer;
     text-align: center;
-    transition: all .3s;
-    &--visible {
-        display: flex;
-    }
+    transition: all .5s;
     &__img {
         align-self: center;
         width: 35px;

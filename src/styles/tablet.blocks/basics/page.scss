@@ -1,7 +1,11 @@
 ﻿@media screen and (max-width: 1200px) {
     .page {
+        padding-top: 0;
         &__navigation-top {
             position: static;
+        }
+        &__scroll-up {
+            display: none;
         }
         &__main-banner {
             display: none;
@@ -14,21 +18,20 @@
         }
         &__payment {
             width: 90%;
-            margin-top: 0;
         }
         &__contacts {
             width: 90%;
-            margin-top: 30px;
         }
         &__cart {
             width: 90%;
-            margin-top: 0;
         }
         &__bread-crumbs {
             width: 90%;
-            margin-top: 20px;
         }
         &__product {
+            width: 90%;
+        }
+        &__goods {
             width: 90%;
         }
     }
