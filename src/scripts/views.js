@@ -18,36 +18,9 @@ function mainView(data) {
         var categoryTemplate = getTemplate('categories');
         var compileTemplate = Handlebars.compile(categoryTemplate);
         var categories = compileTemplate(initialData);
-        html = $(' <div class="page__main-banner">' +
-            ' <section class="main-banner">' +
-            '<div class="main-banner__text-container">' +
-            '<h1 class="main-banner__heading">Any exciting header</h1>' +
-            '<p class="main-banner__text">Some attractive text, shouldn\'t be too large. Just a couple lines. Some attractive text, shouldn\'t be too large. Just a couple lines.</p>' +
-            '</div>' +
-            '<div class="main-banner__scroll-down">' +
-            '<div class="main-banner__scroll-down-text">Start shopping</div>' +
-            '</div>' +
-            '</section>' +
-            '</div>' +
-            '<main class="page__categories">' +
-            ' <div class="categories">' +
-            '<section class="categories__content">' +
-            '<h2 class="categories__header">Categories</h2>' +
-            categories +
-            '</section>' +
-            '</div>' +
-            '</main>' +
-            '<div class="page__partners">' +
-            '<div class="partners">' +
-            '<div class="partners__content">' +
-            '<img class="partners__logo" alt="partner" src="img/partners/wwf.png">' +
-            '<img class="partners__logo" alt="partner" src="img/partners/green.png">' +
-            '<img class="partners__logo" alt="partner" src="img/partners/royal.png">' +
-            '<img class="partners__logo" alt="partner" src="img/partners/wwf.png">' +
-            '</div>' +
-            '</div>' +
-            '</div>');
-
+        var partners = getTemplate('partners');
+        var mainBanner = getTemplate('main-banner');
+        html = $(mainBanner + categories + partners);
     }
 
     function manipulateClasses(selector, actionClass, action) {

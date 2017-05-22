@@ -1,8 +1,15 @@
- {{#each categories}}
-<div class="categories__category">
-    <a class="categories__link" href="category.html">
-        <img class="categories__img" src="{{img}}" alt="{{title}}" />
-        <div class="categories__description">{{title}}<span> ({{goods.length}})</span></div>
-    </a>
-</div>
-{{/each}}
+<main class="page__categories">
+    <div class="categories">
+        <section class="categories__content">
+            <h2 class="categories__header">Categories</h2>
+            {{#each categories}}
+            <div class="categories__category">
+                <a class="categories__link" href="category.html">
+                    <img class="categories__img" src="{{img}}" alt="{{title}}" />
+                    <div class="categories__description">{{title}}<span> ({{goods.length}})</span></div>
+                </a>
+            </div>
+            {{/each}}
+        </section>
+    </div>
+</main>
