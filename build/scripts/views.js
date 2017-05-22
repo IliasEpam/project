@@ -40,17 +40,6 @@ function mainView(data) {
         }
     };
 
-    function closeAllModalWindows() {
-        manipulateClasses('.modal-window', 'modal-window--visible', 'remove');
-        manipulateClasses('#reg-window', 'modal-window__pop-ups--visible', 'remove');
-        manipulateClasses('#sign-window', 'modal-window__pop-ups--visible', 'remove');
-    }
-
-    function swapModalWindow() {
-        manipulateClasses('#reg-window', 'modal-window__pop-ups--visible', 'toggle');
-        manipulateClasses('#sign-window', 'modal-window__pop-ups--visible', 'toggle');
-    }
-
     function scrollTo(to, duration) {
         var difference = to - document.body.scrollTop;
         var step = difference / duration * 20;
@@ -75,9 +64,12 @@ function mainView(data) {
             $(document).on('click', '.modal-window', function(event) {
                 var eventTraget = event.target;
                 if (eventTraget.classList.contains('modal-window') || eventTraget.classList.contains('modal-window__close')) {
-                    closeAllModalWindows();
+                    manipulateClasses('.modal-window', 'modal-window--visible', 'remove');
+                    manipulateClasses('#reg-window', 'modal-window__pop-ups--visible', 'remove');
+                    manipulateClasses('#sign-window', 'modal-window__pop-ups--visible', 'remove');
                 } else if (eventTraget.classList.contains('modal-window__sign-link') || eventTraget.classList.contains('modal-window__reg-link')) {
-                    swapModalWindow();
+                    manipulateClasses('#reg-window', 'modal-window__pop-ups--visible', 'toggle');
+                    manipulateClasses('#sign-window', 'modal-window__pop-ups--visible', 'toggle');
                 }
             });
         },
