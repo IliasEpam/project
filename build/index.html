@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en-US">
 
 <head>
-    <meta charset="utf-8">
-    <title>Cat shop</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>MVP</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="app.css" />
 </head>
 
@@ -16,89 +16,22 @@
                 <div class="navigation-top__panel">
                     <label class="navigation-top__search"><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
                     <a class="navigation-top__icon navigation-top__icon--cart" href="cart.html"></a>
-                    <a class="navigation-top__icon navigation-top__icon--profile" onclick="showModalWindow()"></a>
+                    <a class="navigation-top__icon navigation-top__icon--profile"></a>
                 </div>
             </nav>
         </div>
     </header>
-    <div class="page__scroll-up" onclick="scrollTo(0, 500);">
+    <div class="page__scroll-up">
         <div class="scroll-up">
             <div class="scroll-up__img">
             </div>
         </div>
     </div>
-    <div class="page__main-banner">
-        <section class="main-banner">
-            <div class="main-banner__text-container">
-                <h1 class="main-banner__heading">Any exciting header</h1>
-                <p class="main-banner__text">Some attractive text, shouldn't be too large. Just a couple lines. Some attractive text, shouldn't be too large. Just a couple lines.</p>
-            </div>
-            <div class="main-banner__scroll-down" onclick="scrollTo(window.innerHeight - 50, 500);">
-                <div class="main-banner__scroll-down-text">Start shopping</div>
-            </div>
-        </section>
-    </div>
-    <main class="page__categories">
-        <div class="categories">
-            <section class="categories__content">
-                <h2 class="categories__header">Categories</h2>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/dry.jpg" alt="Dry food" />
-                        <div class="categories__description">Dry food<span> (80)</span></div>
-                    </a>
-                </div>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/wet.jpg" alt="Wet food" />
-                        <div class="categories__description">Wet food<span> (50)</span></div>
-                    </a>
-                </div>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/meds.jpg" alt="Medicines" />
-                        <div class="categories__description">Medicines<span> (60)</span></div>
-                    </a>
-                </div>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/sleep.jpg" alt="Sleeping places" />
-                        <div class="categories__description">Sleeping places<span> (35)</span></div>
-                    </a>
-                </div>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/toys.jpg" alt="Toys" />
-                        <div class="categories__description">Toys<span> (77)</span></div>
-                    </a>
-                </div>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/brush.jpg" alt="Brushes" />
-                        <div class="categories__description">Brushes<span> (43)</span></div>
-                    </a>
-                </div>
-                <div class="categories__category">
-                    <a class="categories__link" href="category.html">
-                        <img class="categories__img" src="img/acs.jpg" alt="Accessories" />
-                        <div class="categories__description">Accessories<span> (54)</span></div>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </main>
-    <div class="page__partners">
-        <div class="partners">
-            <div class="partners__content">
-                <img class="partners__logo" alt="partner" src="img/partners/wwf.png">
-                <img class="partners__logo" alt="partner" src="img/partners/green.png">
-                <img class="partners__logo" alt="partner" src="img/partners/royal.png">
-                <img class="partners__logo" alt="partner" src="img/partners/wwf.png">
-            </div>
-        </div>
+    <div id="content">
+
     </div>
     <div class="page__modal-window">
-        <div class="modal-window" onclick="controlModalWindow(event);">
+        <div class="modal-window">
             <div class="modal-window__pop-ups" id="reg-window">
                 <div class="modal-window__close">
                 </div>
@@ -173,7 +106,22 @@
             </div>
         </div>
     </footer>
-    <script src="app.js"></script>
+    <script src="scripts/handlebars.js"></script>
+    <script id="template-category" type="text/x-handlebars-template">
+        {{#each categories}}
+        <div class="categories__category">
+            <a class="categories__link" href="category.html">
+                <img class="categories__img" src="{{img}}" alt="{{title}}" />
+                <div class="categories__description">{{title}}<span> ({{goods.length}})</span></div>
+            </a>
+        </div>
+        {{/each}}
+    </script>
+
+    <script src="scripts/models.js"></script>
+    <script src="scripts/presenters.js"></script>
+    <script src="scripts/views.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>

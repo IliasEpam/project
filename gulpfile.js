@@ -61,8 +61,8 @@ gulp.task('css', function() {
         .pipe(gulp.dest('build'))
 });
 gulp.task('js', function() {
-    gulp.src('src/scripts/app.js')
-        .pipe(gulp.dest('build'))
+    gulp.src('src/scripts/*.js')
+        .pipe(gulp.dest('build/scripts'))
         /*var b = browserify({
             entries: 'src/scripts/app.js',
             debug: true,
