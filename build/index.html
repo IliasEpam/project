@@ -107,17 +107,6 @@
         </div>
     </footer>
     <script src="scripts/handlebars.js"></script>
-    <script id="template-category" type="text/x-handlebars-template">
-        {{#each categories}}
-        <div class="categories__category">
-            <a class="categories__link" href="category.html">
-                <img class="categories__img" src="{{img}}" alt="{{title}}" />
-                <div class="categories__description">{{title}}<span> ({{goods.length}})</span></div>
-            </a>
-        </div>
-        {{/each}}
-    </script>
-
     <script src="scripts/models.js"></script>
     <script src="scripts/presenters.js"></script>
     <script src="scripts/views.js"></script>

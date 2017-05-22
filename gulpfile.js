@@ -26,7 +26,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var webserver = require('gulp-webserver');
 
 
-gulp.task('default', ['imgs', 'css', 'html', 'js']);
+gulp.task('default', ['imgs', 'css', 'html', 'js', 'webserver']);
 
 gulp.task('webserver', function() {
     gulp.src('build')

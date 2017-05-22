@@ -1,8 +1,21 @@
 function mainView(data) {
     var html;
 
+    function getTemplate(name) {
+        var template = '';
+        $.ajax({
+            url: 'templates/' + name + '.html',
+            dataType: 'html',
+            success: function(data) {
+                template = data;
+            },
+            async: false
+        });
+        return template;
+    };
+
     function init(initialData) {
-        var categoryTemplate = document.getElementById('template-category').innerHTML;
+        var categoryTemplate = getTemplate('categories');
         var compileTemplate = Handlebars.compile(categoryTemplate);
         var categories = compileTemplate(initialData);
         html = $(' <div class="page__main-banner">' +
@@ -36,7 +49,6 @@ function mainView(data) {
             '</div>');
 
     }
-
 
     function manipulateClasses(selector, actionClass, action) {
         var selectedElements = document.querySelectorAll(selector);
