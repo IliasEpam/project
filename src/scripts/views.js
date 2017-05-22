@@ -92,7 +92,7 @@ function mainView(data) {
             });
         },
         showScrollUp: function() {
-            $(document).on('scroll', 'window', function() {
+            $(window).on('scroll', '.page__scroll-up', function() {
                 if (document.body.scrollTop <= window.innerHeight) {
                     manipulateClasses('.page__scroll-up', 'page__scroll-up--visible', 'remove');
                 } else {
