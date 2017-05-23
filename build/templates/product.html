@@ -1,0 +1,47 @@
+<div class="page__bread-crumbs">
+    <div class="bread-crumbs">
+        <a class="bread-crumbs__link" href="#">Main page</a>
+        <a class="bread-crumbs__link" href="#">Category name</a>
+        <a class="bread-crumbs__link" href="#">Product name</a>
+    </div>
+</div>
+<div class="page__product">
+    <div class="product">
+        <div class="product__slider">
+            <div class="slider" onclick="slide(event);">
+                <figure class="slider__shown-img-container">
+                    <img class="slider__shown-img" src="img/logo.jpg" alt="1" id="big-img">
+                </figure>
+                <div class="slider__controls">
+                    <div class="slider__arrow slider__arrow--left"></div>
+                    <div class="slider__source">
+                        <img class="slider__source-img slider__source-img--active" src="img/logo.jpg" alt="1">
+                        <img class="slider__source-img" src="img/banner.jpg" alt="2">
+                        <img class="slider__source-img" src="img/brush.jpg" alt="3">
+                        <img class="slider__source-img" src="img/dry.jpg" alt="4">
+                        <img class="slider__source-img" src="img/toys.jpg" alt="5">
+                    </div>
+                    <div class="slider__arrow slider__arrow--right"></div>
+                </div>
+            </div>
+        </div>
+        <section class="product__about">
+            <h1 class="product__name">Dry food: "Brand name" 2kg</h1>
+            <p class="product__desc">
+                Some product description like weight, brand, usefulness, some important properties and so on. You can put here even some marketing text. Anyway it is up to you what to write here. It doesn't matter cause it's just an example.
+            </p>
+            <div class="product__price">
+                Price: $5
+            </div>
+            <div class="product__inputs">
+                <label class="product__quantity">Quantity:<br> <input type="number" min="1" value="1"></label>
+                <button class="product__add-to-cart" type="submit"> Add to cart</button>
+            </div>
+            <div class="product__share">
+                <div class="product__social-icon product__social-icon--facebook"></div>
+                <div class="product__social-icon product__social-icon--twitter"></div>
+                <div class="product__social-icon product__social-icon--google"></div>
+            </div>
+        </section>
+    </div>
+</div>

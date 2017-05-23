@@ -1,2 +1,3 @@
 var page = new mainPresenter();
-$("#content").append(page.getView().getHtml());
+var targetContainer = document.getElementById('content');
+targetContainer.innerHTML = page.getView().getHtml();

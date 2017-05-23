@@ -1,19 +1,18 @@
 function mainView(data) {
     var html;
 
-    function getTemplate(name) {
+    function getTemplate(fileName) {
         var template = '';
         $.ajax({
-            url: 'templates/' + name + '.html',
+            url: 'templates/' + fileName + '.html',
             dataType: 'html',
             async: false,
             success: function(data) {
                 template = data;
             },
             error: function(request, status, error) {
-                console.log('ERROR template ' + name + '.html ' + request.status + ' ' + error);
+                console.log('ERROR template ' + fileName + '.html ' + request.status + ' ' + error);
             }
-
         });
         return template;
     };
@@ -22,7 +21,7 @@ function mainView(data) {
         var categoryTemplate = getTemplate('main-page');
         var compileTemplate = Handlebars.compile(categoryTemplate);
         var mainPage = compileTemplate(initialData);
-        html = $(mainPage);
+        html = mainPage;
     }
 
     function manipulateClasses(selector, actionClass, action) {

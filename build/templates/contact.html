@@ -1,0 +1,22 @@
+<div class="page__contacts">
+    <div class="contacts">
+        <form class="contacts__form">
+            <section class="contacts__form-block">
+                <h2 class="contacts__block-header"> Shipping address</h2>
+                <div class="contacts__line">Country <input class="contacts__input" type="text" name="shipping-country" required></div>
+                <div class="contacts__line">City <input class="contacts__input" type="text" name="shipping-city" required></div>
+                <div class="contacts__line">Address <input class="contacts__input" type="text" name="shipping-address" required></div>
+                <div class="contacts__line">ZIP <input class="contacts__input" type="text" name="shipping-zip" required></div>
+            </section>
+            <section class="contacts__form-block">
+                <h2 class="contacts__block-header"> Billing address</h2>
+                <div class="contacts__line">Country <input class="contacts__input" type="text" name="billing-country" required></div>
+                <div class="contacts__line">City <input class="contacts__input" type="text" name="billing-city" required></div>
+                <div class="contacts__line">Address <input class="contacts__input" type="text" name="billing-address" required></div>
+                <div class="contacts__line">ZIP <input class="contacts__input" type="text" name="billing-zip" required></div>
+                <div class="contacts__line"><label><input type="checkbox" id="ckeckboxSameAdress" onclick="copyInputValues();">My billing address is the same</label></div>
+            </section>
+            <div class="contacts__button-wrapper"><button type="submit" class="contacts__button" onclick="location.href='payment.html';">Continue</button></div>
+        </form>
+    </div>
+</div>
