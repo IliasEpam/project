@@ -1,4 +1,4 @@
-function mainView(data) {
+export default function mainView(data) {
     var html;
 
     function getTemplate(fileName) {
@@ -63,7 +63,7 @@ function mainView(data) {
         });
     }
 
-    var public = {
+    var view = {
         getHtml: function() {
             return html;
         },
@@ -108,5 +108,5 @@ function mainView(data) {
     };
 
     init(data);
-    return public;
+    return view;
 }

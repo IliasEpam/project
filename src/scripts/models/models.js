@@ -1,4 +1,4 @@
-function mainModel() {
+export default function mainModel() {
     this.data = {
         categories: [{
                 title: "Dry Food",

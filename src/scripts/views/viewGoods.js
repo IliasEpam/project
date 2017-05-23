@@ -1,4 +1,4 @@
-function mainView(data) {
+export default function goodsView(data) {
     var html;
 
     function getTemplate(fileName) {
@@ -18,10 +18,10 @@ function mainView(data) {
     };
 
     function init(initialData) {
-        var categoryTemplate = getTemplate('main-page');
-        var compileTemplate = Handlebars.compile(categoryTemplate);
-        var mainPage = compileTemplate(initialData);
-        html = mainPage;
+        var goodsTemplate = getTemplate('goods');
+        var compileTemplate = Handlebars.compile(goodsTemplate);
+        var goodsPage = compileTemplate(initialData);
+        html = goodsPage;
     }
 
     function manipulateClasses(selector, actionClass, action) {
@@ -63,7 +63,7 @@ function mainView(data) {
         });
     }
 
-    var public = {
+    var view = {
         getHtml: function() {
             return html;
         },
@@ -86,11 +86,6 @@ function mainView(data) {
                 }
             });
         },
-        scrollDown: function() {
-            delegateEvent(document, 'click', '.main-banner__scroll-down', function() {
-                scrollTo(window.innerHeight - 50, 500);
-            });
-        },
         scrollUp: function() {
             delegateEvent(document, 'click', '.page__scroll-up', function() {
                 scrollTo(0, 500);
@@ -108,5 +103,5 @@ function mainView(data) {
     };
 
     init(data);
-    return public;
+    return view;
 }

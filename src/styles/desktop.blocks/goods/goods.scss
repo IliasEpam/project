@@ -31,7 +31,7 @@
         flex-wrap: wrap;
         margin-right: 20px;
         &--list {
-            width: 650px;
+            width: 60%;
             max-height: 240px;
             font-size: 110%;
             text-align: left;
@@ -57,7 +57,7 @@
         vertical-align: top;
         width: 100%;
         &--list {
-            width: 350px;
+            width: calc(95% - 250px);
             height: 200px;
             display: flex;
             flex-wrap: wrap;

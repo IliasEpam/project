@@ -26,7 +26,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var webserver = require('gulp-webserver');
 
 
-gulp.task('default', ['imgs', 'css', 'html', 'js', 'webserver']);
+gulp.task('default', ['imgs', 'css', 'html', 'js', 'copy', 'webserver']);
 
 gulp.task('webserver', function() {
     gulp.src('build')
@@ -35,6 +35,10 @@ gulp.task('webserver', function() {
             directoryListing: false,
             open: true
         }));
+});
+gulp.task('copy', function() {
+    return gulp.src('src/templates/handlebars.js')
+        .pipe(gulp.dest('build/scripts'));
 });
 gulp.task('html', function() {
     return gulp.src('src/**/*.html')
@@ -61,22 +65,22 @@ gulp.task('css', function() {
         .pipe(gulp.dest('build'))
 });
 gulp.task('js', function() {
-    gulp.src('src/scripts/*.js')
-        .pipe(gulp.dest('build/scripts'))
-        /*var b = browserify({
-            entries: 'src/scripts/app.js',
-            debug: true,
-            transform: [babelify.configure({
-                presets: ['es2015']
-            })]
-        });
-        return b.bundle()
-            .pipe(source('app.js'))
-            .pipe(buffer())
-            .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(concat('app.js'))
-            /* .pipe(uglify())
-            .on('error', util.log)
-            .pipe(sourcemaps.write(''))
-            .pipe(gulp.dest('build'));*/
+    /*gulp.src('src/scripts/*.js')
+        .pipe(gulp.dest('build/scripts'))*/
+    var b = browserify({
+        entries: 'src/scripts/app.js',
+        debug: true,
+        transform: [babelify.configure({
+            presets: ['es2015']
+        })]
+    });
+    return b.bundle()
+        .pipe(source('app.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(concat('app.js'))
+        /* .pipe(uglify())*/
+        .on('error', util.log)
+        .pipe(sourcemaps.write(''))
+        .pipe(gulp.dest('build/scripts'));
 });

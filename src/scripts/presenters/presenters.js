@@ -1,4 +1,6 @@
-function mainPresenter() {
+import mainModel from '../models/models';
+import mainView from '../views/views';
+export default function mainPresenter() {
     var view;
     var model;
 
@@ -13,12 +15,12 @@ function mainPresenter() {
         view.scrollUp();
     }
 
-    var public = {
+    var presenter = {
         getView: function() {
             return view;
         }
     };
 
     init();
-    return public;
+    return presenter;
 }
