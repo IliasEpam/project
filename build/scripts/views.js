@@ -6,21 +6,23 @@ function mainView(data) {
         $.ajax({
             url: 'templates/' + name + '.html',
             dataType: 'html',
+            async: false,
             success: function(data) {
                 template = data;
             },
-            async: false
+            error: function(request, status, error) {
+                console.log('ERROR template ' + name + '.html ' + request.status + ' ' + error);
+            }
+
         });
         return template;
     };
 
     function init(initialData) {
-        var categoryTemplate = getTemplate('categories');
+        var categoryTemplate = getTemplate('main-page');
         var compileTemplate = Handlebars.compile(categoryTemplate);
-        var categories = compileTemplate(initialData);
-        var partners = getTemplate('partners');
-        var mainBanner = getTemplate('main-banner');
-        html = $(mainBanner + categories + partners);
+        var mainPage = compileTemplate(initialData);
+        html = $(mainPage);
     }
 
     function manipulateClasses(selector, actionClass, action) {
@@ -50,18 +52,30 @@ function mainView(data) {
         }, 10);
     }
 
+    function delegateEvent(element, e, selector, handler) {
+        element.addEventListener(e, function(event) {
+            var targetElement = event.target;
+            while (targetElement && targetElement !== this) {
+                if (targetElement.matches(selector)) {
+                    handler.call(targetElement, event);
+                }
+                targetElement = targetElement.parentNode;
+            }
+        });
+    }
+
     var public = {
         getHtml: function() {
             return html;
         },
         showPopUp: function() {
-            $(document).on('click', '.navigation-top__icon--profile', function() {
+            delegateEvent(document, 'click', '.navigation-top__icon--profile', function() {
                 manipulateClasses('.modal-window', 'modal-window--visible', 'add');
                 manipulateClasses('#sign-window', 'modal-window__pop-ups--visible', 'add');
             });
         },
         controlWindows: function() {
-            $(document).on('click', '.modal-window', function(event) {
+            delegateEvent(document, 'click', '.modal-window', function(event) {
                 var eventTraget = event.target;
                 if (eventTraget.classList.contains('modal-window') || eventTraget.classList.contains('modal-window__close')) {
                     manipulateClasses('.modal-window', 'modal-window--visible', 'remove');
@@ -74,17 +88,17 @@ function mainView(data) {
             });
         },
         scrollDown: function() {
-            $(document).on('click', '.main-banner__scroll-down', function() {
+            delegateEvent(document, 'click', '.main-banner__scroll-down', function() {
                 scrollTo(window.innerHeight - 50, 500);
             });
         },
         scrollUp: function() {
-            $(document).on('click', '.page__scroll-up', function() {
+            delegateEvent(document, 'click', '.page__scroll-up', function() {
                 scrollTo(0, 500);
             });
         },
         showScrollUp: function() {
-            $(document).on('scroll', document, function() {
+            window.addEventListener('scroll', function() {
                 if (document.body.scrollTop <= window.innerHeight) {
                     manipulateClasses('.page__scroll-up', 'page__scroll-up--visible', 'remove');
                 } else {
