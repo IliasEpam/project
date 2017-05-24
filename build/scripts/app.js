@@ -5,9 +5,9 @@ var _presenters = require('./presenters/presenters.js');
 
 var _presenters2 = _interopRequireDefault(_presenters);
 
-var _presenterGoods = require('./presenters/presenterGoods.js');
+var _presenterCategory = require('./presenters/presenterCategory.js');
 
-var _presenterGoods2 = _interopRequireDefault(_presenterGoods);
+var _presenterCategory2 = _interopRequireDefault(_presenterCategory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20,34 +20,20 @@ var targetContainer = document.getElementById('content');
 
 
 function changeView() {
-    switch (location.hash) {
-        case '':
-            page = new _presenters2.default();
-            break;
-        case '#goods':
-            console.log('show me goods');
-            page = new _presenterGoods2.default();
-            break;
+    if (location.hash === '') {
+        page = new _presenters2.default();
+    } else if (location.hash.indexOf('category') >= 0) {
+        var categoryId = location.hash.substring(9);
+        page = new _presenterCategory2.default(categoryId);
     }
     targetContainer.innerHTML = page.getView().getHtml();
 };
 
-window.addEventListener('hashchange', function () {
-    switch (location.hash) {
-        case '':
-            page = new _presenters2.default();
-            break;
-        case '#goods':
-            console.log('show me goods');
-            page = new _presenterGoods2.default();
-            break;
-    }
-    targetContainer.innerHTML = page.getView().getHtml();
-});
+window.addEventListener('hashchange', changeView);
 
 changeView();
 
-},{"./presenters/presenterGoods.js":3,"./presenters/presenters.js":4}],2:[function(require,module,exports){
+},{"./presenters/presenterCategory.js":3,"./presenters/presenters.js":4}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59,65 +45,151 @@ function mainModel() {
         categories: [{
             title: "Dry Food",
             img: "img/dry.jpg",
+            id: 0,
             goods: [{
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "10.9$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/dry.jpg"
+                img: "img/dry.jpg",
+                id: 0
             }, {
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "0.29$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/wet.jpg"
+                img: "img/wet.jpg",
+                id: 1
             }, {
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "0.9$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/dry.jpg"
+                img: "img/logo.jpg",
+                id: 2
             }, {
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "0.9$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/dry.jpg"
+                img: "img/dry.jpg",
+                id: 3
             }, {
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "0.9$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/dry.jpg"
+                img: "img/dry.jpg",
+                id: 4
             }, {
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "0.9$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/dry.jpg"
+                img: "img/dry.jpg",
+                id: 5
             }, {
                 title: "Dry food – 'Brand' (0.2kg)",
                 price: "0.9$",
                 description: "Little description of a good goes here. It could be much wider.",
-                img: "img/dry.jpg"
+                img: "img/dry.jpg",
+                id: 6
             }]
         }, {
             title: "Wet Food",
             img: "img/wet.jpg",
-            goods: []
+            id: 1,
+            goods: [{
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "9.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 7
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "5.29$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/dry.jpg",
+                id: 8
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "3.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 9
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "0.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 10
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "0.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/logo.jpg",
+                id: 11
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "0.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 12
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "0.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 13
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "0.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 14
+            }, {
+                title: "Wet food – 'Brand' (0.2kg)",
+                price: "0.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/wet.jpg",
+                id: 15
+            }]
         }, {
             title: "Medicines",
             img: "img/meds.jpg",
-            goods: []
+            id: 2,
+            goods: [{
+                title: "Some tablets – 'Brand'",
+                price: "20.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/meds.jpg",
+                id: 16
+            }, {
+                title: "Some other tablets – 'Brand'",
+                price: "15.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/logo.jpg",
+                id: 17
+            }, {
+                title: "Some more tablets – 'Brand'",
+                price: "10.9$",
+                description: "Little description of a good goes here. It could be much wider.",
+                img: "img/logo.jpg",
+                id: 18
+            }]
         }, {
             title: "Sleeping places",
             img: "img/sleep.jpg",
+            id: 3,
             goods: []
         }, {
             title: "Toys",
             img: "img/toys.jpg",
+            id: 4,
             goods: []
         }, {
             title: "Brushes",
             img: "img/brush.jpg",
+            id: 5,
             goods: []
         }, {
             title: "Accessories",
             img: "img/acs.jpg",
+            id: 6,
             goods: []
         }]
     };
@@ -133,30 +205,32 @@ mainModel.prototype.get = function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = goodsPresenter;
+exports.default = categoryPresenter;
 
 var _models = require('../models/models');
 
 var _models2 = _interopRequireDefault(_models);
 
-var _viewGoods = require('../views/viewGoods');
+var _viewCategory = require('../views/viewCategory');
 
-var _viewGoods2 = _interopRequireDefault(_viewGoods);
+var _viewCategory2 = _interopRequireDefault(_viewCategory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function goodsPresenter() {
+function categoryPresenter(categoryId) {
     var view;
     var model;
 
     function init() {
         model = new _models2.default();
-        view = new _viewGoods2.default(model.get());
+        view = new _viewCategory2.default(model.get().categories[categoryId]);
 
         view.showPopUp();
         view.controlWindows();
         view.showScrollUp();
         view.scrollUp();
+        view.changeToListView();
+        view.changeToGridView();
     }
 
     var presenter = {
@@ -169,7 +243,7 @@ function goodsPresenter() {
     return presenter;
 }
 
-},{"../models/models":2,"../views/viewGoods":5}],4:[function(require,module,exports){
+},{"../models/models":2,"../views/viewCategory":5}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -218,8 +292,8 @@ function mainPresenter() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = goodsView;
-function goodsView(data) {
+exports.default = categoryView;
+function categoryView(data) {
     var html;
 
     function getTemplate(fileName) {
@@ -239,10 +313,10 @@ function goodsView(data) {
     };
 
     function init(initialData) {
-        var goodsTemplate = getTemplate('goods');
-        var compileTemplate = Handlebars.compile(goodsTemplate);
-        var goodsPage = compileTemplate(initialData);
-        html = goodsPage;
+        var categoryTemplate = getTemplate('category');
+        var compileTemplate = Handlebars.compile(categoryTemplate);
+        var categoryPage = compileTemplate(initialData);
+        html = categoryPage;
     }
 
     function manipulateClasses(selector, actionClass, action) {
@@ -319,6 +393,30 @@ function goodsView(data) {
                 } else {
                     manipulateClasses('.page__scroll-up', 'page__scroll-up--visible', 'add');
                 }
+            });
+        },
+        changeToListView: function changeToListView() {
+            delegateEvent(document, 'click', '.list-view', function () {
+                manipulateClasses('.grid-view', 'grid-view--visible', 'add');
+                manipulateClasses('.list-view', 'list-view--visible', 'remove');
+                manipulateClasses('.goods__good-description', 'goods__good-description--visible', 'add');
+                manipulateClasses('.goods__good', 'goods__good--list', 'add');
+                manipulateClasses('.goods__good-info', 'goods__good-info--list', 'add');
+                manipulateClasses('.goods__good-img', 'goods__good-img--list', 'add');
+                manipulateClasses('.goods__good-price', 'goods__good-price--list', 'add');
+                manipulateClasses('.goods__good-name', 'goods__good-name--list', 'add');
+            });
+        },
+        changeToGridView: function changeToGridView() {
+            delegateEvent(document, 'click', '.grid-view', function () {
+                manipulateClasses('.goods__good-description', 'goods__good-description--visible', 'remove');
+                manipulateClasses('.goods__good', 'goods__good--list', 'remove');
+                manipulateClasses('.goods__good-info', 'goods__good-info--list', 'remove');
+                manipulateClasses('.goods__good-img', 'goods__good-img--list', 'remove');
+                manipulateClasses('.goods__good-price', 'goods__good-price--list', 'remove');
+                manipulateClasses('.goods__good-name', 'goods__good-name--list', 'remove');
+                manipulateClasses('.grid-view', 'grid-view--visible', 'remove');
+                manipulateClasses('.list-view', 'list-view--visible', 'add');
             });
         }
     };
@@ -424,7 +522,7 @@ function mainView(data) {
         },
         scrollDown: function scrollDown() {
             delegateEvent(document, 'click', '.main-banner__scroll-down', function () {
-                scrollTo(window.innerHeight - 50, 500);
+                scrollTo(window.innerHeight - 50, 400);
             });
         },
         scrollUp: function scrollUp() {

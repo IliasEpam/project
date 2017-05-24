@@ -669,10 +669,22 @@ table {
 
 .modal-window__sign-link {
   font-size: 80%;
+  color: blue;
+  cursor: pointer;
+}
+
+.modal-window__sign-link:hover {
+  text-decoration: underline;
 }
 
 .modal-window__reg-link {
   font-size: 80%;
+  color: blue;
+  cursor: pointer;
+}
+
+.modal-window__reg-link:hover {
+  text-decoration: underline;
 }
 
 .footer-main {
@@ -779,7 +791,6 @@ table {
 
 .goods__good {
   width: 200px;
-  max-height: 220px;
   padding-bottom: 20px;
   vertical-align: top;
   display: -webkit-box;
@@ -822,7 +833,7 @@ table {
 
 .goods__good-info {
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.3;
   vertical-align: top;
   width: 100%;
 }
@@ -921,6 +932,13 @@ table {
   right: 0;
   top: 20px;
   display: none;
+  color: blue;
+  cursor: pointer;
+}
+
+.grid-view:hover,
+.list-view:hover {
+  text-decoration: underline;
 }
 
 .grid-view--visible {

@@ -24,7 +24,6 @@
     }
     &__good {
         width: 200px;
-        max-height: 220px;
         padding-bottom: 20px;
         vertical-align: top;
         display: flex;
@@ -53,7 +52,7 @@
     }
     &__good-info {
         text-align: center;
-        line-height: 1.1;
+        line-height: 1.3;
         vertical-align: top;
         width: 100%;
         &--list {

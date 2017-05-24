@@ -72,8 +72,18 @@
     }
     &__sign-link {
         font-size: 80%;
+        color: blue;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
     }
     &__reg-link {
         font-size: 80%;
+        color: blue;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

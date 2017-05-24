@@ -88,7 +88,7 @@ export default function mainView(data) {
         },
         scrollDown: function() {
             delegateEvent(document, 'click', '.main-banner__scroll-down', function() {
-                scrollTo(window.innerHeight - 50, 500);
+                scrollTo(window.innerHeight - 50, 400);
             });
         },
         scrollUp: function() {

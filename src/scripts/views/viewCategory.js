@@ -1,4 +1,4 @@
-export default function goodsView(data) {
+export default function categoryView(data) {
     var html;
 
     function getTemplate(fileName) {
@@ -18,10 +18,10 @@ export default function goodsView(data) {
     };
 
     function init(initialData) {
-        var goodsTemplate = getTemplate('goods');
-        var compileTemplate = Handlebars.compile(goodsTemplate);
-        var goodsPage = compileTemplate(initialData);
-        html = goodsPage;
+        var categoryTemplate = getTemplate('category');
+        var compileTemplate = Handlebars.compile(categoryTemplate);
+        var categoryPage = compileTemplate(initialData);
+        html = categoryPage;
     }
 
     function manipulateClasses(selector, actionClass, action) {
@@ -98,6 +98,30 @@ export default function goodsView(data) {
                 } else {
                     manipulateClasses('.page__scroll-up', 'page__scroll-up--visible', 'add');
                 }
+            });
+        },
+        changeToListView: function() {
+            delegateEvent(document, 'click', '.list-view', function() {
+                manipulateClasses('.grid-view', 'grid-view--visible', 'add');
+                manipulateClasses('.list-view', 'list-view--visible', 'remove');
+                manipulateClasses('.goods__good-description', 'goods__good-description--visible', 'add');
+                manipulateClasses('.goods__good', 'goods__good--list', 'add');
+                manipulateClasses('.goods__good-info', 'goods__good-info--list', 'add');
+                manipulateClasses('.goods__good-img', 'goods__good-img--list', 'add');
+                manipulateClasses('.goods__good-price', 'goods__good-price--list', 'add');
+                manipulateClasses('.goods__good-name', 'goods__good-name--list', 'add');
+            });
+        },
+        changeToGridView: function() {
+            delegateEvent(document, 'click', '.grid-view', function() {
+                manipulateClasses('.goods__good-description', 'goods__good-description--visible', 'remove');
+                manipulateClasses('.goods__good', 'goods__good--list', 'remove');
+                manipulateClasses('.goods__good-info', 'goods__good-info--list', 'remove');
+                manipulateClasses('.goods__good-img', 'goods__good-img--list', 'remove');
+                manipulateClasses('.goods__good-price', 'goods__good-price--list', 'remove');
+                manipulateClasses('.goods__good-name', 'goods__good-name--list', 'remove');
+                manipulateClasses('.grid-view', 'grid-view--visible', 'remove');
+                manipulateClasses('.list-view', 'list-view--visible', 'add');
             });
         }
     };
