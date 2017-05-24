@@ -1,20 +1,18 @@
 import mainModel from '../models/models';
-import categoryView from '../views/viewCategory';
-export default function categoryPresenter(categoryPosition) {
+import productView from '../views/viewProduct';
+export default function productPresenter(categoryPosition, productPosition) {
     var view;
     var model;
 
     function init() {
         model = new mainModel();
-        view = new categoryView(model.get().categories[categoryPosition]);
-
+        view = new productView(model.get().categories[categoryPosition].goods[productPosition]);
 
         view.showPopUp();
         view.controlWindows();
         view.showScrollUp();
         view.scrollUp();
-        view.changeToListView();
-        view.changeToGridView();
+        view.carousel();
     }
 
     var presenter = {

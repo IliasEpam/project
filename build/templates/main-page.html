@@ -15,7 +15,7 @@
             <h2 class="categories__header">Categories</h2>
             {{#each categories}}
             <div class="categories__category">
-                <a class="categories__link" href="#category{{id}}">
+                <a class="categories__link" href="#category{{categoryPosition}}">
                     <img class="categories__img" src="{{img}}" alt="{{title}}" />
                     <div class="categories__description">{{title}}<span> ({{goods.length}})</span></div>
                 </a>

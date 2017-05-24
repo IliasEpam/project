@@ -1,21 +1,24 @@
 import mainPresenter from './presenters/presenters.js';
 import categoryPresenter from './presenters/presenterCategory.js';
+import productPresenter from './presenters/presenterProduct.js';
 
-var page /*= new mainPresenter()*/ ;
+var page;
 var targetContainer = document.getElementById('content');
-//targetContainer.innerHTML = page.getView().getHtml();
 
-
-
-//var element = document.querySelector('#content');
 
 
 function changeView() {
     if (location.hash === '') {
         page = new mainPresenter();
     } else if (location.hash.indexOf('category') >= 0) {
-        var categoryId = location.hash.substring(9);
-        page = new categoryPresenter(categoryId);
+        var categoryPosition = location.hash.substring(9);
+        page = new categoryPresenter(categoryPosition);
+    } else if (location.hash.indexOf('product') >= 0) {
+        var reg = /\d+/g;
+        var digitsFromHash = location.hash.match(reg);
+        var categoryPosition = digitsFromHash[0];
+        var productPosition = digitsFromHash[1];
+        page = new productPresenter(categoryPosition, productPosition);
     }
     targetContainer.innerHTML = page.getView().getHtml();
 };
