@@ -1,10 +1,10 @@
-import mainModel from '../models/models';
-import { productView } from '../views/viewProduct';
+import MainModel from '../models/models';
+import { ProductView } from '../views/viewProduct';
 import { delegateEvent } from '../utils/utils';
-export class productPresenter {
+export class ProductPresenter {
     constructor(categoryPosition, productPosition) {
-        this.model = new mainModel();
-        this.view = new productView();
+        this.model = new MainModel();
+        this.view = new ProductView();
 
         this.view.init(this.model.get().categories[categoryPosition].goods[productPosition]);
 

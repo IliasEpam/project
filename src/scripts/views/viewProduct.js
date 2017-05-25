@@ -1,6 +1,6 @@
-import { view } from '../common/view';
+import { View } from '../common/view';
 import { getTemplate, manipulateClasses, scrollTo, delegateEvent } from '../utils/utils';
-export class productView extends view {
+export class ProductView extends View {
 
     init(initialData) {
         var productTemplate = getTemplate('product');

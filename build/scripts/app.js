@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var _presenters = require('./presenters/presenters.js');
+var _mainPresenter = require('./presenters/mainPresenter.js');
 
 var _presenterCategory = require('./presenters/presenterCategory.js');
 
@@ -11,16 +11,16 @@ var page;
 
 function changeView() {
     if (location.hash === '') {
-        page = new _presenters.mainPresenter();
+        page = new _mainPresenter.MainPresenter();
     } else if (location.hash.indexOf('category') >= 0) {
         var categoryPosition = location.hash.substring(9);
-        page = new _presenterCategory.categoryPresenter(categoryPosition);
+        page = new _presenterCategory.CategoryPresenter(categoryPosition);
     } else if (location.hash.indexOf('product') >= 0) {
         var reg = /\d+/g;
         var digitsFromHash = location.hash.match(reg);
         var categoryPosition = digitsFromHash[0];
         var productPosition = digitsFromHash[1];
-        page = new _presenterProduct.productPresenter(categoryPosition, productPosition);
+        page = new _presenterProduct.ProductPresenter(categoryPosition, productPosition);
     }
 };
 
@@ -28,13 +28,13 @@ window.addEventListener('hashchange', changeView);
 
 changeView();
 
-},{"./presenters/presenterCategory.js":4,"./presenters/presenterProduct.js":5,"./presenters/presenters.js":6}],2:[function(require,module,exports){
+},{"./presenters/mainPresenter.js":4,"./presenters/presenterCategory.js":5,"./presenters/presenterProduct.js":6}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.view = undefined;
+exports.View = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -42,15 +42,15 @@ var _utils = require('../utils/utils');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var view = exports.view = function () {
-    function view(data) {
-        _classCallCheck(this, view);
+var View = exports.View = function () {
+    function View(data) {
+        _classCallCheck(this, View);
 
         this.html = '';
         this.init(data);
     }
 
-    _createClass(view, [{
+    _createClass(View, [{
         key: 'updateView',
         value: function updateView() {
             var container = document.getElementById('content');
@@ -91,7 +91,7 @@ var view = exports.view = function () {
         }
     }]);
 
-    return view;
+    return View;
 }();
 
 },{"../utils/utils":7}],3:[function(require,module,exports){
@@ -105,9 +105,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var mainModel = function () {
-    function mainModel() {
-        _classCallCheck(this, mainModel);
+var MainModel = function () {
+    function MainModel() {
+        _classCallCheck(this, MainModel);
 
         this.data = {
             categories: [{
@@ -373,17 +373,17 @@ var mainModel = function () {
         };
     }
 
-    _createClass(mainModel, [{
+    _createClass(MainModel, [{
         key: "get",
         value: function get() {
             return this.data;
         }
     }]);
 
-    return mainModel;
+    return MainModel;
 }();
 
-exports.default = mainModel;
+exports.default = MainModel;
 ;
 
 },{}],4:[function(require,module,exports){
@@ -392,7 +392,59 @@ exports.default = mainModel;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.categoryPresenter = undefined;
+exports.MainPresenter = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _models = require('../models/models');
+
+var _models2 = _interopRequireDefault(_models);
+
+var _mainView = require('../views/mainView');
+
+var _utils = require('../utils/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MainPresenter = exports.MainPresenter = function () {
+    function MainPresenter() {
+        _classCallCheck(this, MainPresenter);
+
+        this.model = new _models2.default();
+        this.view = new _mainView.MainView();
+        this.view.init(this.model.get());
+
+        this.executeEvents();
+    }
+
+    _createClass(MainPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
+        key: 'getView',
+        value: function getView() {
+            return this.view;
+        }
+    }]);
+
+    return MainPresenter;
+}();
+
+},{"../models/models":3,"../utils/utils":7,"../views/mainView":8}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.CategoryPresenter = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -408,18 +460,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var categoryPresenter = exports.categoryPresenter = function () {
-    function categoryPresenter(categoryPosition) {
-        _classCallCheck(this, categoryPresenter);
+var CategoryPresenter = exports.CategoryPresenter = function () {
+    function CategoryPresenter(categoryPosition) {
+        _classCallCheck(this, CategoryPresenter);
 
         this.model = new _models2.default();
-        this.view = new _viewCategory.categoryView();
+        this.view = new _viewCategory.CategoryView();
         this.view.init(this.model.get().categories[categoryPosition]);
 
         this.executeEvents();
     }
 
-    _createClass(categoryPresenter, [{
+    _createClass(CategoryPresenter, [{
         key: 'executeEvents',
         value: function executeEvents() {
             (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
@@ -437,16 +489,16 @@ var categoryPresenter = exports.categoryPresenter = function () {
         }
     }]);
 
-    return categoryPresenter;
+    return CategoryPresenter;
 }();
 
-},{"../models/models":3,"../utils/utils":7,"../views/viewCategory":9}],5:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":7,"../views/viewCategory":9}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.productPresenter = undefined;
+exports.ProductPresenter = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -462,19 +514,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var productPresenter = exports.productPresenter = function () {
-    function productPresenter(categoryPosition, productPosition) {
-        _classCallCheck(this, productPresenter);
+var ProductPresenter = exports.ProductPresenter = function () {
+    function ProductPresenter(categoryPosition, productPosition) {
+        _classCallCheck(this, ProductPresenter);
 
         this.model = new _models2.default();
-        this.view = new _viewProduct.productView();
+        this.view = new _viewProduct.ProductView();
 
         this.view.init(this.model.get().categories[categoryPosition].goods[productPosition]);
 
         this.executeEvents();
     }
 
-    _createClass(productPresenter, [{
+    _createClass(ProductPresenter, [{
         key: 'executeEvents',
         value: function executeEvents() {
             (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
@@ -490,62 +542,10 @@ var productPresenter = exports.productPresenter = function () {
         }
     }]);
 
-    return productPresenter;
+    return ProductPresenter;
 }();
 
-},{"../models/models":3,"../utils/utils":7,"../views/viewProduct":10}],6:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.mainPresenter = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _models = require('../models/models');
-
-var _models2 = _interopRequireDefault(_models);
-
-var _mainView = require('../views/mainView');
-
-var _utils = require('../utils/utils');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var mainPresenter = exports.mainPresenter = function () {
-    function mainPresenter() {
-        _classCallCheck(this, mainPresenter);
-
-        this.model = new _models2.default();
-        this.view = new _mainView.mainView();
-        this.view.init(this.model.get());
-
-        this.executeEvents();
-    }
-
-    _createClass(mainPresenter, [{
-        key: 'executeEvents',
-        value: function executeEvents() {
-            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
-            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
-            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
-            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
-            window.addEventListener('scroll', this.view.showScrollUp);
-        }
-    }, {
-        key: 'getView',
-        value: function getView() {
-            return this.view;
-        }
-    }]);
-
-    return mainPresenter;
-}();
-
-},{"../models/models":3,"../utils/utils":7,"../views/mainView":8}],7:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":7,"../views/viewProduct":10}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -616,11 +616,11 @@ function delegateEvent(element, e, selector, handler) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.mainView = undefined;
+exports.MainView = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _view2 = require('../common/view');
+var _view = require('../common/view');
 
 var _utils = require('../utils/utils');
 
@@ -630,16 +630,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var mainView = exports.mainView = function (_view) {
-    _inherits(mainView, _view);
+var MainView = exports.MainView = function (_View) {
+    _inherits(MainView, _View);
 
-    function mainView() {
-        _classCallCheck(this, mainView);
+    function MainView() {
+        _classCallCheck(this, MainView);
 
-        return _possibleConstructorReturn(this, (mainView.__proto__ || Object.getPrototypeOf(mainView)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (MainView.__proto__ || Object.getPrototypeOf(MainView)).apply(this, arguments));
     }
 
-    _createClass(mainView, [{
+    _createClass(MainView, [{
         key: 'init',
         value: function init(initialData) {
             var categoryTemplate = (0, _utils.getTemplate)('main-page');
@@ -655,8 +655,8 @@ var mainView = exports.mainView = function (_view) {
         }
     }]);
 
-    return mainView;
-}(_view2.view);
+    return MainView;
+}(_view.View);
 
 },{"../common/view":2,"../utils/utils":7}],9:[function(require,module,exports){
 'use strict';
@@ -664,11 +664,11 @@ var mainView = exports.mainView = function (_view) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.categoryView = undefined;
+exports.CategoryView = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _view2 = require('../common/view');
+var _view = require('../common/view');
 
 var _utils = require('../utils/utils');
 
@@ -678,16 +678,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var categoryView = exports.categoryView = function (_view) {
-    _inherits(categoryView, _view);
+var CategoryView = exports.CategoryView = function (_View) {
+    _inherits(CategoryView, _View);
 
-    function categoryView() {
-        _classCallCheck(this, categoryView);
+    function CategoryView() {
+        _classCallCheck(this, CategoryView);
 
-        return _possibleConstructorReturn(this, (categoryView.__proto__ || Object.getPrototypeOf(categoryView)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (CategoryView.__proto__ || Object.getPrototypeOf(CategoryView)).apply(this, arguments));
     }
 
-    _createClass(categoryView, [{
+    _createClass(CategoryView, [{
         key: 'init',
         value: function init(initialData) {
             var categoryTemplate = (0, _utils.getTemplate)('category');
@@ -722,8 +722,8 @@ var categoryView = exports.categoryView = function (_view) {
         }
     }]);
 
-    return categoryView;
-}(_view2.view);
+    return CategoryView;
+}(_view.View);
 
 },{"../common/view":2,"../utils/utils":7}],10:[function(require,module,exports){
 'use strict';
@@ -731,11 +731,11 @@ var categoryView = exports.categoryView = function (_view) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.productView = undefined;
+exports.ProductView = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _view2 = require('../common/view');
+var _view = require('../common/view');
 
 var _utils = require('../utils/utils');
 
@@ -745,16 +745,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var productView = exports.productView = function (_view) {
-    _inherits(productView, _view);
+var ProductView = exports.ProductView = function (_View) {
+    _inherits(ProductView, _View);
 
-    function productView() {
-        _classCallCheck(this, productView);
+    function ProductView() {
+        _classCallCheck(this, ProductView);
 
-        return _possibleConstructorReturn(this, (productView.__proto__ || Object.getPrototypeOf(productView)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (ProductView.__proto__ || Object.getPrototypeOf(ProductView)).apply(this, arguments));
     }
 
-    _createClass(productView, [{
+    _createClass(ProductView, [{
         key: 'init',
         value: function init(initialData) {
             var productTemplate = (0, _utils.getTemplate)('product');
@@ -801,8 +801,8 @@ var productView = exports.productView = function (_view) {
         }
     }]);
 
-    return productView;
-}(_view2.view);
+    return ProductView;
+}(_view.View);
 
 },{"../common/view":2,"../utils/utils":7}]},{},[1])
 

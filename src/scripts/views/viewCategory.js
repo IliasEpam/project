@@ -1,6 +1,6 @@
-import { view } from '../common/view';
+import { View } from '../common/view';
 import { getTemplate, manipulateClasses, scrollTo } from '../utils/utils';
-export class categoryView extends view {
+export class CategoryView extends View {
     init(initialData) {
         var categoryTemplate = getTemplate('category');
         var compileTemplate = Handlebars.compile(categoryTemplate);

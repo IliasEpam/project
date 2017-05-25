@@ -1,6 +1,6 @@
 import { getTemplate, manipulateClasses, scrollTo } from '../utils/utils';
 
-export class view {
+export class View {
 
     constructor(data) {
         this.html = '';

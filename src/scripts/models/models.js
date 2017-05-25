@@ -1,4 +1,4 @@
-export default class mainModel {
+export default class MainModel {
     constructor() {
         this.data = {
             categories: [{
