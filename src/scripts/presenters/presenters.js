@@ -1,26 +1,17 @@
 import mainModel from '../models/models';
-import mainView from '../views/views';
-export default function mainPresenter() {
-    var view;
-    var model;
-
-    function init() {
-        model = new mainModel();
-        view = new mainView(model.get());
-
-        view.showPopUp();
-        view.controlWindows();
-        view.scrollDown();
-        view.showScrollUp();
-        view.scrollUp();
+import { mainView } from '../views/mainView';
+export class mainPresenter {
+    constructor() {
+        this.model = new mainModel();
+        this.view = new mainView();
+        this.view.init(this.model.get());
+        this.view.showPopUp();
+        this.view.controlWindows();
+        this.view.scrollDown();
+        this.view.showScrollUp();
+        this.view.scrollUp();
     }
-
-    var presenter = {
-        getView: function() {
-            return view;
-        }
-    };
-
-    init();
-    return presenter;
+    getView() {
+        return this.view;
+    }
 }

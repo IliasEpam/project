@@ -1,28 +1,19 @@
 import mainModel from '../models/models';
-import categoryView from '../views/viewCategory';
-export default function categoryPresenter(categoryPosition) {
-    var view;
-    var model;
+import { categoryView } from '../views/viewCategory';
+export class categoryPresenter {
+    constructor(categoryPosition) {
+        this.model = new mainModel();
+        this.view = new categoryView();
 
-    function init() {
-        model = new mainModel();
-        view = new categoryView(model.get().categories[categoryPosition]);
-
-
-        view.showPopUp();
-        view.controlWindows();
-        view.showScrollUp();
-        view.scrollUp();
-        view.changeToListView();
-        view.changeToGridView();
+        this.view.init(this.model.get().categories[categoryPosition]);
+        this.view.showPopUp();
+        this.view.controlWindows();
+        this.view.changeToGridView();
+        this.view.changeToListView();
+        this.view.showScrollUp();
+        this.view.scrollUp();
     }
-
-    var presenter = {
-        getView: function() {
-            return view;
-        }
-    };
-
-    init();
-    return presenter;
+    getView() {
+        return this.view;
+    }
 }

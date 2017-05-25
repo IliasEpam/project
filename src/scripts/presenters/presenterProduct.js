@@ -1,26 +1,18 @@
 import mainModel from '../models/models';
-import productView from '../views/viewProduct';
-export default function productPresenter(categoryPosition, productPosition) {
-    var view;
-    var model;
+import { productView } from '../views/viewProduct';
+export class productPresenter {
+    constructor(categoryPosition, productPosition) {
+        this.model = new mainModel();
+        this.view = new productView();
 
-    function init() {
-        model = new mainModel();
-        view = new productView(model.get().categories[categoryPosition].goods[productPosition]);
-
-        view.showPopUp();
-        view.controlWindows();
-        view.showScrollUp();
-        view.scrollUp();
-        view.carousel();
+        this.view.init(this.model.get().categories[categoryPosition].goods[productPosition]);
+        this.view.showPopUp();
+        this.view.controlWindows();
+        this.view.carousel();
+        this.view.showScrollUp();
+        this.view.scrollUp();
     }
-
-    var presenter = {
-        getView: function() {
-            return view;
-        }
-    };
-
-    init();
-    return presenter;
+    getView() {
+        return this.view;
+    }
 }

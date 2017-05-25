@@ -1,6 +1,6 @@
-import mainPresenter from './presenters/presenters.js';
-import categoryPresenter from './presenters/presenterCategory.js';
-import productPresenter from './presenters/presenterProduct.js';
+import { mainPresenter } from './presenters/presenters.js';
+import { categoryPresenter } from './presenters/presenterCategory.js';
+import { productPresenter } from './presenters/presenterProduct.js';
 
 var page;
 var targetContainer = document.getElementById('content');
