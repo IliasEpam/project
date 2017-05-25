@@ -8,7 +8,6 @@ var _presenterCategory = require('./presenters/presenterCategory.js');
 var _presenterProduct = require('./presenters/presenterProduct.js');
 
 var page;
-var targetContainer = document.getElementById('content');
 
 function changeView() {
     if (location.hash === '') {
@@ -23,7 +22,6 @@ function changeView() {
         var productPosition = digitsFromHash[1];
         page = new _presenterProduct.productPresenter(categoryPosition, productPosition);
     }
-    targetContainer.innerHTML = page.getView().getHtml();
 };
 
 window.addEventListener('hashchange', changeView);
@@ -45,65 +43,51 @@ var _utils = require('../utils/utils');
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var view = exports.view = function () {
-    function view() {
+    function view(data) {
         _classCallCheck(this, view);
 
         this.html = '';
+        this.init(data);
     }
 
     _createClass(view, [{
-        key: 'init',
-        value: function init(initialData) {
-            var categoryTemplate = (0, _utils.getTemplate)('main-page');
-            var compileTemplate = Handlebars.compile(categoryTemplate);
-            var mainPage = compileTemplate(initialData);
-            this.html = mainPage;
-        }
-    }, {
-        key: 'getHtml',
-        value: function getHtml() {
-            return this.html;
+        key: 'updateView',
+        value: function updateView() {
+            var container = document.getElementById('content');
+            container.innerHTML = this.html;
         }
     }, {
         key: 'showPopUp',
         value: function showPopUp() {
-            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', function () {
-                (0, _utils.manipulateClasses)('.modal-window', 'modal-window--visible', 'add');
-                (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'add');
-            });
+            (0, _utils.manipulateClasses)('.modal-window', 'modal-window--visible', 'add');
+            (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'add');
         }
     }, {
         key: 'controlWindows',
-        value: function controlWindows() {
-            (0, _utils.delegateEvent)(document, 'click', '.modal-window', function (event) {
-                var eventTraget = event.target;
-                if (eventTraget.classList.contains('modal-window') || eventTraget.classList.contains('modal-window__close')) {
-                    (0, _utils.manipulateClasses)('.modal-window', 'modal-window--visible', 'remove');
-                    (0, _utils.manipulateClasses)('#reg-window', 'modal-window__pop-ups--visible', 'remove');
-                    (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'remove');
-                } else if (eventTraget.classList.contains('modal-window__sign-link') || eventTraget.classList.contains('modal-window__reg-link')) {
-                    (0, _utils.manipulateClasses)('#reg-window', 'modal-window__pop-ups--visible', 'toggle');
-                    (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'toggle');
-                }
-            });
+        value: function controlWindows(event) {
+            var eventTraget = event.target;
+            if (eventTraget.classList.contains('modal-window') || eventTraget.classList.contains('modal-window__close')) {
+                (0, _utils.manipulateClasses)('.modal-window', 'modal-window--visible', 'remove');
+                (0, _utils.manipulateClasses)('#reg-window', 'modal-window__pop-ups--visible', 'remove');
+                (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'remove');
+            } else if (eventTraget.classList.contains('modal-window__sign-link') || eventTraget.classList.contains('modal-window__reg-link')) {
+                (0, _utils.manipulateClasses)('#reg-window', 'modal-window__pop-ups--visible', 'toggle');
+                (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'toggle');
+            }
         }
     }, {
         key: 'scrollUp',
         value: function scrollUp() {
-            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', function () {
-                (0, _utils.scrollTo)(0, 500);
-            });
+            (0, _utils.scrollTo)(0, 500);
         }
     }, {
         key: 'showScrollUp',
         value: function showScrollUp() {
-            window.addEventListener('scroll', function () {
-                if (document.body.scrollTop <= window.innerHeight) {
-                    (0, _utils.manipulateClasses)('.page__scroll-up', 'page__scroll-up--visible', 'remove');
-                } else {
-                    (0, _utils.manipulateClasses)('.page__scroll-up', 'page__scroll-up--visible', 'add');
-                }
-            });
+            if (document.body.scrollTop <= window.innerHeight) {
+                (0, _utils.manipulateClasses)('.page__scroll-up', 'page__scroll-up--visible', 'remove');
+            } else {
+                (0, _utils.manipulateClasses)('.page__scroll-up', 'page__scroll-up--visible', 'add');
+            }
         }
     }]);
 
@@ -186,6 +170,78 @@ var mainModel = function () {
                     imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
                     categoryPosition: 0,
                     productPosition: 6
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 7
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 8
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 9
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 10
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 11
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 12
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 13
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 14
+                }, {
+                    title: "Dry food – 'Brand' (0.2kg)",
+                    price: "0.9$",
+                    description: "Little description of a good goes here. It could be much wider.",
+                    img: "img/dry.jpg",
+                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                    categoryPosition: 0,
+                    productPosition: 15
                 }]
             }, {
                 title: "Wet Food",
@@ -346,6 +402,8 @@ var _models2 = _interopRequireDefault(_models);
 
 var _viewCategory = require('../views/viewCategory');
 
+var _utils = require('../utils/utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -356,17 +414,23 @@ var categoryPresenter = exports.categoryPresenter = function () {
 
         this.model = new _models2.default();
         this.view = new _viewCategory.categoryView();
-
         this.view.init(this.model.get().categories[categoryPosition]);
-        this.view.showPopUp();
-        this.view.controlWindows();
-        this.view.changeToGridView();
-        this.view.changeToListView();
-        this.view.showScrollUp();
-        this.view.scrollUp();
+
+        this.executeEvents();
     }
 
     _createClass(categoryPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
+            (0, _utils.delegateEvent)(document, 'click', '.grid-view', this.view.changeToGridView);
+            (0, _utils.delegateEvent)(document, 'click', '.list-view', this.view.changeToListView);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
         key: 'getView',
         value: function getView() {
             return this.view;
@@ -376,7 +440,7 @@ var categoryPresenter = exports.categoryPresenter = function () {
     return categoryPresenter;
 }();
 
-},{"../models/models":3,"../views/viewCategory":9}],5:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":7,"../views/viewCategory":9}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -392,6 +456,8 @@ var _models2 = _interopRequireDefault(_models);
 
 var _viewProduct = require('../views/viewProduct');
 
+var _utils = require('../utils/utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -404,14 +470,20 @@ var productPresenter = exports.productPresenter = function () {
         this.view = new _viewProduct.productView();
 
         this.view.init(this.model.get().categories[categoryPosition].goods[productPosition]);
-        this.view.showPopUp();
-        this.view.controlWindows();
-        this.view.carousel();
-        this.view.showScrollUp();
-        this.view.scrollUp();
+
+        this.executeEvents();
     }
 
     _createClass(productPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            (0, _utils.delegateEvent)(document, 'click', '.slider', this.view.carousel);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
         key: 'getView',
         value: function getView() {
             return this.view;
@@ -421,7 +493,7 @@ var productPresenter = exports.productPresenter = function () {
     return productPresenter;
 }();
 
-},{"../models/models":3,"../views/viewProduct":10}],6:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":7,"../views/viewProduct":10}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -437,6 +509,8 @@ var _models2 = _interopRequireDefault(_models);
 
 var _mainView = require('../views/mainView');
 
+var _utils = require('../utils/utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -448,14 +522,20 @@ var mainPresenter = exports.mainPresenter = function () {
         this.model = new _models2.default();
         this.view = new _mainView.mainView();
         this.view.init(this.model.get());
-        this.view.showPopUp();
-        this.view.controlWindows();
-        this.view.scrollDown();
-        this.view.showScrollUp();
-        this.view.scrollUp();
+
+        this.executeEvents();
     }
 
     _createClass(mainPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
         key: 'getView',
         value: function getView() {
             return this.view;
@@ -465,7 +545,7 @@ var mainPresenter = exports.mainPresenter = function () {
     return mainPresenter;
 }();
 
-},{"../models/models":3,"../views/mainView":8}],7:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":7,"../views/mainView":8}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -566,13 +646,12 @@ var mainView = exports.mainView = function (_view) {
             var compileTemplate = Handlebars.compile(categoryTemplate);
             var mainPage = compileTemplate(initialData);
             this.html = mainPage;
+            this.updateView();
         }
     }, {
         key: 'scrollDown',
         value: function scrollDown() {
-            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', function () {
-                (0, _utils.scrollTo)(window.innerHeight - 50, 300);
-            });
+            (0, _utils.scrollTo)(window.innerHeight - 50, 300);
         }
     }]);
 
@@ -615,34 +694,31 @@ var categoryView = exports.categoryView = function (_view) {
             var compileTemplate = Handlebars.compile(categoryTemplate);
             var categoryPage = compileTemplate(initialData);
             this.html = categoryPage;
+            this.updateView();
         }
     }, {
         key: 'changeToListView',
         value: function changeToListView() {
-            (0, _utils.delegateEvent)(document, 'click', '.list-view', function () {
-                (0, _utils.manipulateClasses)('.grid-view', 'grid-view--visible', 'add');
-                (0, _utils.manipulateClasses)('.list-view', 'list-view--visible', 'remove');
-                (0, _utils.manipulateClasses)('.goods__good-description', 'goods__good-description--visible', 'add');
-                (0, _utils.manipulateClasses)('.goods__good', 'goods__good--list', 'add');
-                (0, _utils.manipulateClasses)('.goods__good-info', 'goods__good-info--list', 'add');
-                (0, _utils.manipulateClasses)('.goods__good-img', 'goods__good-img--list', 'add');
-                (0, _utils.manipulateClasses)('.goods__good-price', 'goods__good-price--list', 'add');
-                (0, _utils.manipulateClasses)('.goods__good-name', 'goods__good-name--list', 'add');
-            });
+            (0, _utils.manipulateClasses)('.grid-view', 'grid-view--visible', 'add');
+            (0, _utils.manipulateClasses)('.list-view', 'list-view--visible', 'remove');
+            (0, _utils.manipulateClasses)('.goods__good-description', 'goods__good-description--visible', 'add');
+            (0, _utils.manipulateClasses)('.goods__good', 'goods__good--list', 'add');
+            (0, _utils.manipulateClasses)('.goods__good-info', 'goods__good-info--list', 'add');
+            (0, _utils.manipulateClasses)('.goods__good-img', 'goods__good-img--list', 'add');
+            (0, _utils.manipulateClasses)('.goods__good-price', 'goods__good-price--list', 'add');
+            (0, _utils.manipulateClasses)('.goods__good-name', 'goods__good-name--list', 'add');
         }
     }, {
         key: 'changeToGridView',
         value: function changeToGridView() {
-            (0, _utils.delegateEvent)(document, 'click', '.grid-view', function () {
-                (0, _utils.manipulateClasses)('.goods__good-description', 'goods__good-description--visible', 'remove');
-                (0, _utils.manipulateClasses)('.goods__good', 'goods__good--list', 'remove');
-                (0, _utils.manipulateClasses)('.goods__good-info', 'goods__good-info--list', 'remove');
-                (0, _utils.manipulateClasses)('.goods__good-img', 'goods__good-img--list', 'remove');
-                (0, _utils.manipulateClasses)('.goods__good-price', 'goods__good-price--list', 'remove');
-                (0, _utils.manipulateClasses)('.goods__good-name', 'goods__good-name--list', 'remove');
-                (0, _utils.manipulateClasses)('.grid-view', 'grid-view--visible', 'remove');
-                (0, _utils.manipulateClasses)('.list-view', 'list-view--visible', 'add');
-            });
+            (0, _utils.manipulateClasses)('.goods__good-description', 'goods__good-description--visible', 'remove');
+            (0, _utils.manipulateClasses)('.goods__good', 'goods__good--list', 'remove');
+            (0, _utils.manipulateClasses)('.goods__good-info', 'goods__good-info--list', 'remove');
+            (0, _utils.manipulateClasses)('.goods__good-img', 'goods__good-img--list', 'remove');
+            (0, _utils.manipulateClasses)('.goods__good-price', 'goods__good-price--list', 'remove');
+            (0, _utils.manipulateClasses)('.goods__good-name', 'goods__good-name--list', 'remove');
+            (0, _utils.manipulateClasses)('.grid-view', 'grid-view--visible', 'remove');
+            (0, _utils.manipulateClasses)('.list-view', 'list-view--visible', 'add');
         }
     }]);
 
@@ -685,44 +761,43 @@ var productView = exports.productView = function (_view) {
             var compileTemplate = Handlebars.compile(productTemplate);
             var productyPage = compileTemplate(initialData);
             this.html = productyPage;
+            this.updateView();
         }
     }, {
         key: 'carousel',
-        value: function carousel() {
-            (0, _utils.delegateEvent)(document, 'click', '.slider', function (event) {
-                var currentImg = document.querySelector('.slider__source-img--active');
-                var sources = document.querySelector('.slider__source');
-                var bigImg = document.querySelector('.slider__shown-img');
-                var eventTarget = event.target;
-                if (eventTarget.classList.contains('slider__arrow--left')) {
-                    if (currentImg.previousElementSibling === null) {
-                        var source = sources.lastElementChild.getAttribute('src');
-                        currentImg.classList.remove('slider__source-img--active');
-                        sources.lastElementChild.classList.add('slider__source-img--active');
-                    } else {
-                        var source = currentImg.previousElementSibling.getAttribute('src');
-                        currentImg.classList.remove('slider__source-img--active');
-                        currentImg.previousElementSibling.classList.add('slider__source-img--active');
-                    }
-                    bigImg.setAttribute('src', source);
-                } else if (eventTarget.classList.contains('slider__arrow--right') || eventTarget.classList.contains('slider__shown-img')) {
-                    if (currentImg.nextElementSibling === null) {
-                        var source = sources.firstElementChild.getAttribute('src');
-                        currentImg.classList.remove('slider__source-img--active');
-                        sources.firstElementChild.classList.add('slider__source-img--active');
-                    } else {
-                        var source = currentImg.nextElementSibling.getAttribute('src');
-                        currentImg.classList.remove('slider__source-img--active');
-                        currentImg.nextElementSibling.classList.add('slider__source-img--active');
-                    }
-                    bigImg.setAttribute('src', source);
-                } else if (eventTarget.classList.contains('slider__source-img')) {
-                    var source = eventTarget.getAttribute('src');
+        value: function carousel(event) {
+            var currentImg = document.querySelector('.slider__source-img--active');
+            var sources = document.querySelector('.slider__source');
+            var bigImg = document.querySelector('.slider__shown-img');
+            var eventTarget = event.target;
+            if (eventTarget.classList.contains('slider__arrow--left')) {
+                if (currentImg.previousElementSibling === null) {
+                    var source = sources.lastElementChild.getAttribute('src');
                     currentImg.classList.remove('slider__source-img--active');
-                    eventTarget.classList.add('slider__source-img--active');
-                    bigImg.setAttribute('src', source);
+                    sources.lastElementChild.classList.add('slider__source-img--active');
+                } else {
+                    var source = currentImg.previousElementSibling.getAttribute('src');
+                    currentImg.classList.remove('slider__source-img--active');
+                    currentImg.previousElementSibling.classList.add('slider__source-img--active');
                 }
-            });
+                bigImg.setAttribute('src', source);
+            } else if (eventTarget.classList.contains('slider__arrow--right') || eventTarget.classList.contains('slider__shown-img')) {
+                if (currentImg.nextElementSibling === null) {
+                    var source = sources.firstElementChild.getAttribute('src');
+                    currentImg.classList.remove('slider__source-img--active');
+                    sources.firstElementChild.classList.add('slider__source-img--active');
+                } else {
+                    var source = currentImg.nextElementSibling.getAttribute('src');
+                    currentImg.classList.remove('slider__source-img--active');
+                    currentImg.nextElementSibling.classList.add('slider__source-img--active');
+                }
+                bigImg.setAttribute('src', source);
+            } else if (eventTarget.classList.contains('slider__source-img')) {
+                var source = eventTarget.getAttribute('src');
+                currentImg.classList.remove('slider__source-img--active');
+                eventTarget.classList.add('slider__source-img--active');
+                bigImg.setAttribute('src', source);
+            }
         }
     }]);
 

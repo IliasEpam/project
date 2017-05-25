@@ -1,5 +1,5 @@
 import { view } from '../common/view';
-import { getTemplate, manipulateClasses, scrollTo, delegateEvent } from '../utils/utils';
+import { getTemplate, manipulateClasses, scrollTo } from '../utils/utils';
 
 export class mainView extends view {
 
@@ -8,10 +8,9 @@ export class mainView extends view {
         var compileTemplate = Handlebars.compile(categoryTemplate);
         var mainPage = compileTemplate(initialData);
         this.html = mainPage;
+        this.updateView();
     }
     scrollDown() {
-        delegateEvent(document, 'click', '.main-banner__scroll-down', function() {
-            scrollTo(window.innerHeight - 50, 300);
-        });
+        scrollTo(window.innerHeight - 50, 300);
     }
 }

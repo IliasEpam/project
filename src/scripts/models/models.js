@@ -67,6 +67,87 @@ export default class mainModel {
                             imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
                             categoryPosition: 0,
                             productPosition: 6
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 7
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 8
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 9
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 10
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 11
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 12
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 13
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 14
+                        },
+                        {
+                            title: "Dry food – 'Brand' (0.2kg)",
+                            price: "0.9$",
+                            description: "Little description of a good goes here. It could be much wider.",
+                            img: "img/dry.jpg",
+                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
+                            categoryPosition: 0,
+                            productPosition: 15
                         }
                     ]
                 },

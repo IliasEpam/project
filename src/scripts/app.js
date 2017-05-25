@@ -3,9 +3,6 @@ import { categoryPresenter } from './presenters/presenterCategory.js';
 import { productPresenter } from './presenters/presenterProduct.js';
 
 var page;
-var targetContainer = document.getElementById('content');
-
-
 
 function changeView() {
     if (location.hash === '') {
@@ -20,7 +17,6 @@ function changeView() {
         var productPosition = digitsFromHash[1];
         page = new productPresenter(categoryPosition, productPosition);
     }
-    targetContainer.innerHTML = page.getView().getHtml();
 };
 
 window.addEventListener('hashchange', changeView);
