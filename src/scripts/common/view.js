@@ -1,16 +1,17 @@
-import { getTemplate, manipulateClasses, scrollTo } from '../utils/utils';
+import { getTemplate, manipulateClasses, scrollTo, corsApiVkRequest } from '../utils/utils';
 
-export class View {
+class View {
 
     constructor(data) {
         this.html = '';
         this.init(data);
     }
-    updateView() {
+    insertView() {
         var container = document.getElementById('content');
         container.innerHTML = this.html;
     }
     showPopUp() {
+        localStorage.removeItem('cat-shop-token');
         manipulateClasses('.modal-window', 'modal-window--visible', 'add');
         manipulateClasses('#sign-window', 'modal-window__pop-ups--visible', 'add');
     }
@@ -26,13 +27,27 @@ export class View {
         }
     }
     scrollUp() {
-        scrollTo(0, 500);
+        scrollTo(0);
     }
     showScrollUp() {
-        if (document.body.scrollTop <= window.innerHeight) {
+        if (document.body.scrollTop < window.innerHeight - 50) {
             manipulateClasses('.page__scroll-up', 'page__scroll-up--visible', 'remove');
         } else {
             manipulateClasses('.page__scroll-up', 'page__scroll-up--visible', 'add');
         }
     }
+    sayHi() {
+        var el = document.getElementById('userName');
+        if (localStorage.getItem('cat-shop-token')) {
+
+            corsApiVkRequest()
+                .then(result => result.response[0].first_name)
+                .then((name) => 'Hi ' + name)
+                .then((phrase) => { el.innerHTML = phrase })
+                .catch(err => console.log(err))
+        } else {
+            el.innerHTML = '';
+        }
+    }
 }
+export { View };

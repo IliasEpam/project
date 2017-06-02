@@ -1,10 +1,10 @@
 import MainModel from '../models/models';
-import { MainView } from '../views/mainView';
+import { PaymentView } from '../views/paymentView';
 import { delegateEvent } from '../utils/utils';
-export class MainPresenter {
+export class PaymentPresenter {
     constructor() {
         this.model = new MainModel();
-        this.view = new MainView();
+        this.view = new PaymentView();
         this.view.init(this.model.get());
 
         this.executeEvents();

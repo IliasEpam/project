@@ -2,11 +2,13 @@ import { View } from '../common/view';
 import { getTemplate, manipulateClasses, scrollTo } from '../utils/utils';
 export class CategoryView extends View {
     init(initialData) {
-        var categoryTemplate = getTemplate('category');
-        var compileTemplate = Handlebars.compile(categoryTemplate);
-        var categoryPage = compileTemplate(initialData);
-        this.html = categoryPage;
-        this.updateView();
+        getTemplate('category')
+            .then((results) => Handlebars.compile(results))
+            .then((compileTemplate) => compileTemplate(initialData))
+            .then((html) => { this.html = html })
+            .then(() => { this.insertView() })
+            .catch(err => console.log(err));
+        this.sayHi();
     }
     changeToListView() {
         manipulateClasses('.grid-view', 'grid-view--visible', 'add');
@@ -27,6 +29,10 @@ export class CategoryView extends View {
         manipulateClasses('.goods__good-name', 'goods__good-name--list', 'remove');
         manipulateClasses('.grid-view', 'grid-view--visible', 'remove');
         manipulateClasses('.list-view', 'list-view--visible', 'add');
+    }
+    changePageTitle(someData) {
+        var target = document.getElementsByTagName('title')[0];
+        target.innerHTML = someData.title;
     }
 
 }

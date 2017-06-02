@@ -12,8 +12,9 @@
     }
     &__pop-ups {
         position: fixed;
-        top: -200px;
-        height: 200px;
+        top: -250px;
+        min-height: 200px;
+        padding: 10px 0;
         width: 400px;
         left: calc(50% - 150px);
         z-index: 101;
@@ -64,11 +65,40 @@
         height: 20px;
         position: absolute;
         right: 0;
-        top: 1;
+        top: 1px;
         cursor: pointer;
         background: url(img/icons/close.jpg);
         z-index: 102;
         background-size: 100% 100%;
+    }
+    &__social-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 20px;
+        align-self: center;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: all .5s;
+        &--facebook {
+            background: url(img/icons/facebook.png);
+            background-size: 100% 100%;
+        }
+        &--twitter {
+            background: url(img/icons/twit.png);
+            background-size: 100% 100%;
+        }
+        &--google {
+            background: url(img/icons/google.png);
+            background-size: 100% 100%;
+        }
+        &--vk {
+            background: url(img/icons/vk.png);
+            background-size: 100% 100%;
+        }
+    }
+    &__social-icon:hover {
+        opacity: 1.0;
     }
     &__sign-link {
         font-size: 80%;

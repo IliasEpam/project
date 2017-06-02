@@ -15,8 +15,9 @@
                 <a class="navigation-top__logo" href="#" title="Go the main page"><img class="navigation-top__logo-img" src="img/logo.png" alt="red panda logo" /> Cat shop</a>
                 <div class="navigation-top__panel">
                     <label class="navigation-top__search"><input type="search" placeholder="Search..."/><img  class="navigation-top__search-img" src="img/icons/search.png"></label>
-                    <a class="navigation-top__icon navigation-top__icon--cart" href="cart.html"></a>
+                    <a class="navigation-top__icon navigation-top__icon--cart" href="#cart"></a>
                     <a class="navigation-top__icon navigation-top__icon--profile"></a>
+                    <span id="userName"></span>
                 </div>
             </nav>
         </div>
@@ -68,6 +69,9 @@
                     </div>
                     <div class="modal-window__line">
                         <label><input type="checkbox" name="remember" value="remember"> Remember me </label>
+                    </div>
+                    <div class="modal-window__line">
+                        <a class="modal-window__social-icon modal-window__social-icon--vk" href="https://oauth.vk.com/authorize?client_id=6054475&display=page&redirect_uri=http://localhost:8000/index.html&scope=friends&response_type=token&v=5.64"></a>
                     </div>
                     <div class="modal-window__line">
                         <button class="modal-window__button" type="submit">Sign In</button>

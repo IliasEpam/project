@@ -1,4 +1,4 @@
-class Event {
+export class Event {
     constructor(name) {
         this.name = name;
         this.callbacks = [];
@@ -27,4 +27,4 @@ class Reactor {
     }
 }
 var reactor = new Reactor();
-export { reactor };
+export { reactor, Event };

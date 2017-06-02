@@ -37,7 +37,7 @@ gulp.task('webserver', function() {
         }));
 });
 gulp.task('copy', function() {
-    return gulp.src('src/templates/handlebars.js')
+    return gulp.src('src/templates/*.js')
         .pipe(gulp.dest('build/scripts'));
 });
 gulp.task('html', function() {

@@ -3,11 +3,13 @@ import { getTemplate, manipulateClasses, scrollTo, delegateEvent } from '../util
 export class ProductView extends View {
 
     init(initialData) {
-        var productTemplate = getTemplate('product');
-        var compileTemplate = Handlebars.compile(productTemplate);
-        var productyPage = compileTemplate(initialData);
-        this.html = productyPage;
-        this.updateView();
+        getTemplate('product')
+            .then((results) => Handlebars.compile(results))
+            .then((compileTemplate) => compileTemplate(initialData))
+            .then((html) => { this.html = html })
+            .then(() => { this.insertView() })
+            .catch(err => console.log(err));
+        this.sayHi();
     }
     carousel(event) {
         var currentImg = document.querySelector('.slider__source-img--active');
@@ -42,6 +44,10 @@ export class ProductView extends View {
             eventTarget.classList.add('slider__source-img--active');
             bigImg.setAttribute('src', source);
         }
+    }
+    changePageTitle(someData) {
+        var target = document.getElementsByTagName('title')[0];
+        target.innerHTML = someData.title;
     }
 
 }

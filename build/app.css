@@ -591,8 +591,9 @@ table {
 
 .modal-window__pop-ups {
   position: fixed;
-  top: -200px;
-  height: 200px;
+  top: -250px;
+  min-height: 200px;
+  padding: 10px 0;
   width: 400px;
   left: -webkit-calc(50% - 150px);
   left: calc(50% - 150px);
@@ -660,11 +661,50 @@ table {
   height: 20px;
   position: absolute;
   right: 0;
-  top: 1;
+  top: 1px;
   cursor: pointer;
   background: url("img/icons/close.jpg");
   z-index: 102;
   background-size: 100% 100%;
+}
+
+.modal-window__social-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  cursor: pointer;
+  opacity: 0.8;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.modal-window__social-icon--facebook {
+  background: url("img/icons/facebook.png");
+  background-size: 100% 100%;
+}
+
+.modal-window__social-icon--twitter {
+  background: url("img/icons/twit.png");
+  background-size: 100% 100%;
+}
+
+.modal-window__social-icon--google {
+  background: url("img/icons/google.png");
+  background-size: 100% 100%;
+}
+
+.modal-window__social-icon--vk {
+  background: url("img/icons/vk.png");
+  background-size: 100% 100%;
+}
+
+.modal-window__social-icon:hover {
+  opacity: 1.0;
 }
 
 .modal-window__sign-link {
@@ -1502,6 +1542,11 @@ table {
 
 .product__social-icon--google {
   background: url("img/icons/google.png");
+  background-size: 100% 100%;
+}
+
+.product__social-icon--vk {
+  background: url("img/icons/vk.png");
   background-size: 100% 100%;
 }
 

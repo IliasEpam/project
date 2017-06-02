@@ -3,24 +3,48 @@
 
 var _mainPresenter = require('./presenters/mainPresenter.js');
 
-var _presenterCategory = require('./presenters/presenterCategory.js');
+var _categoryPresenter = require('./presenters/categoryPresenter.js');
 
-var _presenterProduct = require('./presenters/presenterProduct.js');
+var _productPresenter = require('./presenters/productPresenter.js');
+
+var _cartPresenter = require('./presenters/cartPresenter.js');
+
+var _contactsPresenter = require('./presenters/contactsPresenter.js');
+
+var _paymentPresenter = require('./presenters/paymentPresenter.js');
+
+var _authPresenter = require('./presenters/authPresenter.js');
+
+var _utils = require('./utils/utils');
 
 var page;
 
 function changeView() {
-    if (location.hash === '') {
+    if (location.hash.indexOf('access_token') >= 0) {
+        page = new _authPresenter.AuthPresenter();
+    } else if (location.hash === '') {
         page = new _mainPresenter.MainPresenter();
+        (0, _utils.scrollTo)(0);
     } else if (location.hash.indexOf('category') >= 0) {
         var categoryPosition = location.hash.substring(9);
-        page = new _presenterCategory.CategoryPresenter(categoryPosition);
+        page = new _categoryPresenter.CategoryPresenter(categoryPosition);
+        (0, _utils.scrollTo)(0);
     } else if (location.hash.indexOf('product') >= 0) {
         var reg = /\d+/g;
-        var digitsFromHash = location.hash.match(reg);
-        var categoryPosition = digitsFromHash[0];
-        var productPosition = digitsFromHash[1];
-        page = new _presenterProduct.ProductPresenter(categoryPosition, productPosition);
+        var numbersFromHash = location.hash.match(reg);
+        var categoryPosition = numbersFromHash[0];
+        var productPosition = numbersFromHash[1];
+        page = new _productPresenter.ProductPresenter(categoryPosition, productPosition);
+        (0, _utils.scrollTo)(0);
+    } else if (location.hash.indexOf('cart') >= 0) {
+        page = new _cartPresenter.CartPresenter();
+        (0, _utils.scrollTo)(0);
+    } else if (location.hash.indexOf('contacts') >= 0) {
+        page = new _contactsPresenter.ContactsPresenter();
+        (0, _utils.scrollTo)(0);
+    } else if (location.hash.indexOf('payment') >= 0) {
+        page = new _paymentPresenter.PaymentPresenter();
+        (0, _utils.scrollTo)(0);
     }
 };
 
@@ -28,7 +52,7 @@ window.addEventListener('hashchange', changeView);
 
 changeView();
 
-},{"./presenters/mainPresenter.js":4,"./presenters/presenterCategory.js":5,"./presenters/presenterProduct.js":6}],2:[function(require,module,exports){
+},{"./presenters/authPresenter.js":5,"./presenters/cartPresenter.js":6,"./presenters/categoryPresenter.js":7,"./presenters/contactsPresenter.js":8,"./presenters/mainPresenter.js":9,"./presenters/paymentPresenter.js":10,"./presenters/productPresenter.js":11,"./utils/utils":12}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42,7 +66,7 @@ var _utils = require('../utils/utils');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var View = exports.View = function () {
+var View = function () {
     function View(data) {
         _classCallCheck(this, View);
 
@@ -51,14 +75,15 @@ var View = exports.View = function () {
     }
 
     _createClass(View, [{
-        key: 'updateView',
-        value: function updateView() {
+        key: 'insertView',
+        value: function insertView() {
             var container = document.getElementById('content');
             container.innerHTML = this.html;
         }
     }, {
         key: 'showPopUp',
         value: function showPopUp() {
+            localStorage.removeItem('cat-shop-token');
             (0, _utils.manipulateClasses)('.modal-window', 'modal-window--visible', 'add');
             (0, _utils.manipulateClasses)('#sign-window', 'modal-window__pop-ups--visible', 'add');
         }
@@ -78,15 +103,34 @@ var View = exports.View = function () {
     }, {
         key: 'scrollUp',
         value: function scrollUp() {
-            (0, _utils.scrollTo)(0, 500);
+            (0, _utils.scrollTo)(0);
         }
     }, {
         key: 'showScrollUp',
         value: function showScrollUp() {
-            if (document.body.scrollTop <= window.innerHeight) {
+            if (document.body.scrollTop < window.innerHeight - 50) {
                 (0, _utils.manipulateClasses)('.page__scroll-up', 'page__scroll-up--visible', 'remove');
             } else {
                 (0, _utils.manipulateClasses)('.page__scroll-up', 'page__scroll-up--visible', 'add');
+            }
+        }
+    }, {
+        key: 'sayHi',
+        value: function sayHi() {
+            var el = document.getElementById('userName');
+            if (localStorage.getItem('cat-shop-token')) {
+
+                (0, _utils.corsApiVkRequest)().then(function (result) {
+                    return result.response[0].first_name;
+                }).then(function (name) {
+                    return 'Hi ' + name;
+                }).then(function (phrase) {
+                    el.innerHTML = phrase;
+                }).catch(function (err) {
+                    return console.log(err);
+                });
+            } else {
+                el.innerHTML = '';
             }
         }
     }]);
@@ -94,7 +138,9 @@ var View = exports.View = function () {
     return View;
 }();
 
-},{"../utils/utils":7}],3:[function(require,module,exports){
+exports.View = View;
+
+},{"../utils/utils":12}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -392,6 +438,252 @@ exports.default = MainModel;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var UserModel = function () {
+    function UserModel() {
+        _classCallCheck(this, UserModel);
+
+        this.data = [{ id: 1, token: 'asdasd123qsdas21sf21e' }, { id: 2, token: 'asdasd123qsasddas21sf21e' }, { id: 3, token: 'asdasd12312asdsdas21sf21e' }];
+    }
+
+    _createClass(UserModel, [{
+        key: 'get',
+        value: function get() {
+            return this.data;
+        }
+    }, {
+        key: 'addNewUser',
+        value: function addNewUser(newId, newToken) {
+            var newUser = { id: newId, token: newToken };
+            this.data.push(newUser);
+        }
+    }]);
+
+    return UserModel;
+}();
+
+exports.default = UserModel;
+;
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.AuthPresenter = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _userModel = require('../models/userModel');
+
+var _userModel2 = _interopRequireDefault(_userModel);
+
+var _authView = require('../views/authView');
+
+var _utils = require('../utils/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var AuthPresenter = exports.AuthPresenter = function () {
+    function AuthPresenter() {
+        _classCallCheck(this, AuthPresenter);
+
+        this.model = new _userModel2.default();
+        this.view = new _authView.AuthView();
+        this.view.init(this.model.get());
+
+        this.executeEvents();
+    }
+
+    _createClass(AuthPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            var hash = location.hash;
+            var firstChar = hash.indexOf('=') + 1;
+            var lastChar = hash.indexOf('&');
+            var token = hash.slice(firstChar, lastChar);
+            localStorage.setItem('cat-shop-token', token);
+            window.location = 'http://localhost:8000/#';
+        }
+    }]);
+
+    return AuthPresenter;
+}();
+
+},{"../models/userModel":4,"../utils/utils":12,"../views/authView":13}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.CartPresenter = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _models = require('../models/models');
+
+var _models2 = _interopRequireDefault(_models);
+
+var _cartView = require('../views/cartView');
+
+var _utils = require('../utils/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CartPresenter = exports.CartPresenter = function () {
+    function CartPresenter() {
+        _classCallCheck(this, CartPresenter);
+
+        this.model = new _models2.default();
+        this.view = new _cartView.CartView();
+        this.view.init(this.model.get());
+
+        this.executeEvents();
+        this.view.changePageTitle();
+    }
+
+    _createClass(CartPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
+        key: 'getView',
+        value: function getView() {
+            return this.view;
+        }
+    }]);
+
+    return CartPresenter;
+}();
+
+},{"../models/models":3,"../utils/utils":12,"../views/cartView":14}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.CategoryPresenter = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _models = require('../models/models');
+
+var _models2 = _interopRequireDefault(_models);
+
+var _categoryView = require('../views/categoryView');
+
+var _utils = require('../utils/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CategoryPresenter = exports.CategoryPresenter = function () {
+    function CategoryPresenter(categoryPosition) {
+        _classCallCheck(this, CategoryPresenter);
+
+        this.model = new _models2.default();
+        this.view = new _categoryView.CategoryView();
+        this.view.init(this.model.get().categories[categoryPosition]);
+
+        this.executeEvents();
+        this.view.changePageTitle(this.model.get().categories[categoryPosition]);
+    }
+
+    _createClass(CategoryPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
+            (0, _utils.delegateEvent)(document, 'click', '.grid-view', this.view.changeToGridView);
+            (0, _utils.delegateEvent)(document, 'click', '.list-view', this.view.changeToListView);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
+        key: 'getView',
+        value: function getView() {
+            return this.view;
+        }
+    }]);
+
+    return CategoryPresenter;
+}();
+
+},{"../models/models":3,"../utils/utils":12,"../views/categoryView":15}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ContactsPresenter = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _models = require('../models/models');
+
+var _models2 = _interopRequireDefault(_models);
+
+var _contactsView = require('../views/contactsView');
+
+var _utils = require('../utils/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ContactsPresenter = exports.ContactsPresenter = function () {
+    function ContactsPresenter() {
+        _classCallCheck(this, ContactsPresenter);
+
+        this.model = new _models2.default();
+        this.view = new _contactsView.ContactsView();
+        this.view.init(this.model.get());
+
+        this.executeEvents();
+        this.view.changePageTitle();
+    }
+
+    _createClass(ContactsPresenter, [{
+        key: 'executeEvents',
+        value: function executeEvents() {
+            (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
+            (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
+            (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
+            (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
+            (0, _utils.delegateEvent)(document, 'click', '#ckeckboxSameAdress', this.view.copyInputValues);
+            window.addEventListener('scroll', this.view.showScrollUp);
+        }
+    }, {
+        key: 'getView',
+        value: function getView() {
+            return this.view;
+        }
+    }]);
+
+    return ContactsPresenter;
+}();
+
+},{"../models/models":3,"../utils/utils":12,"../views/contactsView":16}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.MainPresenter = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -417,6 +709,7 @@ var MainPresenter = exports.MainPresenter = function () {
         this.view.init(this.model.get());
 
         this.executeEvents();
+        this.view.changePageTitle();
     }
 
     _createClass(MainPresenter, [{
@@ -438,13 +731,13 @@ var MainPresenter = exports.MainPresenter = function () {
     return MainPresenter;
 }();
 
-},{"../models/models":3,"../utils/utils":7,"../views/mainView":8}],5:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":12,"../views/mainView":17}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.CategoryPresenter = undefined;
+exports.PaymentPresenter = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -452,7 +745,7 @@ var _models = require('../models/models');
 
 var _models2 = _interopRequireDefault(_models);
 
-var _viewCategory = require('../views/viewCategory');
+var _paymentView = require('../views/paymentView');
 
 var _utils = require('../utils/utils');
 
@@ -460,26 +753,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var CategoryPresenter = exports.CategoryPresenter = function () {
-    function CategoryPresenter(categoryPosition) {
-        _classCallCheck(this, CategoryPresenter);
+var PaymentPresenter = exports.PaymentPresenter = function () {
+    function PaymentPresenter() {
+        _classCallCheck(this, PaymentPresenter);
 
         this.model = new _models2.default();
-        this.view = new _viewCategory.CategoryView();
-        this.view.init(this.model.get().categories[categoryPosition]);
+        this.view = new _paymentView.PaymentView();
+        this.view.init(this.model.get());
 
         this.executeEvents();
+        this.view.changePageTitle();
     }
 
-    _createClass(CategoryPresenter, [{
+    _createClass(PaymentPresenter, [{
         key: 'executeEvents',
         value: function executeEvents() {
             (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
             (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
             (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
             (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
-            (0, _utils.delegateEvent)(document, 'click', '.grid-view', this.view.changeToGridView);
-            (0, _utils.delegateEvent)(document, 'click', '.list-view', this.view.changeToListView);
             window.addEventListener('scroll', this.view.showScrollUp);
         }
     }, {
@@ -489,10 +781,10 @@ var CategoryPresenter = exports.CategoryPresenter = function () {
         }
     }]);
 
-    return CategoryPresenter;
+    return PaymentPresenter;
 }();
 
-},{"../models/models":3,"../utils/utils":7,"../views/viewCategory":9}],6:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":12,"../views/paymentView":18}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -506,7 +798,7 @@ var _models = require('../models/models');
 
 var _models2 = _interopRequireDefault(_models);
 
-var _viewProduct = require('../views/viewProduct');
+var _productView = require('../views/productView');
 
 var _utils = require('../utils/utils');
 
@@ -519,11 +811,11 @@ var ProductPresenter = exports.ProductPresenter = function () {
         _classCallCheck(this, ProductPresenter);
 
         this.model = new _models2.default();
-        this.view = new _viewProduct.ProductView();
-
+        this.view = new _productView.ProductView();
         this.view.init(this.model.get().categories[categoryPosition].goods[productPosition]);
 
         this.executeEvents();
+        this.view.changePageTitle(this.model.get().categories[categoryPosition].goods[productPosition]);
     }
 
     _createClass(ProductPresenter, [{
@@ -545,30 +837,45 @@ var ProductPresenter = exports.ProductPresenter = function () {
     return ProductPresenter;
 }();
 
-},{"../models/models":3,"../utils/utils":7,"../views/viewProduct":10}],7:[function(require,module,exports){
+},{"../models/models":3,"../utils/utils":12,"../views/productView":19}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.getTemplate = getTemplate;
+exports.corsApiVkRequest = corsApiVkRequest;
 exports.manipulateClasses = manipulateClasses;
 exports.scrollTo = scrollTo;
 exports.delegateEvent = delegateEvent;
 function getTemplate(fileName) {
-    var template = '';
-    $.ajax({
-        url: 'templates/' + fileName + '.html',
-        dataType: 'html',
-        async: false,
-        success: function success(data) {
-            template = data;
-        },
-        error: function error(request, status, _error) {
-            console.log('ERROR template ' + fileName + '.html ' + request.status + ' ' + _error);
-        }
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: 'templates/' + fileName + '.html',
+            dataType: 'html',
+            success: function success(data) {
+                resolve(data);
+            },
+            error: function error(request, status, _error) {
+                console.log('ERROR template ' + fileName + '.html ' + request.status + ' ' + _error);
+            }
+        });
     });
-    return template;
+};
+function corsApiVkRequest() {
+    return new Promise(function (resolve, reject) {
+        var token = localStorage.getItem('cat-shop-token');
+        var url = 'https://api.vk.com/method/users.get?PARAMETERS&access_token=' + token;
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'jsonp',
+            crossDomain: true,
+            success: function success(data) {
+                resolve(data);
+            }
+        });
+    });
 };
 
 function manipulateClasses(selector, actionClass, action) {
@@ -588,14 +895,8 @@ function manipulateClasses(selector, actionClass, action) {
     }
 };
 
-function scrollTo(to, duration) {
-    var difference = to - document.body.scrollTop;
-    var step = difference / duration * 20;
-    setTimeout(function () {
-        document.body.scrollTop = document.body.scrollTop + step;
-        if (document.body.scrollTop === to) return;
-        scrollTo(to, duration - 10);
-    }, 10);
+function scrollTo(destination) {
+    $("html, body").animate({ scrollTop: destination }, "slow");
 }
 
 function delegateEvent(element, e, selector, handler) {
@@ -610,13 +911,13 @@ function delegateEvent(element, e, selector, handler) {
     });
 }
 
-},{}],8:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.MainView = undefined;
+exports.AuthView = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -630,35 +931,91 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MainView = exports.MainView = function (_View) {
-    _inherits(MainView, _View);
+var AuthView = exports.AuthView = function (_View) {
+    _inherits(AuthView, _View);
 
-    function MainView() {
-        _classCallCheck(this, MainView);
+    function AuthView() {
+        _classCallCheck(this, AuthView);
 
-        return _possibleConstructorReturn(this, (MainView.__proto__ || Object.getPrototypeOf(MainView)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (AuthView.__proto__ || Object.getPrototypeOf(AuthView)).apply(this, arguments));
     }
 
-    _createClass(MainView, [{
+    _createClass(AuthView, [{
+        key: 'init',
+        value: function init() {}
+        /* getToken() {
+             var hash = location.hash;
+             var firstChar = hash.indexOf('=') + 1;
+             var lastChar = hash.indexOf('&');
+             var token = hash.slice(firstChar, lastChar);
+             localStorage.setItem('cat-shop-token', token);
+             window.location = 'http://localhost:8000/#';
+         }*/
+
+    }]);
+
+    return AuthView;
+}(_view.View);
+
+},{"../common/view":2,"../utils/utils":12}],14:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.CartView = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _view = require('../common/view');
+
+var _utils = require('../utils/utils');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CartView = exports.CartView = function (_View) {
+    _inherits(CartView, _View);
+
+    function CartView() {
+        _classCallCheck(this, CartView);
+
+        return _possibleConstructorReturn(this, (CartView.__proto__ || Object.getPrototypeOf(CartView)).apply(this, arguments));
+    }
+
+    _createClass(CartView, [{
         key: 'init',
         value: function init(initialData) {
-            var categoryTemplate = (0, _utils.getTemplate)('main-page');
-            var compileTemplate = Handlebars.compile(categoryTemplate);
-            var mainPage = compileTemplate(initialData);
-            this.html = mainPage;
-            this.updateView();
+            var _this2 = this;
+
+            (0, _utils.getTemplate)('cart').then(function (results) {
+                return Handlebars.compile(results);
+            }).then(function (compileTemplate) {
+                return compileTemplate(initialData);
+            }).then(function (html) {
+                _this2.html = html;
+            }).then(function () {
+                _this2.insertView();
+            }).catch(function (err) {
+                return console.log(err);
+            });
+            this.sayHi();
         }
     }, {
-        key: 'scrollDown',
-        value: function scrollDown() {
-            (0, _utils.scrollTo)(window.innerHeight - 50, 300);
+        key: 'changePageTitle',
+        value: function changePageTitle() {
+            var target = document.getElementsByTagName('title')[0];
+            target.innerHTML = 'Cart – Cat Shop';
         }
     }]);
 
-    return MainView;
+    return CartView;
 }(_view.View);
 
-},{"../common/view":2,"../utils/utils":7}],9:[function(require,module,exports){
+},{"../common/view":2,"../utils/utils":12}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -690,11 +1047,20 @@ var CategoryView = exports.CategoryView = function (_View) {
     _createClass(CategoryView, [{
         key: 'init',
         value: function init(initialData) {
-            var categoryTemplate = (0, _utils.getTemplate)('category');
-            var compileTemplate = Handlebars.compile(categoryTemplate);
-            var categoryPage = compileTemplate(initialData);
-            this.html = categoryPage;
-            this.updateView();
+            var _this2 = this;
+
+            (0, _utils.getTemplate)('category').then(function (results) {
+                return Handlebars.compile(results);
+            }).then(function (compileTemplate) {
+                return compileTemplate(initialData);
+            }).then(function (html) {
+                _this2.html = html;
+            }).then(function () {
+                _this2.insertView();
+            }).catch(function (err) {
+                return console.log(err);
+            });
+            this.sayHi();
         }
     }, {
         key: 'changeToListView',
@@ -720,12 +1086,222 @@ var CategoryView = exports.CategoryView = function (_View) {
             (0, _utils.manipulateClasses)('.grid-view', 'grid-view--visible', 'remove');
             (0, _utils.manipulateClasses)('.list-view', 'list-view--visible', 'add');
         }
+    }, {
+        key: 'changePageTitle',
+        value: function changePageTitle(someData) {
+            var target = document.getElementsByTagName('title')[0];
+            target.innerHTML = someData.title;
+        }
     }]);
 
     return CategoryView;
 }(_view.View);
 
-},{"../common/view":2,"../utils/utils":7}],10:[function(require,module,exports){
+},{"../common/view":2,"../utils/utils":12}],16:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.ContactsView = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _view = require('../common/view');
+
+var _utils = require('../utils/utils');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContactsView = exports.ContactsView = function (_View) {
+    _inherits(ContactsView, _View);
+
+    function ContactsView() {
+        _classCallCheck(this, ContactsView);
+
+        return _possibleConstructorReturn(this, (ContactsView.__proto__ || Object.getPrototypeOf(ContactsView)).apply(this, arguments));
+    }
+
+    _createClass(ContactsView, [{
+        key: 'init',
+        value: function init(initialData) {
+            var _this2 = this;
+
+            (0, _utils.getTemplate)('contacts').then(function (results) {
+                return Handlebars.compile(results);
+            }).then(function (compileTemplate) {
+                return compileTemplate(initialData);
+            }).then(function (html) {
+                _this2.html = html;
+            }).then(function () {
+                _this2.insertView();
+            }).catch(function (err) {
+                return console.log(err);
+            });
+            this.sayHi();
+        }
+    }, {
+        key: 'scrollDown',
+        value: function scrollDown() {
+            (0, _utils.scrollTo)(window.innerHeight - 50);
+        }
+    }, {
+        key: 'changePageTitle',
+        value: function changePageTitle() {
+            var target = document.getElementsByTagName('title')[0];
+            target.innerHTML = 'Contact Information';
+        }
+    }, {
+        key: 'copyInputValues',
+        value: function copyInputValues() {
+            var checkbox = document.getElementById('ckeckboxSameAdress');
+            var allAdressInputs = document.querySelectorAll('.contacts__input');
+            if (checkbox.checked) {
+                for (var i = 0; i < allAdressInputs.length / 2; i++) {
+                    allAdressInputs[i + allAdressInputs.length / 2].value = allAdressInputs[i].value;
+                }
+            } else {
+                for (var i = 0; i < allAdressInputs.length / 2; i++) {
+                    allAdressInputs[i + allAdressInputs.length / 2].value = '';
+                }
+            }
+        }
+    }]);
+
+    return ContactsView;
+}(_view.View);
+
+},{"../common/view":2,"../utils/utils":12}],17:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.MainView = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _view = require('../common/view');
+
+var _utils = require('../utils/utils');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MainView = exports.MainView = function (_View) {
+    _inherits(MainView, _View);
+
+    function MainView() {
+        _classCallCheck(this, MainView);
+
+        return _possibleConstructorReturn(this, (MainView.__proto__ || Object.getPrototypeOf(MainView)).apply(this, arguments));
+    }
+
+    _createClass(MainView, [{
+        key: 'init',
+        value: function init(initialData) {
+            var _this2 = this;
+
+            (0, _utils.getTemplate)('main-page').then(function (results) {
+                return Handlebars.compile(results);
+            }).then(function (compileTemplate) {
+                return compileTemplate(initialData);
+            }).then(function (mainPage) {
+                _this2.html = mainPage;
+            }).then(function () {
+                _this2.insertView();
+            }).catch(function (err) {
+                return console.log(err);
+            });
+            this.sayHi();
+        }
+    }, {
+        key: 'scrollDown',
+        value: function scrollDown() {
+            (0, _utils.scrollTo)(window.innerHeight - 50);
+        }
+    }, {
+        key: 'changePageTitle',
+        value: function changePageTitle() {
+            var target = document.getElementsByTagName('title')[0];
+            target.innerHTML = 'Cat Shop';
+        }
+    }]);
+
+    return MainView;
+}(_view.View);
+
+},{"../common/view":2,"../utils/utils":12}],18:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.PaymentView = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _view = require('../common/view');
+
+var _utils = require('../utils/utils');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PaymentView = exports.PaymentView = function (_View) {
+    _inherits(PaymentView, _View);
+
+    function PaymentView() {
+        _classCallCheck(this, PaymentView);
+
+        return _possibleConstructorReturn(this, (PaymentView.__proto__ || Object.getPrototypeOf(PaymentView)).apply(this, arguments));
+    }
+
+    _createClass(PaymentView, [{
+        key: 'init',
+        value: function init(initialData) {
+            var _this2 = this;
+
+            (0, _utils.getTemplate)('payment').then(function (results) {
+                return Handlebars.compile(results);
+            }).then(function (compileTemplate) {
+                return compileTemplate(initialData);
+            }).then(function (html) {
+                _this2.html = html;
+            }).then(function () {
+                _this2.insertView();
+            }).catch(function (err) {
+                return console.log(err);
+            });
+            this.sayHi();
+        }
+    }, {
+        key: 'scrollDown',
+        value: function scrollDown() {
+            (0, _utils.scrollTo)(window.innerHeight - 50);
+        }
+    }, {
+        key: 'changePageTitle',
+        value: function changePageTitle() {
+            var target = document.getElementsByTagName('title')[0];
+            target.innerHTML = 'Payment Information';
+        }
+    }]);
+
+    return PaymentView;
+}(_view.View);
+
+},{"../common/view":2,"../utils/utils":12}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -757,11 +1333,20 @@ var ProductView = exports.ProductView = function (_View) {
     _createClass(ProductView, [{
         key: 'init',
         value: function init(initialData) {
-            var productTemplate = (0, _utils.getTemplate)('product');
-            var compileTemplate = Handlebars.compile(productTemplate);
-            var productyPage = compileTemplate(initialData);
-            this.html = productyPage;
-            this.updateView();
+            var _this2 = this;
+
+            (0, _utils.getTemplate)('product').then(function (results) {
+                return Handlebars.compile(results);
+            }).then(function (compileTemplate) {
+                return compileTemplate(initialData);
+            }).then(function (html) {
+                _this2.html = html;
+            }).then(function () {
+                _this2.insertView();
+            }).catch(function (err) {
+                return console.log(err);
+            });
+            this.sayHi();
         }
     }, {
         key: 'carousel',
@@ -799,12 +1384,18 @@ var ProductView = exports.ProductView = function (_View) {
                 bigImg.setAttribute('src', source);
             }
         }
+    }, {
+        key: 'changePageTitle',
+        value: function changePageTitle(someData) {
+            var target = document.getElementsByTagName('title')[0];
+            target.innerHTML = someData.title;
+        }
     }]);
 
     return ProductView;
 }(_view.View);
 
-},{"../common/view":2,"../utils/utils":7}]},{},[1])
+},{"../common/view":2,"../utils/utils":12}]},{},[1])
 
 
 //# sourceMappingURL=app.js.map

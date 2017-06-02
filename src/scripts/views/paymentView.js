@@ -1,13 +1,13 @@
 import { View } from '../common/view';
-import { getTemplate, manipulateClasses, scrollTo, corsApiVkRequest } from '../utils/utils';
+import { getTemplate, manipulateClasses, scrollTo } from '../utils/utils';
 
-export class MainView extends View {
+export class PaymentView extends View {
 
     init(initialData) {
-        getTemplate('main-page')
+        getTemplate('payment')
             .then((results) => Handlebars.compile(results))
             .then((compileTemplate) => compileTemplate(initialData))
-            .then((mainPage) => { this.html = mainPage })
+            .then((html) => { this.html = html })
             .then(() => { this.insertView() })
             .catch(err => console.log(err));
         this.sayHi();
@@ -17,6 +17,6 @@ export class MainView extends View {
     }
     changePageTitle() {
         var target = document.getElementsByTagName('title')[0];
-        target.innerHTML = 'Cat Shop';
+        target.innerHTML = 'Payment Information';
     }
 }
