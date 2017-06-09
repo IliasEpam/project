@@ -32,7 +32,7 @@ export class CategoryView extends View {
     }
     changePageTitle(someData) {
         var target = document.getElementsByTagName('title')[0];
-        target.innerHTML = someData.title;
+        target.innerHTML = someData.categoryName;
     }
 
 }

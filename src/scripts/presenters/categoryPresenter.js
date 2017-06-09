@@ -2,13 +2,16 @@ import MainModel from '../models/models';
 import { CategoryView } from '../views/categoryView';
 import { delegateEvent } from '../utils/utils';
 export class CategoryPresenter {
-    constructor(categoryPosition) {
+    constructor(categoryId) {
         this.model = new MainModel();
         this.view = new CategoryView();
-        this.view.init(this.model.get().categories[categoryPosition]);
 
+        this.model.getCategoryProducts(categoryId)
+            .then((data) => {
+                this.view.init(data);
+                this.view.changePageTitle(data.goods[0]);
+            });
         this.executeEvents();
-        this.view.changePageTitle(this.model.get().categories[categoryPosition]);
     }
     executeEvents() {
         delegateEvent(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);

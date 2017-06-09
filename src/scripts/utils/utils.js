@@ -1,3 +1,4 @@
+export var basicURI = location.origin;
 export function getTemplate(fileName) {
     return new Promise(function(resolve, reject) {
         $.ajax({

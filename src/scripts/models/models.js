@@ -1,305 +1,106 @@
+import { basicURI } from '../utils/utils';
 export default class MainModel {
-    constructor() {
-        this.data = {
-            categories: [{
-                    title: "Dry Food",
-                    img: "img/dry.jpg",
-                    categoryPosition: 0,
-                    goods: [{
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "10.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/dry.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 0
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.29$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 1
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/logo.jpg",
-                            imgs: [{ imgPath: 'img/logo.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }, { imgPath: 'img/brush.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 2
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 3
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 4
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 5
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 6
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 7
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 8
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 9
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 10
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 11
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 12
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 13
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 14
-                        },
-                        {
-                            title: "Dry food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 0,
-                            productPosition: 15
-                        }
-                    ]
-                },
-                {
-                    title: "Wet Food",
-                    img: "img/wet.jpg",
-                    categoryPosition: 1,
-                    goods: [{
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "9.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 0
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "5.29$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/dry.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 1
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "3.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 2
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 3
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/logo.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 4
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 5
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 6
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 7
-                        },
-                        {
-                            title: "Wet food – 'Brand' (0.2kg)",
-                            price: "0.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/wet.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 1,
-                            productPosition: 8
-                        }
-                    ]
-                },
-                {
-                    title: "Medicines",
-                    img: "img/meds.jpg",
-                    categoryPosition: 2,
-                    goods: [{
-                            title: "Some tablets – 'Brand'",
-                            price: "20.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/meds.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 2,
-                            productPosition: 0
-                        },
-                        {
-                            title: "Some other tablets – 'Brand'",
-                            price: "15.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/logo.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 2,
-                            productPosition: 0
-                        },
-                        {
-                            title: "Some more tablets – 'Brand'",
-                            price: "10.9$",
-                            description: "Little description of a good goes here. It could be much wider.",
-                            img: "img/logo.jpg",
-                            imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                            categoryPosition: 2,
-                            productPosition: 0
-                        }
-                    ]
-                },
-                {
-                    title: "Sleeping places",
-                    img: "img/sleep.jpg",
-                    categoryPosition: 3,
-                    goods: []
-                },
-                {
-                    title: "Toys",
-                    img: "img/toys.jpg",
-                    categoryPosition: 4,
-                    goods: []
-                },
-                {
-                    title: "Brushes",
-                    img: "img/brush.jpg",
-                    categoryPosition: 5,
-                    goods: []
-                },
-                {
-                    title: "Accessories",
-                    img: "img/acs.jpg",
-                    categoryPosition: 6,
-                    goods: []
-                }
-
-            ]
-        }
-    }
     get() {
-        return this.data;
+
     }
+    getCategories() {
+        return fetch(basicURI + '/categories')
+            .then((result) => {
+                return result.json();
+            })
+            .then((result) => {
+                var data = {};
+                data.categories = result;
+                return data;
+            })
+            .then((data) => {
+                var promises = [];
+                for (let i = 0; i < data.categories.length; i++) {
+                    promises.push(fetch(basicURI + '/products?categoryID=' + data.categories[i].id)
+                        .then((result) => {
+                            return result.json();
+                        })
+                        .then((result) => {
+                            data.categories[i].amount = result.length;
+                            return data;
+                        })
+                    )
+                }
+                return Promise.all(promises)
+                    .then((data) => {
+                        return data[0];
+                    })
+
+            })
+    }
+    getCategoryProducts(categoryId) {
+        return fetch(basicURI + '/products?categoryID=' + categoryId)
+            .then((result) => {
+                return result.json();
+            })
+            .then((result) => {
+                var data = {};
+                data.goods = result;
+                return data;
+            })
+    }
+    getProduct(productId) {
+        return fetch(basicURI + '/products/' + productId)
+            .then((result) => {
+                return result.json();
+            })
+    }
+    addCategory(categoryData) {
+        fetch(basicURI + '/categories', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(categoryData)
+            })
+            .then((result) => { console.log(result.status) });
+    }
+    addProduct(productData) {
+        fetch(basicURI + '/products', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+            })
+            .then((result) => { console.log(result.status) });
+    }
+    updateCategory(categoryId, newCategoryData) {
+        fetch(basicURI + '/categories/' + categoryId, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCategoryData)
+            })
+            .then((result) => { console.log(result.status) });
+    }
+    updateProduct(productId, newProductData) {
+        fetch(basicURI + '/categories/' + productId, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newProductData)
+            })
+            .then((result) => { console.log(result.status) });
+    }
+    deleteCategory(categoryId) {
+        fetch(basicURI + '/categories/' + categoryId, {method: 'DELETE'})
+            .then((result) => { console.log(result.status) });
+    }
+    deleteProduct(productId) {
+        fetch(basicURI + '/categories/' + productId, { method: 'DELETE' })
+            .then((result) => { console.log(result.status) });
+    }
+
 };

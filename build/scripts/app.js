@@ -26,15 +26,12 @@ function changeView() {
         page = new _mainPresenter.MainPresenter();
         (0, _utils.scrollTo)(0);
     } else if (location.hash.indexOf('category') >= 0) {
-        var categoryPosition = location.hash.substring(9);
-        page = new _categoryPresenter.CategoryPresenter(categoryPosition);
+        var categoryId = location.hash.substring(11);
+        page = new _categoryPresenter.CategoryPresenter(categoryId);
         (0, _utils.scrollTo)(0);
     } else if (location.hash.indexOf('product') >= 0) {
-        var reg = /\d+/g;
-        var numbersFromHash = location.hash.match(reg);
-        var categoryPosition = numbersFromHash[0];
-        var productPosition = numbersFromHash[1];
-        page = new _productPresenter.ProductPresenter(categoryPosition, productPosition);
+        var productId = location.hash.substring(10);
+        page = new _productPresenter.ProductPresenter(productId);
         (0, _utils.scrollTo)(0);
     } else if (location.hash.indexOf('cart') >= 0) {
         page = new _cartPresenter.CartPresenter();
@@ -71,7 +68,6 @@ var View = function () {
         _classCallCheck(this, View);
 
         this.html = '';
-        this.init(data);
     }
 
     _createClass(View, [{
@@ -119,7 +115,6 @@ var View = function () {
         value: function sayHi() {
             var el = document.getElementById('userName');
             if (localStorage.getItem('cat-shop-token')) {
-
                 (0, _utils.corsApiVkRequest)().then(function (result) {
                     return result.response[0].first_name;
                 }).then(function (name) {
@@ -141,7 +136,7 @@ var View = function () {
 exports.View = View;
 
 },{"../utils/utils":12}],3:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -149,280 +144,134 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _utils = require('../utils/utils');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MainModel = function () {
     function MainModel() {
         _classCallCheck(this, MainModel);
-
-        this.data = {
-            categories: [{
-                title: "Dry Food",
-                img: "img/dry.jpg",
-                categoryPosition: 0,
-                goods: [{
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "10.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/dry.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 0
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.29$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 1
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/logo.jpg",
-                    imgs: [{ imgPath: 'img/logo.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }, { imgPath: 'img/brush.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 2
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 3
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 4
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 5
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 6
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 7
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 8
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 9
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 10
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 11
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 12
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 13
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 14
-                }, {
-                    title: "Dry food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 0,
-                    productPosition: 15
-                }]
-            }, {
-                title: "Wet Food",
-                img: "img/wet.jpg",
-                categoryPosition: 1,
-                goods: [{
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "9.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 0
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "5.29$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/dry.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 1
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "3.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 2
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 3
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/logo.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 4
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 5
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 6
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 7
-                }, {
-                    title: "Wet food – 'Brand' (0.2kg)",
-                    price: "0.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/wet.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 1,
-                    productPosition: 8
-                }]
-            }, {
-                title: "Medicines",
-                img: "img/meds.jpg",
-                categoryPosition: 2,
-                goods: [{
-                    title: "Some tablets – 'Brand'",
-                    price: "20.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/meds.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 2,
-                    productPosition: 0
-                }, {
-                    title: "Some other tablets – 'Brand'",
-                    price: "15.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/logo.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 2,
-                    productPosition: 0
-                }, {
-                    title: "Some more tablets – 'Brand'",
-                    price: "10.9$",
-                    description: "Little description of a good goes here. It could be much wider.",
-                    img: "img/logo.jpg",
-                    imgs: [{ imgPath: 'img/wet.jpg' }, { imgPath: 'img/banner.jpg' }, { imgPath: 'img/logo.jpg' }],
-                    categoryPosition: 2,
-                    productPosition: 0
-                }]
-            }, {
-                title: "Sleeping places",
-                img: "img/sleep.jpg",
-                categoryPosition: 3,
-                goods: []
-            }, {
-                title: "Toys",
-                img: "img/toys.jpg",
-                categoryPosition: 4,
-                goods: []
-            }, {
-                title: "Brushes",
-                img: "img/brush.jpg",
-                categoryPosition: 5,
-                goods: []
-            }, {
-                title: "Accessories",
-                img: "img/acs.jpg",
-                categoryPosition: 6,
-                goods: []
-            }]
-        };
     }
 
     _createClass(MainModel, [{
-        key: "get",
-        value: function get() {
-            return this.data;
+        key: 'get',
+        value: function get() {}
+    }, {
+        key: 'getCategories',
+        value: function getCategories() {
+            return fetch(_utils.basicURI + '/categories').then(function (result) {
+                return result.json();
+            }).then(function (result) {
+                var data = {};
+                data.categories = result;
+                return data;
+            }).then(function (data) {
+                var promises = [];
+
+                var _loop = function _loop(i) {
+                    promises.push(fetch(_utils.basicURI + '/products?categoryID=' + data.categories[i].id).then(function (result) {
+                        return result.json();
+                    }).then(function (result) {
+                        data.categories[i].amount = result.length;
+                        return data;
+                    }));
+                };
+
+                for (var i = 0; i < data.categories.length; i++) {
+                    _loop(i);
+                }
+                return Promise.all(promises).then(function (data) {
+                    return data[0];
+                });
+            });
+        }
+    }, {
+        key: 'getCategoryProducts',
+        value: function getCategoryProducts(categoryId) {
+            return fetch(_utils.basicURI + '/products?categoryID=' + categoryId).then(function (result) {
+                return result.json();
+            }).then(function (result) {
+                var data = {};
+                data.goods = result;
+                return data;
+            });
+        }
+    }, {
+        key: 'getProduct',
+        value: function getProduct(productId) {
+            return fetch(_utils.basicURI + '/products/' + productId).then(function (result) {
+                return result.json();
+            });
+        }
+    }, {
+        key: 'addCategory',
+        value: function addCategory(categoryData) {
+            fetch(_utils.basicURI + '/categories', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(categoryData)
+            }).then(function (result) {
+                console.log(result.status);
+            });
+        }
+    }, {
+        key: 'addProduct',
+        value: function addProduct(productData) {
+            fetch(_utils.basicURI + '/products', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(productData)
+            }).then(function (result) {
+                console.log(result.status);
+            });
+        }
+    }, {
+        key: 'updateCategory',
+        value: function updateCategory(categoryId, newCategoryData) {
+            fetch(_utils.basicURI + '/categories/' + categoryId, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCategoryData)
+            }).then(function (result) {
+                console.log(result.status);
+            });
+        }
+    }, {
+        key: 'updateProduct',
+        value: function updateProduct(productId, newProductData) {
+            fetch(_utils.basicURI + '/categories/' + productId, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newProductData)
+            }).then(function (result) {
+                console.log(result.status);
+            });
+        }
+    }, {
+        key: 'deleteCategory',
+        value: function deleteCategory(categoryId) {
+            fetch(_utils.basicURI + '/categories/' + categoryId, { method: 'DELETE' }).then(function (result) {
+                console.log(result.status);
+            });
+        }
+    }, {
+        key: 'deleteProduct',
+        value: function deleteProduct(productId) {
+            fetch(_utils.basicURI + '/categories/' + productId, { method: 'DELETE' }).then(function (result) {
+                console.log(result.status);
+            });
         }
     }]);
 
@@ -432,7 +281,7 @@ var MainModel = function () {
 exports.default = MainModel;
 ;
 
-},{}],4:[function(require,module,exports){
+},{"../utils/utils":12}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -510,7 +359,7 @@ var AuthPresenter = exports.AuthPresenter = function () {
             var lastChar = hash.indexOf('&');
             var token = hash.slice(firstChar, lastChar);
             localStorage.setItem('cat-shop-token', token);
-            window.location = 'http://localhost:8000/#';
+            window.location = _utils.basicURI;
         }
     }]);
 
@@ -592,15 +441,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var CategoryPresenter = exports.CategoryPresenter = function () {
-    function CategoryPresenter(categoryPosition) {
+    function CategoryPresenter(categoryId) {
+        var _this = this;
+
         _classCallCheck(this, CategoryPresenter);
 
         this.model = new _models2.default();
         this.view = new _categoryView.CategoryView();
-        this.view.init(this.model.get().categories[categoryPosition]);
 
+        this.model.getCategoryProducts(categoryId).then(function (data) {
+            _this.view.init(data);
+            _this.view.changePageTitle(data.goods[0]);
+        });
         this.executeEvents();
-        this.view.changePageTitle(this.model.get().categories[categoryPosition]);
     }
 
     _createClass(CategoryPresenter, [{
@@ -702,11 +555,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var MainPresenter = exports.MainPresenter = function () {
     function MainPresenter() {
+        var _this = this;
+
         _classCallCheck(this, MainPresenter);
 
         this.model = new _models2.default();
         this.view = new _mainView.MainView();
-        this.view.init(this.model.get());
+
+        this.model.getCategories().then(function (data) {
+            _this.view.init(data);
+        });
 
         this.executeEvents();
         this.view.changePageTitle();
@@ -720,11 +578,6 @@ var MainPresenter = exports.MainPresenter = function () {
             (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
             (0, _utils.delegateEvent)(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
             window.addEventListener('scroll', this.view.showScrollUp);
-        }
-    }, {
-        key: 'getView',
-        value: function getView() {
-            return this.view;
         }
     }]);
 
@@ -807,15 +660,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ProductPresenter = exports.ProductPresenter = function () {
-    function ProductPresenter(categoryPosition, productPosition) {
+    function ProductPresenter(productId) {
+        var _this = this;
+
         _classCallCheck(this, ProductPresenter);
 
-        this.model = new _models2.default();
         this.view = new _productView.ProductView();
-        this.view.init(this.model.get().categories[categoryPosition].goods[productPosition]);
+        this.model = new _models2.default();
+
+        this.model.getProduct(productId).then(function (result) {
+            _this.view.init(result);
+            _this.view.changePageTitle(result);
+        });
 
         this.executeEvents();
-        this.view.changePageTitle(this.model.get().categories[categoryPosition].goods[productPosition]);
     }
 
     _createClass(ProductPresenter, [{
@@ -824,7 +682,11 @@ var ProductPresenter = exports.ProductPresenter = function () {
             (0, _utils.delegateEvent)(document, 'click', '.navigation-top__icon--profile', this.view.showPopUp);
             (0, _utils.delegateEvent)(document, 'click', '.modal-window', this.view.controlWindows);
             (0, _utils.delegateEvent)(document, 'click', '.page__scroll-up', this.view.scrollUp);
-            (0, _utils.delegateEvent)(document, 'click', '.slider', this.view.carousel);
+            (0, _utils.delegateEvent)(document, 'click', '.slider__arrow--right', this.view.carouselSetNextImg);
+            (0, _utils.delegateEvent)(document, 'click', '.slider__shown-img', this.view.carouselSetNextImg);
+            (0, _utils.delegateEvent)(document, 'click', '.slider__source-img', this.view.carouselSetTargetImg);
+            (0, _utils.delegateEvent)(document, 'click', '.slider__arrow--left', this.view.carouselSetPrevImg);
+
             window.addEventListener('scroll', this.view.showScrollUp);
         }
     }, {
@@ -848,6 +710,7 @@ exports.corsApiVkRequest = corsApiVkRequest;
 exports.manipulateClasses = manipulateClasses;
 exports.scrollTo = scrollTo;
 exports.delegateEvent = delegateEvent;
+var basicURI = exports.basicURI = location.origin;
 function getTemplate(fileName) {
     return new Promise(function (resolve, reject) {
         $.ajax({
@@ -1090,7 +953,7 @@ var CategoryView = exports.CategoryView = function (_View) {
         key: 'changePageTitle',
         value: function changePageTitle(someData) {
             var target = document.getElementsByTagName('title')[0];
-            target.innerHTML = someData.title;
+            target.innerHTML = someData.categoryName;
         }
     }]);
 
@@ -1348,9 +1211,7 @@ var ProductView = exports.ProductView = function (_View) {
             });
             this.sayHi();
         }
-    }, {
-        key: 'carousel',
-        value: function carousel(event) {
+        /*carousel(event) {
             var currentImg = document.querySelector('.slider__source-img--active');
             var sources = document.querySelector('.slider__source');
             var bigImg = document.querySelector('.slider__shown-img');
@@ -1383,6 +1244,52 @@ var ProductView = exports.ProductView = function (_View) {
                 eventTarget.classList.add('slider__source-img--active');
                 bigImg.setAttribute('src', source);
             }
+        }*/
+
+    }, {
+        key: 'carouselSetNextImg',
+        value: function carouselSetNextImg() {
+            var currentImg = document.querySelector('.slider__source-img--active');
+            var sources = document.querySelector('.slider__source');
+            var bigImg = document.querySelector('.slider__shown-img');
+            if (currentImg.nextElementSibling === null) {
+                var source = sources.firstElementChild.getAttribute('src');
+                currentImg.classList.remove('slider__source-img--active');
+                sources.firstElementChild.classList.add('slider__source-img--active');
+            } else {
+                var source = currentImg.nextElementSibling.getAttribute('src');
+                currentImg.classList.remove('slider__source-img--active');
+                currentImg.nextElementSibling.classList.add('slider__source-img--active');
+            }
+            bigImg.setAttribute('src', source);
+        }
+    }, {
+        key: 'carouselSetPrevImg',
+        value: function carouselSetPrevImg() {
+            var currentImg = document.querySelector('.slider__source-img--active');
+            var sources = document.querySelector('.slider__source');
+            var bigImg = document.querySelector('.slider__shown-img');
+            if (currentImg.previousElementSibling === null) {
+                var source = sources.lastElementChild.getAttribute('src');
+                currentImg.classList.remove('slider__source-img--active');
+                sources.lastElementChild.classList.add('slider__source-img--active');
+            } else {
+                var source = currentImg.previousElementSibling.getAttribute('src');
+                currentImg.classList.remove('slider__source-img--active');
+                currentImg.previousElementSibling.classList.add('slider__source-img--active');
+            }
+            bigImg.setAttribute('src', source);
+        }
+    }, {
+        key: 'carouselSetTargetImg',
+        value: function carouselSetTargetImg(event) {
+            var currentImg = document.querySelector('.slider__source-img--active');
+            var bigImg = document.querySelector('.slider__shown-img');
+            var eventTarget = event.target;
+            var source = eventTarget.getAttribute('src');
+            currentImg.classList.remove('slider__source-img--active');
+            eventTarget.classList.add('slider__source-img--active');
+            bigImg.setAttribute('src', source);
         }
     }, {
         key: 'changePageTitle',

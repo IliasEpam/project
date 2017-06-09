@@ -16,15 +16,12 @@ function changeView() {
         page = new MainPresenter();
         scrollTo(0);
     } else if (location.hash.indexOf('category') >= 0) {
-        var categoryPosition = location.hash.substring(9);
-        page = new CategoryPresenter(categoryPosition);
+        var categoryId = location.hash.substring(11);
+        page = new CategoryPresenter(categoryId);
         scrollTo(0);
     } else if (location.hash.indexOf('product') >= 0) {
-        var reg = /\d+/g;
-        var numbersFromHash = location.hash.match(reg);
-        var categoryPosition = numbersFromHash[0];
-        var productPosition = numbersFromHash[1];
-        page = new ProductPresenter(categoryPosition, productPosition);
+        var productId = location.hash.substring(10);
+        page = new ProductPresenter(productId);
         scrollTo(0);
     } else if (location.hash.indexOf('cart') >= 0) {
         page = new CartPresenter();

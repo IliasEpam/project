@@ -4,7 +4,6 @@ class View {
 
     constructor(data) {
         this.html = '';
-        this.init(data);
     }
     insertView() {
         var container = document.getElementById('content');
@@ -39,7 +38,6 @@ class View {
     sayHi() {
         var el = document.getElementById('userName');
         if (localStorage.getItem('cat-shop-token')) {
-
             corsApiVkRequest()
                 .then(result => result.response[0].first_name)
                 .then((name) => 'Hi ' + name)

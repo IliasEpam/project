@@ -5,7 +5,11 @@ export class MainPresenter {
     constructor() {
         this.model = new MainModel();
         this.view = new MainView();
-        this.view.init(this.model.get());
+
+        this.model.getCategories()
+            .then((data) => {
+                this.view.init(data);
+            });
 
         this.executeEvents();
         this.view.changePageTitle();
@@ -16,8 +20,5 @@ export class MainPresenter {
         delegateEvent(document, 'click', '.page__scroll-up', this.view.scrollUp);
         delegateEvent(document, 'click', '.main-banner__scroll-down', this.view.scrollDown);
         window.addEventListener('scroll', this.view.showScrollUp);
-    }
-    getView() {
-        return this.view;
     }
 }
